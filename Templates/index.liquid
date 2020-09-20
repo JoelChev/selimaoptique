@@ -1,3 +1,13 @@
+<div class="homepage">
+  <div class="homepage__image-carousel-container">
+    {{ 'home-frame.png' | asset_url | img_tag: 'HomePage Carousel' }}
+    <div class="homepage__image-carousel">
+      {{ 'carousel-1.jpg' | asset_url | img_tag: 'HomePage Carousel Image 1', 'homepage__carousel-photo' }}
+      <button class="homepage__previous-button"/>
+      <button class="homepage__next-button"/>
+    </div>
+  </div>
+{% comment %}
 {% for product in collections.frontpage.products limit:4 %}
   <div>
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
@@ -8,3 +18,5 @@
     </a>
   </div>
 {% endfor %}
+{% endcomment %}
+</div>
