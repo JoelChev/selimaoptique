@@ -4,6 +4,7 @@
 
 // Variables
 $color-pastel-blue: #E6F4FA;
+$color-lavendar: #E4E6F5;
 $color-blue-main: #2F44A7;
 $color-blue-secondary: #1C2966;
 $color-grey-1: #747474;
@@ -11,6 +12,7 @@ $color-grey-2: #BABABA;
 $color-grey-3: #E0E0E0;
 $color-grey-4: #F5F5F5;
 $color-white: #ffffff;
+$color-black: #222222;
 
 @mixin button-primary {
     color: $color-white;
@@ -116,6 +118,14 @@ $color-white: #ffffff;
     margin: 16px;
 }
 
+//Header SECTION
+
+.header {
+    margin: 0 auto;
+    text-align: center;
+    background: $color-pastel-blue;
+}
+
 //HOMEPAGE SECTION
 
 .homepage {
@@ -139,7 +149,7 @@ $color-white: #ffffff;
 
 .homepage__carousel-photo {
     position: absolute;
-    top: 277px;
+    top: 253px;
     left: 0;
     right: 10px;
     margin-left: auto;
@@ -153,7 +163,7 @@ $color-white: #ffffff;
 
 .homepage__carousel-photo--initial {
     position: absolute;
-    top: 277px;
+    top: 253px;
     left: 0;
     right: 10px;
     margin-left: auto;
@@ -166,7 +176,7 @@ $color-white: #ffffff;
 
 .homepage__carousel-photo--active {
     position: absolute;
-    top: 277px;
+    top: 253px;
     left: 0;
     right: 10px;
     margin-left: auto;
@@ -227,4 +237,35 @@ $color-white: #ffffff;
         outline: 0;
         box-shadow: none!important;
     }
+}
+
+//Collection Page SECTION
+
+.collectionpage {
+    background: $color-lavendar;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.collectionpage__tile {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.collectionpage__tile-title {
+    text-align: center;
+}
+
+.collectionpage__tile-image {
+    border: 3px solid $color-black;
+}
+
+.collectionpage__tile-image-accent {
+    position: absolute;
+    bottom: -72px;
+    right: 36px;
+    z-index: 3;
 }

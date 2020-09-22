@@ -1,17 +1,45 @@
-{% for collection in collections %}
-  {% unless collection.handle == 'frontpage' %}
-    {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
-    <a href="{{ collection.url }}">More {{ collection_title }} &rsaquo;</a>
-    {% for product in collection.products limit:5 %}
-      {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
-      <div>
-        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-        {{ product.price | money }}
-        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-        <a href="{{ product.url | within: collection }}">
-          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+<div class="collectionpage">
+    <div class="collectionpage__tile">
+      <h1 class="collectionpage__tile-title">
+        {{collections['ladies'].title }}
+      </h1>
+      {% if collections['ladies'].image %}
+        <a href="{{collections['ladies'].url}}">
+          <img class="collectionpage__tile-image" src="{{collections['ladies'].image | img_url: 'large' }}"/>
+          {{ 'selima-alone.png' | asset_url | img_tag: 'Ladies Selima', 'collectionpage__tile-image-accent' }}
         </a>
-      </div>
-    {% endfor %}
-  {% endunless %}
-{% endfor %}
+      {% endif %}
+    </div>
+    <div class="collectionpage__tile">
+      <h1 class="collectionpage__tile-title">
+        {{collections['gentlemen'].title }}
+      </h1>
+      {% if collections['gentlemen'].image %}
+        <a href="{{collections['gentlemen'].url}}">
+          <img class="collectionpage__tile-image" src="{{collections['gentlemen'].image | img_url: 'large' }}"/>
+        </a>
+        {{ 'boy-hoop.png' | asset_url | img_tag: 'Gentlemen Boy Hoop', 'collectionpage__tile-image-accent' }}
+      {% endif %}
+    </div>
+
+  {% comment%}
+  {% for collection in collections %}
+    {% unless collection.handle == 'frontpage' %}
+      {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+      <a href="{{ collection.url }}">More {{ collection_title }} &rsaquo;</a>
+      {% for product in collection.products limit:5 %}
+        {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
+        <div>
+          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+          {{ product.price | money }}
+          {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+          <a href="{{ product.url | within: collection }}">
+            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+          </a>
+        </div>
+      {% endfor %}
+    {% endunless %}
+  {% endfor %}
+  {% endcomment %}
+
+</div>
