@@ -5,6 +5,7 @@
 // Variables
 $color-pastel-blue: #E6F4FA;
 $color-lavendar: #E4E6F5;
+$color-lavendar-dark: #CBCDFF;
 $color-blue-main: #2F44A7;
 $color-blue-secondary: #1C2966;
 $color-grey-1: #747474;
@@ -13,6 +14,7 @@ $color-grey-3: #E0E0E0;
 $color-grey-4: #F5F5F5;
 $color-white: #ffffff;
 $color-black: #222222;
+$color-yellow: #FFFFC5;
 
 @mixin button-primary {
     color: $color-white;
@@ -126,6 +128,20 @@ $color-black: #222222;
     background: $color-pastel-blue;
 }
 
+.header__cart-link {
+    text-decoration: none;
+    color: $color-black;
+}
+
+.header__cart-icon {
+    width: 46px;
+    height: 46px;
+}
+
+.header__cart-total {
+    color: $color-black;
+}
+
 //HOMEPAGE SECTION
 
 .homepage {
@@ -149,7 +165,7 @@ $color-black: #222222;
 
 .homepage__carousel-photo {
     position: absolute;
-    top: 253px;
+    top: 316px;
     left: 0;
     right: 10px;
     margin-left: auto;
@@ -163,7 +179,7 @@ $color-black: #222222;
 
 .homepage__carousel-photo--initial {
     position: absolute;
-    top: 253px;
+    top: 316px;
     left: 0;
     right: 10px;
     margin-left: auto;
@@ -176,7 +192,7 @@ $color-black: #222222;
 
 .homepage__carousel-photo--active {
     position: absolute;
-    top: 253px;
+    top: 316px;
     left: 0;
     right: 10px;
     margin-left: auto;
@@ -202,7 +218,7 @@ $color-black: #222222;
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 458px;
+    top: 520px;
     left: 25%;
     height: 84px;
     width: 76px;
@@ -223,7 +239,7 @@ $color-black: #222222;
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 431px;
+    top: 492px;
     right: 25%;
     height: 84px;
     width: 76px;
@@ -239,9 +255,9 @@ $color-black: #222222;
     }
 }
 
-//Collection Page SECTION
+//Collections Page SECTION
 
-.collectionpage {
+.collectionspage {
     background: $color-lavendar;
     height: 100vh;
     display: flex;
@@ -249,23 +265,84 @@ $color-black: #222222;
     align-items: center;
 }
 
-.collectionpage__tile {
+.collectionspage__tile {
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
-.collectionpage__tile-title {
+.collectionspage__tile-title {
     text-align: center;
 }
 
-.collectionpage__tile-image {
+.collectionspage__tile-image {
     border: 3px solid $color-black;
 }
 
-.collectionpage__tile-image-accent {
+.collectionspage__tile-image-accent {
     position: absolute;
     bottom: -72px;
     right: 36px;
     z-index: 3;
 }
+
+//Collection Page SECTION
+
+.collectionpage {
+    background: $color-lavendar;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.collectionpage__header {
+    margin-top: 20px;
+    height: 46px;
+    width: 100%;
+    background-color: $color-lavendar-dark;
+    display: flex;
+}
+
+.collectionpage__header-title  {
+    color: $color-black;
+}
+
+.collectionpage__header-title--highlighted {
+    color: $color-blue-main;
+    text-decoration: underline 1px $color-blue-main;
+}
+
+.collectionpage__product-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.collectionpage__product-tile {
+    position: relative;
+    margin: 54px 21px;
+}
+
+.collectionpage__product-tile-image {
+    border: 3px solid $color-black;
+}
+
+.collectionpage__product-tile-title-container {
+    padding: 16px 56px;
+    background-color: $color-yellow;
+    border: 3px solid $color-black;
+    position: absolute;
+    bottom: -29px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+    width: fit-content;
+}
+
+.collectionpage__product-tile-title {
+    color: $color-black;
+    text-decoration: none;
+}
+
+

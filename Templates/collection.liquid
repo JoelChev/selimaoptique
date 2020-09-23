@@ -1,29 +1,28 @@
-<div class="collectionpage">
-    <div class="collectionpage__tile">
-      <h1 class="collectionpage__tile-title">
-        {{collections['ladies'].title }}
-      </h1>
-      {% if collections['ladies'].image %}
-        <img class="collectionpage__tile-image" src="{{collections['ladies'].image | img_url: 'large' }}"/>
-        {{ 'selima-alone.png' | asset_url | img_tag: 'Ladies Selima', 'collectionpage__tile-image-accent' }}
-      {% endif %}
+  <div class="collectionpage">
+  {% paginate collection.products by 4 %}
+    <div class="collectionpage__header">
+          <h4 class="collectionpage__header-title {% if {{collection.title}} == 'Ladies' %} collectionpage__header-title--highlighted {% endif %}">Ladies</h4>
+          <h4 class="collectionpage__header-title {% if {{collection.title}} == 'Gentlemen' %} collectionpage__header-title--highlighted {% endif %}">Gentlemen</h4>
     </div>
-    <div class="collectionpage__tile">
-      <h1 class="collectionpage__tile-title">
-        {{collections['gentlemen'].title }}
-      </h1>
-      {% if collections['ladies'].image %}
-        <img class="collectionpage__tile-image" src="{{collections['gentlemen'].image | img_url: 'large' }}"/>
-        {{ 'boy-hoop.png' | asset_url | img_tag: 'Gentlemen Boy Hoop', 'collectionpage__tile-image-accent' }}
-      {% endif %}
-    </div>
-
-
-  {% comment %}
-  {% paginate collection.products by 2 %}
-    <h1>{{ collection.title }}</h1>
+    <table class="collectionpage__product-table">
+    {% tablerow product in collection.products cols:2 %}
+      <div class="collectionpage__product-tile">
+        {% comment%}
+        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+        This may be useful later, not right now.
+        {% endcomment%}
+        <a href="{{ product.url | within: collection }}">
+          <img class="collectionpage__product-tile-image" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        </a>
+        <div class="collectionpage__product-tile-title-container">
+          <a class="collectionpage__product-tile-title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        </div>
+      </div>
+    {% endtablerow%}
+    </table>
+    {%comment%}
     {% for product in collection.products %}
-      <div>
+      <div class="product__tile">
         <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
         {{ product.price | money }}
         {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
@@ -34,9 +33,9 @@
     {% else %}
       <p>no matches</p>
     {% endfor %}
+    {% endcomment %}
     {% if paginate.pages > 1 %}
       {{ paginate | default_pagination }}
     {% endif %}
   {% endpaginate %}
-  {% endcomment %}
 </div>

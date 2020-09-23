@@ -16,7 +16,9 @@
     {% for link in linklists.main-menu.links %}
       {% assign child_list_handle = link.title | handleize %}
       {% if forloop.index == {{forloop.length | divided_by: 2}} %}
-        {{ 'selima-logo.png' | asset_url | img_tag: 'Selima Optique', 'menu_logo' }}
+        <a href="/">
+          {{ 'selima-logo.png' | asset_url | img_tag: 'Selima Optique', 'menu_logo' }}
+        </a>
       {% endif %}
       {% if linklists[child_list_handle].links != blank %}
         <a href="{{ link.url }}">{{ link.title }}</a>
@@ -27,7 +29,12 @@
         <a href="{{ link.url }}">{{ link.title }}</a>
       {% endif %}
     {% endfor %}
-    <a href="/cart">Cart</a>
+    <a class="header__cart-link" href="/cart">
+            {{ 'shopping-bag.png' | asset_url | img_tag: 'Shopping Bag', 'header__cart-icon' }}
+            {% if {{cart.item_count}} > 0 %}
+              <span class="header__cart-total">({{ cart.item_count }})</span>
+            {% endif %}
+    </a>
   </div>
 
   {% if shop.customer_accounts_enabled %}

@@ -1,24 +1,24 @@
-<div class="collectionpage">
-    <div class="collectionpage__tile">
-      <h1 class="collectionpage__tile-title">
+<div class="collectionspage">
+    <div class="collectionspage__tile">
+      <h1 class="collectionspage__tile-title">
         {{collections['ladies'].title }}
       </h1>
       {% if collections['ladies'].image %}
         <a href="{{collections['ladies'].url}}">
-          <img class="collectionpage__tile-image" src="{{collections['ladies'].image | img_url: 'large' }}"/>
-          {{ 'selima-alone.png' | asset_url | img_tag: 'Ladies Selima', 'collectionpage__tile-image-accent' }}
+          <img class="collectionspage__tile-image" src="{{collections['ladies'].image | img_url: 'large' }}"/>
+          {{ 'selima-alone.png' | asset_url | img_tag: 'Ladies Selima', 'collectionspage__tile-image-accent' }}
         </a>
       {% endif %}
     </div>
-    <div class="collectionpage__tile">
-      <h1 class="collectionpage__tile-title">
+    <div class="collectionspage__tile">
+      <h1 class="collectionspage__tile-title">
         {{collections['gentlemen'].title }}
       </h1>
       {% if collections['gentlemen'].image %}
         <a href="{{collections['gentlemen'].url}}">
-          <img class="collectionpage__tile-image" src="{{collections['gentlemen'].image | img_url: 'large' }}"/>
+          <img class="collectionspage__tile-image" src="{{collections['gentlemen'].image | img_url: 'large' }}"/>
         </a>
-        {{ 'boy-hoop.png' | asset_url | img_tag: 'Gentlemen Boy Hoop', 'collectionpage__tile-image-accent' }}
+        {{ 'boy-hoop.png' | asset_url | img_tag: 'Gentlemen Boy Hoop', 'collectionspage__tile-image-accent' }}
       {% endif %}
     </div>
 
