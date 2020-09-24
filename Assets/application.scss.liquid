@@ -2,6 +2,7 @@
 // Shopify will compile SCSS/SASS on each deploy.
 // Note: "@import" rules aren’t supported.
 
+
 // Variables
 $color-pastel-blue: #E6F4FA;
 $color-lavendar: #E4E6F5;
@@ -15,6 +16,36 @@ $color-grey-4: #F5F5F5;
 $color-white: #ffffff;
 $color-black: #222222;
 $color-yellow: #FFFFC5;
+
+// Fonts
+
+@font-face {
+    font-family: "Selima Caps";
+    src: url("SELIMACAPS.woff") format("woff");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "SelimaOptique";
+    src: url("SELIMAOPTIQUE.woff") format("woff");
+    font-weight: normal;
+}
+
+//Global Settings
+
+h1, h2, h3 {
+    font-family: "Selima Caps";
+    margin: 0;
+    padding: 0;
+}
+
+h4, h5, h6 {
+    font-family: "SelimaOptique";
+    margin: 0;
+    padding: 0;
+    color: $color-black;
+}
+
+// Mixins
 
 @mixin button-primary {
     color: $color-white;
@@ -126,6 +157,14 @@ $color-yellow: #FFFFC5;
     margin: 0 auto;
     text-align: center;
     background: $color-pastel-blue;
+}
+
+.header__link {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    color: $color-black;
+    font-size: 32px;
+    line-height: 26px;
 }
 
 .header__cart-link {
@@ -279,6 +318,8 @@ $color-yellow: #FFFFC5;
 
 .collectionspage__tile-title {
     text-align: center;
+    font-size: 32px;
+    line-height: 60px;
 }
 
 .collectionspage__tile-image {
