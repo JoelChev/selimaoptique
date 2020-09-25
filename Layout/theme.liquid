@@ -12,21 +12,42 @@
 </head>
 <body>
 
-  <div class="header">
+  <div class="header
+    {% if {{template.name}} == 'list-collections' or {{template.name}} == 'collection' or {{template.name}} == 'product'%}
+    header--purple
+    {% endif %}">
+    {% if {{template.name}} == 'index' %}
+    <div class="header-background">
+    </div>
+    {% endif %}
+    {% if {{template.name}} == 'list-collections' or {{template.name}} == 'collection' or {{template.name}} == 'product'%}
+      <div class="header-background-collections">
+      </div>
+    {% endif %}
     {% for link in linklists.main-menu.links %}
       {% assign child_list_handle = link.title | handleize %}
-      {% if forloop.index == {{forloop.length | divided_by: 2}} %}
-        <a class="header-logo-link" href="/">
-          {{ 'selima-logo.png' | asset_url | img_tag: 'Selima Optique', 'menu_logo' }}
-        </a>
+      {% if forloop.index == 4 %}
+        <div class="header__logo-link-container">
+          <a class="header__logo-link" href="/">
+            {{ 'selima-logo.png' | asset_url | img_tag: 'Selima Optique', 'header__logo-link-image' }}
+          </a>
+        </div>
       {% endif %}
       {% if linklists[child_list_handle].links != blank %}
-        <a class="header__link" href="{{ link.url }}">{{ link.title | upcase }}</a>
+        <a class="header__link test" href="{{ link.url }}">{{ link.title | upcase }}</a>
         [{% for childlink in linklists[child_list_handle].links %}
           <a class="header__link" href="{{ childlink.url }}">{{ childlink.title | escape, upcase }}</a>
         {% endfor %}]
       {% else %}
-        <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
+        {% if  {{link.title}} == 'Shop Online' %}
+          {% if {{template.name}} == 'collection' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
+            <span class="header__link--selected"> {{link.title | upcase}}</span>
+          {% else %}
+            <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
+          {% endif %}
+        {% else %}
+          <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
+        {% endif %}
       {% endif %}
     {% endfor %}
     <a class="header__cart-link" href="/cart">
