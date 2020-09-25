@@ -471,8 +471,16 @@ a, span, p, label, button {
     background: $color-lavendar;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.collectionspage__tile-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 .collectionspage__tile {
@@ -496,6 +504,24 @@ a, span, p, label, button {
     bottom: -72px;
     right: 36px;
     z-index: 3;
+}
+
+.collectionspage__free-shipping-container {
+    background-image: url("free-shipping-background.png");
+    height: 72px;
+    width: 333px;
+    background-repeat: no-repeat;
+    background-size: 333px 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collectionspage__free-shipping-message {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 19px;
 }
 
 //Collection Page SECTION
@@ -572,6 +598,26 @@ a, span, p, label, button {
     font-weight: 500;
     font-size: 32px;
     line-height: 26px;
+}
+
+.collectionpage__free-shipping-container {
+    background-image: url("free-shipping-background.png");
+    height: 72px;
+    width: 333px;
+    background-repeat: no-repeat;
+    background-size: 333px 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.collectionpage__free-shipping-message {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 19px;
 }
 
 //Product Page

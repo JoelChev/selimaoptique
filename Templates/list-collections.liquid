@@ -1,25 +1,30 @@
 <div class="collectionspage">
-    <div class="collectionspage__tile">
-      <h4 class="collectionspage__tile-title">
-        {{collections['ladies'].title }}
-      </h4>
-      {% if collections['ladies'].image %}
-        <a href="{{collections['ladies'].url}}">
-          <img class="collectionspage__tile-image" src="{{collections['ladies'].image | img_url: 'large' }}"/>
-          {{ 'selima-alone.png' | asset_url | img_tag: 'Ladies Selima', 'collectionspage__tile-image-accent' }}
-        </a>
-      {% endif %}
+  <div class="collectionspage__tile-container">
+      <div class="collectionspage__tile">
+        <h4 class="collectionspage__tile-title">
+          {{collections['ladies'].title }}
+        </h4>
+        {% if collections['ladies'].image %}
+          <a href="{{collections['ladies'].url}}">
+            <img class="collectionspage__tile-image" src="{{collections['ladies'].image | img_url: 'large' }}"/>
+            {{ 'selima-alone.png' | asset_url | img_tag: 'Ladies Selima', 'collectionspage__tile-image-accent' }}
+          </a>
+        {% endif %}
+      </div>
+      <div class="collectionspage__tile">
+        <h4 class="collectionspage__tile-title">
+          {{collections['gentlemen'].title}}
+        </h4>
+        {% if collections['gentlemen'].image %}
+          <a href="{{collections['gentlemen'].url}}">
+            <img class="collectionspage__tile-image" src="{{collections['gentlemen'].image | img_url: 'large' }}"/>
+          </a>
+          {{ 'boy-hoop.png' | asset_url | img_tag: 'Gentlemen Boy Hoop', 'collectionspage__tile-image-accent' }}
+        {% endif %}
+      </div>
     </div>
-    <div class="collectionspage__tile">
-      <h4 class="collectionspage__tile-title">
-        {{collections['gentlemen'].title}}
-      </h4>
-      {% if collections['gentlemen'].image %}
-        <a href="{{collections['gentlemen'].url}}">
-          <img class="collectionspage__tile-image" src="{{collections['gentlemen'].image | img_url: 'large' }}"/>
-        </a>
-        {{ 'boy-hoop.png' | asset_url | img_tag: 'Gentlemen Boy Hoop', 'collectionspage__tile-image-accent' }}
-      {% endif %}
+    <div class="collectionspage__free-shipping-container">
+        <span class="collectionspage__free-shipping-message">FREE SHIPPING IN THE US</span>
     </div>
 
   {% comment%}
