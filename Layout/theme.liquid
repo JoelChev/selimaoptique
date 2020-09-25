@@ -16,7 +16,7 @@
     {% for link in linklists.main-menu.links %}
       {% assign child_list_handle = link.title | handleize %}
       {% if forloop.index == {{forloop.length | divided_by: 2}} %}
-        <a href="/">
+        <a class="header-logo-link" href="/">
           {{ 'selima-logo.png' | asset_url | img_tag: 'Selima Optique', 'menu_logo' }}
         </a>
       {% endif %}

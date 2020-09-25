@@ -1,8 +1,12 @@
   <div class="collectionpage">
   {% paginate collection.products by 4 %}
     <div class="collectionpage__header">
-          <h4 class="collectionpage__header-title {% if {{collection.title}} == 'Ladies' %} collectionpage__header-title--highlighted {% endif %}">Ladies</h4>
-          <h4 class="collectionpage__header-title {% if {{collection.title}} == 'Gentlemen' %} collectionpage__header-title--highlighted {% endif %}">Gentlemen</h4>
+          <div class="collectionpage__header-title-container">
+            <a class="{% if {{collection.title}} == 'Ladies' %} collectionpage__header-title--highlighted  {% else %} collectionpage__header-title {% endif %}"
+              href="{{collections['ladies'].url}}">Ladies</a>
+            <a class="{% if {{collection.title}} == 'Gentlemen' %} collectionpage__header-title--highlighted {% else %} collectionpage__header-title {% endif %}"
+              href="{{collections['gentlemen'].url}}">Gentlemen</a>
+          </div>
     </div>
     <table class="collectionpage__product-table">
     {% tablerow product in collection.products cols:2 %}
@@ -14,9 +18,9 @@
         <a href="{{ product.url | within: collection }}">
           <img class="collectionpage__product-tile-image" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
         </a>
-        <div class="collectionpage__product-tile-title-container">
-          <a class="collectionpage__product-tile-title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
-        </div>
+        <a class="collectionpage__product-tile-title-container" href="{{ product.url | within: collection }}">
+          <span class="collectionpage__product-tile-title" >{{ product.title | upcase }}</span>
+        </a>
       </div>
     {% endtablerow%}
     </table>

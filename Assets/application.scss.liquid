@@ -19,18 +19,112 @@ $color-yellow: #FFFFC5;
 
 // Fonts
 
+    //Selima Fonts
+
 @font-face {
     font-family: "Selima Caps";
     src: url("SELIMACAPS.woff") format("woff");
     font-weight: normal;
 }
+
 @font-face {
     font-family: "SelimaOptique";
     src: url("SELIMAOPTIQUE.woff") format("woff");
     font-weight: normal;
 }
 
+    //HKGrotesk Fonts
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-Black.woff") format("woff");
+    font-weight: bolder;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-BoldItalic.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-ExtraBold.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-Italic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-Light.woff") format("woff");
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-LightItalic.woff") format("woff");
+    font-weight: lighter;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-MediumItalic.woff") format("woff");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "HK Grotesk";
+    src: url("HKGrotesk-SemiBoldItalic.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+}
+
 //Global Settings
+
+body {
+    margin: 0;
+    padding: 0;
+}
 
 h1, h2, h3 {
     font-family: "Selima Caps";
@@ -40,6 +134,13 @@ h1, h2, h3 {
 
 h4, h5, h6 {
     font-family: "SelimaOptique";
+    margin: 0;
+    padding: 0;
+    color: $color-black;
+}
+
+a, span, p, label, button {
+    font-family: "HK Grotesk";
     margin: 0;
     padding: 0;
     color: $color-black;
@@ -165,6 +266,12 @@ h4, h5, h6 {
     color: $color-black;
     font-size: 32px;
     line-height: 26px;
+    text-decoration: none;
+    margin: 0 56px;
+}
+
+.header-logo-link {
+    text-decoration: none;
 }
 
 .header__cart-link {
@@ -175,6 +282,7 @@ h4, h5, h6 {
 .header__cart-icon {
     width: 46px;
     height: 46px;
+    margin-left: 30px;
 }
 
 .header__cart-total {
@@ -350,13 +458,25 @@ h4, h5, h6 {
     display: flex;
 }
 
+.collectionpage__header-title-container {
+    margin-left: 102px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .collectionpage__header-title  {
     color: $color-black;
+    margin-right: 48px;
+    text-decoration: none;
+    padding: 0 14px 10px;
 }
 
 .collectionpage__header-title--highlighted {
     color: $color-blue-main;
-    text-decoration: underline 1px $color-blue-main;
+    margin-right: 48px;
+    text-decoration: none;
+    border-bottom: solid 3px $color-blue-main;
+    padding: 0 14px 10px;
 }
 
 .collectionpage__product-table {
@@ -378,18 +498,23 @@ h4, h5, h6 {
     background-color: $color-yellow;
     border: 3px solid $color-black;
     position: absolute;
-    bottom: -29px;
+    bottom: -36px;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
     z-index: 10;
     width: fit-content;
+    text-decoration: none;
 }
 
 .collectionpage__product-tile-title {
     color: $color-black;
     text-decoration: none;
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
 }
 
 
