@@ -419,6 +419,76 @@ a, span, p, label, button {
     margin-bottom: 32px;
 }
 
+.header__cart-summary-item-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__cart-summary-item {
+    display: flex;
+    margin: 32px;
+}
+
+.header__carty-summary-item-image {
+    width: 174px;
+    height: 106px;
+    border: 3px solid $color-black;
+}
+
+.header__cart-summary-item-description-container {
+    margin-left: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header__cart-summary-item-title {
+    font-family: "HK Grotesk";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    font-color: $color-black;
+    margin-bottom: 4px;
+}
+
+.header__cart-summary-item-variant-title {
+    font-family: "HK Grotesk";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    font-color: $color-black;
+    margin-bottom: 4px;
+}
+
+.header__cart-summary-item-price {
+    font-family: "HK Grotesk";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    font-color: $color-black;
+    margin-bottom: 16px;
+}
+
+.header__cart-summary-remove-button {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: $color-blue-main;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: auto;
+
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
 .header__cart-summary-footer-container {
     display: flex;
     align-items: center;

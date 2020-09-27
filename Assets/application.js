@@ -1,20 +1,8 @@
 // Put your application javascript here
 
+//Helper functions
 
-// Header
-
-//This is used to show the cart summary.
-document.addEventListener('click', function (event) {
-    // If the clicked element doesn't have the right selector, bail
-    if (!event.target.matches('.header__cart-button')
-        && !event.target.matches('.header__cart-icon')
-        && !event.target.matches('.header__cart-total')) {
-        return;
-    }
-
-    // Don't follow the link
-    event.preventDefault();
-
+function _positionHeaderCartSummary() {
     let headerCartSummary = document.getElementsByClassName('header__cart-summary')[0];
     // Need to do some math to position this pop up properly, relative to the cart total.
     const headerCartTotal = document.getElementsByClassName('header__cart-total')[0];
@@ -27,7 +15,116 @@ document.addEventListener('click', function (event) {
         rightOffset = window.innerWidth - headerCartTotalRightPosition;
     }
     headerCartSummary.style.right = `${rightOffset}px`;
-    headerCartSummary.classList.remove("header__cart-summary--hidden");
+}
+
+function _getAndShowCartSummary() {
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            if (xhr.status == 200) {
+                console.log(xhr.responseText);
+                let cartJSON = JSON.parse(xhr.responseText);
+                console.log(cartJSON);
+                //Now to parse the json.
+                const cartSummaryItemsList = document.getElementsByClassName('header__cart-summary-item-list-container')[0];
+                const items = cartJSON.items;
+                for (let i = 0; i < items.length; i++) {
+                    for (let j = 0; j < (items[i].quantity); j++) {
+                        const headerCartSummaryItem = document.createElement("div");
+                        headerCartSummaryItem.classList.add('header__cart-summary-item');
+                        // Image handling
+                        const headerCartSummaryItemImageContainer = document.createElement("div");
+                        headerCartSummaryItemImageContainer.classList.add('header__cart-summary-item-image-container');
+                        const headerCartSummaryImage = document.createElement("img");
+                        headerCartSummaryImage.classList.add('header__carty-summary-item-image');
+                        headerCartSummaryImage.src = items[i].image;
+                        headerCartSummaryImage.alt = `${items[i].title}`
+                        headerCartSummaryItemImageContainer.appendChild(headerCartSummaryImage);
+                        headerCartSummaryItem.appendChild(headerCartSummaryItemImageContainer);
+                        // Description Handling
+                        const headerCartSummaryItemDescriptionContainer = document.createElement("div");
+                        headerCartSummaryItemDescriptionContainer.classList.add('header__cart-summary-item-description-container');
+                        const headerCartSummaryItemTitle = document.createElement("h4");
+                        headerCartSummaryItemTitle.classList.add('header__cart-summary-item-title');
+                        headerCartSummaryItemTitle.innerHTML = items[i].title;
+                        headerCartSummaryItemDescriptionContainer.appendChild(headerCartSummaryItemTitle);
+
+                        const headerCartSummaryVariantTitle = document.createElement("h6");
+                        headerCartSummaryVariantTitle.classList.add('header__cart-summary-item-variant-title');
+                        headerCartSummaryVariantTitle.innerHTML = items[i].variant_title;
+                        headerCartSummaryItemDescriptionContainer.appendChild(headerCartSummaryVariantTitle);
+
+
+                        const headerCartSummaryItemPrice = document.createElement("h6");
+                        headerCartSummaryItemPrice.classList.add('header__cart-summary-item-price');
+                        const price = items[i].price.toString();
+                        const formattedPrice = `${price.substr(0, price.length - 2)}.${price.slice(-2)}`;
+                        headerCartSummaryItemPrice.innerHTML = `$${formattedPrice}`;
+                        headerCartSummaryItemDescriptionContainer.appendChild(headerCartSummaryItemPrice);
+
+                        const headerCartSummaryRemoveButton = document.createElement("button");
+                        headerCartSummaryRemoveButton.classList.add('header__cart-summary-remove-button');
+                        headerCartSummaryRemoveButton.innerHTML = "Remove";
+                        headerCartSummaryItemDescriptionContainer.appendChild(headerCartSummaryRemoveButton);
+
+                        headerCartSummaryItem.appendChild(headerCartSummaryItemDescriptionContainer);
+                        cartSummaryItemsList.appendChild(headerCartSummaryItem);
+                    }
+                }
+                // Set the subtotal
+                const subTotal = cartJSON.items_subtotal_price.toString();
+                const formattedSubTotal = `${subTotal.substr(0, subTotal.length - 2)}.${subTotal.slice(-2)}`;
+                let cartSubTotal = document.getElementsByClassName('header__cart-summary-subtotal')[0];
+                cartSubTotal.innerHTML = `Subtotal: $${formattedSubTotal}`;
+
+                //Finally show the summary!
+                let headerCartSummary = document.getElementsByClassName('header__cart-summary')[0];
+                headerCartSummary.classList.remove("header__cart-summary--hidden");
+
+            }
+            else {
+                // Error case
+                console.error(`Error ${xhr.status}: ${xhr.statusText}`);
+            }
+        }
+    }
+    xhr.open("GET", "/cart.js", true);
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.send();
+}
+
+function _hideCartSummary() {
+    let headerCartSummary = document.getElementsByClassName('header__cart-summary')[0];
+    headerCartSummary.classList.add("header__cart-summary--hidden");
+
+    //And remove all of the items in the cart.
+    const cartSummaryItemsList = document.getElementsByClassName('header__cart-summary-item-list-container')[0];
+    while (cartSummaryItemsList.hasChildNodes()) {
+        cartSummaryItemsList.removeChild(cartSummaryItemsList.lastChild);
+    }
+}
+
+// Header
+
+//This is used to show the cart summary.
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.header__cart-button')
+        && !event.target.matches('.header__cart-icon')
+        && !event.target.matches('.header__cart-total')) {
+        return;
+    }
+    // Don't follow the link
+    event.preventDefault();
+
+    // If it is not already showing, get the cart contents into the summary and show it!
+    let headerCartSummaryHidden = document.getElementsByClassName('header__cart-summary--hidden');
+    if (headerCartSummaryHidden.length === 1) {
+        _positionHeaderCartSummary();
+        _getAndShowCartSummary();
+    } else {
+        _hideCartSummary();
+    }
 
 }, false);
 
@@ -42,8 +139,7 @@ document.addEventListener('click', function (event) {
     // Don't follow the link
     event.preventDefault();
 
-    let headerCartSummary = document.getElementsByClassName('header__cart-summary')[0];
-    headerCartSummary.classList.add("header__cart-summary--hidden");
+    _hideCartSummary();
 
 }, false);
 
@@ -240,9 +336,17 @@ document.addEventListener('click', function (event) {
             }
             cartTotal.appendChild(document.createTextNode(newValue));
 
-            // Show the cart popup as well.
-            let headerCartSummary = document.getElementsByClassName('header__cart-summary')[0];
-            headerCartSummary.classList.remove("header__cart-summary--hidden");
+            // If it is not already showing, get the cart contents into the summary and show it!
+            let headerCartSummaryHidden = document.getElementsByClassName('header__cart-summary--hidden');
+            if (headerCartSummaryHidden.length === 1) {
+                _positionHeaderCartSummary();
+                _getAndShowCartSummary();
+            } else {
+                // Otherwise hide it first and then show it.
+                _hideCartSummary();
+                _positionHeaderCartSummary();
+                _getAndShowCartSummary();
+            }
         } else {
             // Error case
             console.error(`Error ${xhr.status}: ${xhr.statusText}`);
