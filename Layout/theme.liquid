@@ -24,48 +24,71 @@
       <div class="header-background-collections">
       </div>
     {% endif %}
-    <div class="header-links-container">
-        <button class="header__hamburger-menu-button">
-        {{ 'hamburger-menu.png' | asset_url | img_tag: 'Hamburger Menu', 'header__hamburger-menu-icon' }}
-        </button>
-        {% for link in linklists.main-menu.links %}
-        {% assign child_list_handle = link.title | handleize %}
-        {% if forloop.index == 4 %}
-          <div class="header__logo-link-container">
-            <a class="header__logo-link" href="/">
-              {{ 'selima-logo.png' | asset_url | img_tag: 'Selima Optique', 'header__logo-link-image' }}
-            </a>
-            <a class="header__logo-link-mobile" href="/">
-              {{ 'selima-logo-mobile.png' | asset_url | img_tag: 'Selima Optique', 'header__logo-link-image-mobile' }}
-            </a>
-          </div>
-        {% endif %}
-        {% if linklists[child_list_handle].links != blank %}
-          <a class="header__link test" href="{{ link.url }}">{{ link.title | upcase }}</a>
-          [{% for childlink in linklists[child_list_handle].links %}
-            <a class="header__link" href="{{ childlink.url }}">{{ childlink.title | escape, upcase }}</a>
-          {% endfor %}]
-        {% else %}
-          {% if  {{link.title}} == 'Shop Online' %}
-            {% if {{template.name}} == 'collection' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
-              <span class="header__link--selected"> {{link.title | upcase}}</span>
+    <div class="header-nav-container">
+      <div class="header-links-container">
+          <button class="header__hamburger-menu-button">
+          {{ 'hamburger-menu.png' | asset_url | img_tag: 'Hamburger Menu', 'header__hamburger-menu-icon' }}
+          </button>
+          {% for link in linklists.main-menu.links %}
+          {% assign child_list_handle = link.title | handleize %}
+          {% if forloop.index == 4 %}
+            <div class="header__logo-link-container">
+              <a class="header__logo-link" href="/">
+                {{ 'selima-logo.png' | asset_url | img_tag: 'Selima Optique', 'header__logo-link-image' }}
+              </a>
+              <a class="header__logo-link-mobile" href="/">
+                {{ 'selima-logo-mobile.png' | asset_url | img_tag: 'Selima Optique', 'header__logo-link-image' }}
+              </a>
+            </div>
+          {% endif %}
+          {% if linklists[child_list_handle].links != blank %}
+            <a class="header__link" href="{{ link.url }}">{{ link.title | upcase }}</a>
+            [{% for childlink in linklists[child_list_handle].links %}
+              <a class="header__link" href="{{ childlink.url }}">{{ childlink.title | escape, upcase }}</a>
+            {% endfor %}]
+          {% else %}
+            {% if  {{link.title}} == 'Shop Online' %}
+              {% if {{template.name}} == 'collection' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
+                <span class="header__link--selected"> {{link.title | upcase}}</span>
+              {% else %}
+                <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
+              {% endif %}
             {% else %}
               <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
             {% endif %}
-          {% else %}
-            <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
           {% endif %}
-        {% endif %}
-      {% endfor %}
-      <div class="header__cart-button-container">
-        <button class="header__cart-button">
-              {{ 'shopping-bag.png' | asset_url | img_tag: 'Shopping Bag', 'header__cart-icon' }}
-              {% if {{cart.item_count}} > 0 %}
-                <span class="header__cart-total">({{ cart.item_count }})</span>
+        {% endfor %}
+        <div class="header__cart-button-container">
+          <button class="header__cart-button">
+                {{ 'shopping-bag.png' | asset_url | img_tag: 'Shopping Bag', 'header__cart-icon' }}
+                {% if {{cart.item_count}} > 0 %}
+                  <span class="header__cart-total">({{ cart.item_count }})</span>
+                {% else %}
+                  <span class="header__cart-total"></span>
+                {% endif %}
+          </button>
+        </div>
+      </div>
+      <div class="header-links-container-mobile header-links-container-mobile--hidden">
+        {% for link in linklists.main-menu.links %}
+          {% assign child_list_handle = link.title | handleize %}
+          {% if linklists[child_list_handle].links != blank %}
+            <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase }}</a>
+            [{% for childlink in linklists[child_list_handle].links %}
+              <a class="header__link-mobile" href="{{ childlink.url }}">{{ childlink.title | escape, upcase }}</a>
+            {% endfor %}]
+          {% else %}
+            {% if  {{link.title}} == 'Shop Online' %}
+              {% if {{template.name}} == 'collection' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
+                <span class="header__link-mobile--selected">SHOP</span>
               {% else %}
-                <span class="header__cart-total"></span>
+                <a class="header__link-mobile" href="{{ link.url }}">SHOP</a>
               {% endif %}
-        </button>
+            {% else %}
+              <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase}}</a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -92,7 +115,7 @@
     {% endif %}
   {% endif %}
 
-  <main role="main">
+  <main id="main" role="main">
     {{ content_for_layout }}
   </main>
   {{ 'application.js' | asset_url | script_tag }}

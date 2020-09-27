@@ -151,6 +151,13 @@ a, span, p, label, button {
     color: $color-black;
 }
 
+.main--mobile-expanded {
+    margin-top: -400px;
+    @media (min-width: $breakpoint-tablet) {
+        margin-top: 0;
+    }
+}
+
 // Mixins
 
 @mixin button-primary {
@@ -271,6 +278,14 @@ a, span, p, label, button {
     justify-content: center;
 }
 
+.header--mobile-expanded {
+    @media (max-width: $breakpoint-tablet) {
+        height: 400px;
+        background-color: $color-yellow;
+        z-index: 1000;
+    }
+}
+
 .header--purple {
     background: $color-lavendar;
 }
@@ -301,6 +316,13 @@ a, span, p, label, button {
     }
 }
 
+.header-background--mobile-expanded {
+     @media (max-width: $breakpoint-tablet) {
+        top: 350px;
+        //background-color: $color-yellow;
+    }
+}
+
 
 .header-background-collections {
     position: absolute;
@@ -321,17 +343,35 @@ a, span, p, label, button {
     }
 }
 
+.header-nav-container {
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.header-nav-container--mobile-expanded {
+    @media (max-width: $breakpoint-tablet) {
+        height: 400px;
+        background-color: $color-yellow;
+    }
+}
+
 .header-links-container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: -140px;
     @media (max-width: $breakpoint-tablet) {
-        width: 100%;
         justify-content: space-between;
         margin-left: 32px;
         margin-right: 80px;
     }
+}
+
+.header-links-container--mobile-expanded {
+    margin-top: 36px;
 }
 
 .header__hamburger-menu-button {
@@ -433,6 +473,34 @@ a, span, p, label, button {
     color: $color-black;
     margin-left: 4px;
     margin-right: -70px;
+}
+
+.header-links-container-mobile {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-right: 24px;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.header-links-container-mobile--hidden {
+    display: none;
+}
+
+.header__link-mobile {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
+    font-color: $color-black;
+    margin-bottom: 24px;
+    text-decoration: none;
+    width: content;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .header__cart-summary {

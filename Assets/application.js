@@ -234,6 +234,57 @@ document.addEventListener('click', function (event) {
     };
 }, false);
 
+//This handles the mobile expansion from the hamburger icon
+//This is used to hide the cart summary.
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.header__hamburger-menu-button')
+        && !event.target.matches('.header__hamburger-menu-icon')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    //Check if expanded or not
+    const headerNavContainerExpanded = document.getElementsByClassName('header-nav-container--mobile-expanded');
+    if (headerNavContainerExpanded.length === 0) {
+        //Trigger the expansion
+        const main = document.getElementById("main");
+        main.classList.add('main--mobile-expanded');
+        const header = document.getElementsByClassName('header')[0];
+        header.classList.add('header--mobile-expanded');
+        const headerBackground = document.getElementsByClassName('header-background')[0];
+        headerBackground.classList.add('header-background--mobile-expanded');
+        const headerNavContainer = document.getElementsByClassName('header-nav-container')[0];
+        headerNavContainer.classList.add('header-nav-container--mobile-expanded');
+        const headerLinksContainer = document.getElementsByClassName('header-links-container')[0];
+        headerLinksContainer.classList.add('header-links-container--mobile-expanded');
+        const headerLinksContainerMobile = document.getElementsByClassName('header-links-container-mobile')[0];
+        headerLinksContainerMobile.classList.remove('header-links-container-mobile--hidden');
+
+    } else {
+        // Minimize it
+        const main = document.getElementById("main");
+        main.classList.remove('main--mobile-expanded');
+        const header = document.getElementsByClassName('header')[0];
+        header.classList.remove('header--mobile-expanded');
+        const headerBackground = document.getElementsByClassName('header-background')[0];
+        headerBackground.classList.remove('header-background--mobile-expanded');
+        const headerNavContainer = document.getElementsByClassName('header-nav-container')[0];
+        headerNavContainer.classList.remove('header-nav-container--mobile-expanded');
+        const headerLinksContainer = document.getElementsByClassName('header-links-container')[0];
+        headerLinksContainer.classList.remove('header-links-container--mobile-expanded');
+        const headerLinksContainerMobile = document.getElementsByClassName('header-links-container-mobile')[0];
+        headerLinksContainerMobile.classList.add('header-links-container-mobile--hidden');
+    }
+
+
+
+
+}, false);
+
+
 //Homepage
 
 !(function (d) {
