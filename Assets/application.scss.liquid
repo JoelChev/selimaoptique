@@ -300,6 +300,13 @@ a, span, p, label, button {
     z-index:-1;
 }
 
+.header-links-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -140px;
+}
+
 .header__link {
     font-family: "Selima Caps";
     font-weight: 500;
@@ -323,18 +330,33 @@ a, span, p, label, button {
 
 .header__logo-link-container {
     margin-top: 50px;
-    margin-left: 18px;
-    margin-right: 110px;
+    margin-right: 80px;
 }
 
 .header__logo-link {
     text-decoration: none;
 }
 
-.header__cart-link {
-    text-decoration: none;
+.header__cart-button-container {
+}
+
+.header__cart-button {
     color: $color-black;
-    margin-left: 40px;
+    //margin-left: 40px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
 }
 
 .header__cart-icon {
@@ -344,6 +366,79 @@ a, span, p, label, button {
 
 .header__cart-total {
     color: $color-black;
+    margin-left: 4px;
+    margin-right: -70px;
+}
+
+.header__cart-summary {
+    background: $color-white;
+    border: 3px dashed $color-blue-main;
+    z-index: 1000;
+    position: absolute;
+    top: 130px;
+    //right: -70px;
+    width: 488px;
+}
+
+.header__cart-summary--hidden {
+    display: none;
+}
+
+.header__cart-summary-close-button {
+    margin-left: auto;
+    display: flex;
+    margin-right: 16px;
+    margin-top: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
+.header__cart-summary-close-icon {
+    width: 23px;
+    height: 23px;
+}
+
+.header__cart-summary-title {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26px;
+    display: flex;
+    margin-right: auto;
+    margin-left: 32px;
+    margin-bottom: 32px;
+}
+
+.header__cart-summary-footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 16px;
+    margin-bottom: 32px;
+}
+
+.header__cart-summary-subtotal {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    margin-right: 24px;
+}
+
+.header__cart-summary-view-cart-link {
+    @include button-primary;
+    font-size: 16px;
+    text-decoration: none;
 }
 
 //HOMEPAGE SECTION
@@ -626,6 +721,31 @@ a, span, p, label, button {
     background: $color-lavendar;
     height: 100vh;
     display: flex;
+    justify-content: space-evenly;
+}
+
+.productpage__product-information-container {
+    margin-left: 138px;
+}
+
+.productpage__product-back-link-container {
+    display: flex;
+    margin-bottom: 66px;
+}
+
+.productpage__product-back-link-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+}
+
+.productpage__product-back-link {
+    @include link-text;
+    margin-top: -8px;
+}
+
+.productpage__product-title-container {
+    margin-bottom: 36px;
 }
 
 .productpage__product-title {
@@ -633,6 +753,7 @@ a, span, p, label, button {
     font-weight: 600;
     font-size: 32px;
     line-height: 40px;
+    margin-bottom: 8px;
 }
 
 .productpage__variant-title {
@@ -640,6 +761,112 @@ a, span, p, label, button {
     font-weight: 400;
     font-size: 24px;
     line-height: 30px;
+    margin-bottom: 32px;
+}
+
+.productpage__variant-price {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26px;
+    color: $color-black;
+    margin-bottom: 32px;
+}
+
+.productpage__purchase-button {
+    @include button-primary;
+    font-size: 16px;
+}
+
+.productpage__product-description-container {
+    p {
+        margin-bottom: 16px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: $color-black;
+    }
+}
+
+.productpage__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-black;
+    margin-bottom: 32px;
+}
+
+.productpage__free-shipping-message {
+    margin-top: 32px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-black;
+}
+
+.productpage__product-image-container {
+    margin-right: 138px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productpage__primary-image {
+    border: 3px solid $color-black;
+    position: relative;
+    margin-top: 110px;
+}
+
+.productpage__secondary-product-image-row-container {
+    margin-top: 32px;
+    display: flex;
+}
+
+.productpage__secondary-product-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
+.productpage__secondary-image {
+    border: 3px solid $color-black;
+    margin: 0 16px 16px;
+}
+
+.productpage__secondary-product-title {
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-black;
+}
+
+.productpage__secondary-product-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productpage__secondary-image--selected {
+    border: 3px solid $color-black;
+    margin: 0 16px 16px;
+}
+
+.productpage__secondary-product-title--selected {
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-blue-main;
+    border-bottom: 2px dashed $color-blue-main;
+    padding-bottom: 4px;
 }
 
 

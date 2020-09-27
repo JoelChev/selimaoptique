@@ -24,38 +24,54 @@
       <div class="header-background-collections">
       </div>
     {% endif %}
-    {% for link in linklists.main-menu.links %}
-      {% assign child_list_handle = link.title | handleize %}
-      {% if forloop.index == 4 %}
-        <div class="header__logo-link-container">
-          <a class="header__logo-link" href="/">
-            {{ 'selima-logo.png' | asset_url | img_tag: 'Selima Optique', 'header__logo-link-image' }}
-          </a>
-        </div>
-      {% endif %}
-      {% if linklists[child_list_handle].links != blank %}
-        <a class="header__link test" href="{{ link.url }}">{{ link.title | upcase }}</a>
-        [{% for childlink in linklists[child_list_handle].links %}
-          <a class="header__link" href="{{ childlink.url }}">{{ childlink.title | escape, upcase }}</a>
-        {% endfor %}]
-      {% else %}
-        {% if  {{link.title}} == 'Shop Online' %}
-          {% if {{template.name}} == 'collection' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
-            <span class="header__link--selected"> {{link.title | upcase}}</span>
+    <div class="header-links-container">
+        {% for link in linklists.main-menu.links %}
+        {% assign child_list_handle = link.title | handleize %}
+        {% if forloop.index == 4 %}
+          <div class="header__logo-link-container">
+            <a class="header__logo-link" href="/">
+              {{ 'selima-logo.png' | asset_url | img_tag: 'Selima Optique', 'header__logo-link-image' }}
+            </a>
+          </div>
+        {% endif %}
+        {% if linklists[child_list_handle].links != blank %}
+          <a class="header__link test" href="{{ link.url }}">{{ link.title | upcase }}</a>
+          [{% for childlink in linklists[child_list_handle].links %}
+            <a class="header__link" href="{{ childlink.url }}">{{ childlink.title | escape, upcase }}</a>
+          {% endfor %}]
+        {% else %}
+          {% if  {{link.title}} == 'Shop Online' %}
+            {% if {{template.name}} == 'collection' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
+              <span class="header__link--selected"> {{link.title | upcase}}</span>
+            {% else %}
+              <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
+            {% endif %}
           {% else %}
             <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
           {% endif %}
-        {% else %}
-          <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
         {% endif %}
-      {% endif %}
-    {% endfor %}
-    <a class="header__cart-link" href="/cart">
-            {{ 'shopping-bag.png' | asset_url | img_tag: 'Shopping Bag', 'header__cart-icon' }}
-            {% if {{cart.item_count}} > 0 %}
-              <span class="header__cart-total">({{ cart.item_count }})</span>
-            {% endif %}
-    </a>
+      {% endfor %}
+      <div class="header__cart-button-container">
+        <button class="header__cart-button">
+              {{ 'shopping-bag.png' | asset_url | img_tag: 'Shopping Bag', 'header__cart-icon' }}
+              {% if {{cart.item_count}} > 0 %}
+                <span class="header__cart-total">({{ cart.item_count }})</span>
+              {% else %}
+                <span class="header__cart-total"></span>
+              {% endif %}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="header__cart-summary header__cart-summary--hidden">
+      <button class="header__cart-summary-close-button">
+        {{ 'close-icon.png' | asset_url | img_tag: 'Close', 'header__cart-summary-close-icon' }}
+      </button>
+      <h4 class="header__cart-summary-title"> Your Cart</h4>
+      <div class="header__cart-summary-footer-container">
+        <span class="header__cart-summary-subtotal">Subtotal: $0 </span>
+        <a class="header__cart-summary-view-cart-link" href="/cart">View Cart</a>
+      </div>
   </div>
 
   {% if shop.customer_accounts_enabled %}

@@ -1,5 +1,52 @@
 // Put your application javascript here
 
+
+// Header
+
+//This is used to show the cart summary.
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.header__cart-button')
+        && !event.target.matches('.header__cart-icon')
+        && !event.target.matches('.header__cart-total')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    let headerCartSummary = document.getElementsByClassName('header__cart-summary')[0];
+    // Need to do some math to position this pop up properly, relative to the cart total.
+    const headerCartTotal = document.getElementsByClassName('header__cart-total')[0];
+    const headerCartTotalRightPosition = headerCartTotal.getBoundingClientRect().right;
+    // There is a different right offset if there is a cart total or not.
+    let rightOffset;
+    if (headerCartTotal.innerHTML != '' && headerCartTotal.innerHTML != undefined) {
+        rightOffset = window.innerWidth - headerCartTotalRightPosition - 10;
+    } else {
+        rightOffset = window.innerWidth - headerCartTotalRightPosition;
+    }
+    headerCartSummary.style.right = `${rightOffset}px`;
+    headerCartSummary.classList.remove("header__cart-summary--hidden");
+
+}, false);
+
+//This is used to hide the cart summary.
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.header__cart-summary-close-button')
+        && !event.target.matches('.header__cart-summary-close-icon')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    let headerCartSummary = document.getElementsByClassName('header__cart-summary')[0];
+    headerCartSummary.classList.add("header__cart-summary--hidden");
+
+}, false);
+
 //Homepage
 
 !(function (d) {
@@ -133,17 +180,98 @@
 
     // Initialise carousel
     function initCarousel() {
-        setInitialClasses();
-        setEventListeners();
+        if (totalItems > 0) {
+            setInitialClasses();
+            setEventListeners();
 
-        // Set moving to false now that the carousel is ready
-        moving = false;
-        interval = setInterval(function () {
-            moveNext()
-        }, 4000);
+            // Set moving to false now that the carousel is ready
+            moving = false;
+            interval = setInterval(function () {
+                moveNext()
+            }, 4000);
+        }
     }
 
     // make it rain
     initCarousel();
 
 }(document));
+
+// Product Page
+
+//This handles adding to cart.
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.productpage__purchase-button')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    const productId = event.target.id.split('-')[1];
+    const requestBody = {
+        items: [
+            {
+                "quantity": 1,
+                "id": productId,
+            }
+        ]
+    };
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/cart/add.js", true);
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.send(JSON.stringify(requestBody));
+
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            //Update the cart total manually when response is successful.
+            const cartTotal = document.getElementsByClassName('header__cart-total')[0];
+            let cartValue = cartTotal.innerHTML;
+            let newValue;
+            if (cartValue !== '' && cartValue !== undefined) {
+                newValue = parseInt(cartValue.match(/\d+/)[0]) + 1;
+                newValue = "(" + newValue + ")";
+            } else {
+                newValue = "(1)";
+            }
+            while (cartTotal.firstChild) {
+                cartTotal.removeChild(cartTotal.firstChild);
+            }
+            cartTotal.appendChild(document.createTextNode(newValue));
+
+            // Show the cart popup as well.
+            let headerCartSummary = document.getElementsByClassName('header__cart-summary')[0];
+            headerCartSummary.classList.remove("header__cart-summary--hidden");
+        } else {
+            // Error case
+            console.error(`Error ${xhr.status}: ${xhr.statusText}`);
+        }
+
+    }
+    xhr.onerror = function () {
+        console.error("Request to Add to Cart failed");
+    };
+
+}, false);
+
+
+//This handles the variant image click switch handling.
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.productpage__secondary-product-button')
+        && !event.target.matches('.productpage__secondary-image')
+        && !event.target.matches('.productpage__secondary-product-title')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    //We are splitting a few different elements into "name-id" format, so just need the second part of the id.
+    const variantId = event.target.id.split('-')[1];
+    const url = new URL(window.location.href);
+    url.searchParams.set('variant', variantId);
+    window.location.href = url;
+
+}, false);
