@@ -287,8 +287,20 @@ a, span, p, label, button {
     background-image: url("homepage-header.png");
     background-repeat: no-repeat;
     background-size: 1390px 160px;
-    z-index:-1;
+    z-index: -1;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+         width: 768px;      
+         background-size: 768px 160px; 
+    }
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        height: 122px;
+        background-image: url("homepage-header-mobile.png");
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
 }
+
 
 .header-background-collections {
     position: absolute;
@@ -302,7 +314,11 @@ a, span, p, label, button {
     background-image: url("shop-online-header.png");
     background-repeat: no-repeat;
     background-size: 1140px 160px;
-    z-index:-1;
+    z-index: -1;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+         width: 630px;      
+         background-size: 630px 160px; 
+    }
 }
 
 .header-links-container {
@@ -310,6 +326,22 @@ a, span, p, label, button {
     align-items: center;
     justify-content: center;
     margin-left: -140px;
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        justify-content: space-between;
+        margin-left: 32px;
+        margin-right: 80px;
+    }
+}
+
+.header__hamburger-menu-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    margin-bottom: 40px;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .header__link {
@@ -321,6 +353,14 @@ a, span, p, label, button {
     text-decoration: none;
     margin: 0 44px;
     z-index: 100;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        font-size: 24px;
+        line-height: 20px;
+        margin: 0 16px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .header__link--selected {
@@ -336,18 +376,35 @@ a, span, p, label, button {
 .header__logo-link-container {
     margin-top: 50px;
     margin-right: 80px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin-right: 0;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        margin-right: 0;
+        margin-top: 0;
+    }
 }
 
 .header__logo-link {
     text-decoration: none;
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.header__logo-link-mobile {
+    text-decoration: none;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .header__cart-button-container {
+
 }
 
 .header__cart-button {
     color: $color-black;
-    //margin-left: 40px;
     display: flex;
     align-items: center;
     background: transparent;
@@ -361,6 +418,9 @@ a, span, p, label, button {
     &:focus {
         outline: 0;
         box-shadow: none!important;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 40px;
     }
 }
 

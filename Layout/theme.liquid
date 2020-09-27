@@ -25,12 +25,18 @@
       </div>
     {% endif %}
     <div class="header-links-container">
+        <button class="header__hamburger-menu-button">
+        {{ 'hamburger-menu.png' | asset_url | img_tag: 'Hamburger Menu', 'header__hamburger-menu-icon' }}
+        </button>
         {% for link in linklists.main-menu.links %}
         {% assign child_list_handle = link.title | handleize %}
         {% if forloop.index == 4 %}
           <div class="header__logo-link-container">
             <a class="header__logo-link" href="/">
               {{ 'selima-logo.png' | asset_url | img_tag: 'Selima Optique', 'header__logo-link-image' }}
+            </a>
+            <a class="header__logo-link-mobile" href="/">
+              {{ 'selima-logo-mobile.png' | asset_url | img_tag: 'Selima Optique', 'header__logo-link-image-mobile' }}
             </a>
           </div>
         {% endif %}
