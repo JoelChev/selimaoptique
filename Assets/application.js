@@ -32,6 +32,7 @@ function _getAndShowCartSummary() {
                     for (let j = 0; j < (items[i].quantity); j++) {
                         const headerCartSummaryItem = document.createElement("div");
                         headerCartSummaryItem.classList.add('header__cart-summary-item');
+                        headerCartSummaryItem.id = `SummaryItem-${j}-${items[i].variant_id}`;
                         // Image handling
                         const headerCartSummaryItemImageContainer = document.createElement("div");
                         headerCartSummaryItemImageContainer.classList.add('header__cart-summary-item-image-container');
@@ -57,6 +58,7 @@ function _getAndShowCartSummary() {
 
                         const headerCartSummaryItemPrice = document.createElement("h6");
                         headerCartSummaryItemPrice.classList.add('header__cart-summary-item-price');
+                        headerCartSummaryItemPrice.id = `VariantPrice-${j}-${items[i].quantity}-${items[i].variant_id}`;
                         const price = items[i].price.toString();
                         const formattedPrice = `${price.substr(0, price.length - 2)}.${price.slice(-2)}`;
                         headerCartSummaryItemPrice.innerHTML = `$${formattedPrice}`;
@@ -64,6 +66,7 @@ function _getAndShowCartSummary() {
 
                         const headerCartSummaryRemoveButton = document.createElement("button");
                         headerCartSummaryRemoveButton.classList.add('header__cart-summary-remove-button');
+                        headerCartSummaryRemoveButton.id = `RemoveButton-${j}-${items[i].quantity}-${items[i].variant_id}`;
                         headerCartSummaryRemoveButton.innerHTML = "Remove";
                         headerCartSummaryItemDescriptionContainer.appendChild(headerCartSummaryRemoveButton);
 
@@ -73,7 +76,13 @@ function _getAndShowCartSummary() {
                 }
                 // Set the subtotal
                 const subTotal = cartJSON.items_subtotal_price.toString();
-                const formattedSubTotal = `${subTotal.substr(0, subTotal.length - 2)}.${subTotal.slice(-2)}`;
+                let formattedSubTotal;
+                // Need to handle when 0.
+                if (subTotal === "0") {
+                    formattedSubTotal = subTotal;
+                } else {
+                    formattedSubTotal = `${subTotal.substr(0, subTotal.length - 2)}.${subTotal.slice(-2)}`;
+                }
                 let cartSubTotal = document.getElementsByClassName('header__cart-summary-subtotal')[0];
                 cartSubTotal.innerHTML = `Subtotal: $${formattedSubTotal}`;
 
@@ -141,6 +150,88 @@ document.addEventListener('click', function (event) {
 
     _hideCartSummary();
 
+}, false);
+
+//This is used to remove a product from the cart.
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.header__cart-summary-remove-button')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    const removeButtonId = event.target.id;
+    //Need to split out the individual pieces of the id for the useful information needed for our dynamic behaviour. It has 4 parts.
+    const removeButtonIdArray = removeButtonId.split('-');
+    const label = removeButtonIdArray[0]; //Not super useful, it is parsed out.
+    const itemIndex = removeButtonIdArray[1];
+    const itemQuantity = removeButtonIdArray[2];
+    const newItemQuantity = parseInt(itemQuantity) - 1;
+    const variantId = removeButtonIdArray[3];
+
+    const requestBody =
+    {
+        "id": variantId,
+        "quantity": newItemQuantity,
+    };
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/cart/change.js", true);
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.send(JSON.stringify(requestBody));
+
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            //Update the cart total manually when response is successful.
+            const cartTotal = document.getElementsByClassName('header__cart-total')[0];
+            let cartValue = cartTotal.innerHTML;
+            let newValue;
+            if (cartValue !== '' && cartValue !== undefined) {
+                newValue = parseInt(cartValue.match(/\d+/)[0]) - 1;
+                if (newValue === 0) {
+                    newValue = "";
+                } else {
+                    newValue = "(" + newValue + ")";
+                }
+                while (cartTotal.firstChild) {
+                    cartTotal.removeChild(cartTotal.firstChild);
+                }
+                cartTotal.appendChild(document.createTextNode(newValue));
+
+            }
+            // Also update the subtotal and remove the item from the summary.
+            const variantPriceLabel = "VariantPrice";
+            const variantPriceId = `${variantPriceLabel}-${itemIndex}-${itemQuantity}-${variantId}`;
+            variantPriceElement = document.getElementById(variantPriceId);
+            const variantPriceValue = variantPriceElement.innerHTML;
+            const variantPriceNumber = parseInt(variantPriceValue.replace('$', '').replace('.', ''));
+
+            let subTotal = document.getElementsByClassName('header__cart-summary-subtotal')[0];
+            let subTotalValue = subTotal.innerHTML;
+            let subTotalNumber = parseInt(subTotalValue.replace('Subtotal: $', '').replace('.', ''));
+            let newSubTotal = (subTotalNumber - variantPriceNumber).toString();
+            //Need to handle 0 case.
+            let newSubTotalString;
+            if (newSubTotal === "0") {
+                newSubTotalString = newSubTotal;
+            } else {
+                newSubTotalString = `${newSubTotal.substr(0, newSubTotal.length - 2)}.${newSubTotal.slice(-2)}`;
+            }
+            subTotal.innerHTML = `Subtotal: $${newSubTotalString}`;
+            //Remove the item!
+            const summaryItemLabel = "SummaryItem";
+            const summaryItemId = `${summaryItemLabel}-${itemIndex}-${variantId}`;
+            document.getElementById(summaryItemId).remove();
+        } else {
+            // Error case
+            console.error(`Error ${xhr.status}: ${xhr.statusText}`);
+        }
+
+    }
+    xhr.onerror = function () {
+        console.error("Request to Add to Cart failed");
+    };
 }, false);
 
 //Homepage
@@ -305,12 +396,12 @@ document.addEventListener('click', function (event) {
     // Don't follow the link
     event.preventDefault();
 
-    const productId = event.target.id.split('-')[1];
+    const variantId = event.target.id.split('-')[1];
     const requestBody = {
         items: [
             {
                 "quantity": 1,
-                "id": productId,
+                "id": variantId,
             }
         ]
     };

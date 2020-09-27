@@ -20,6 +20,7 @@
   <div class="productpage__product-image-container">
       <div class="productpage__primary-product-image-container">
         <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" class="productpage__primary-image">
+        {{ 'butterfly.png' | asset_url | img_tag: 'Product Butterfly Accent', 'productpage__primary-image-accent' }}
       </div>
       <div class="productpage__secondary-product-image-row-container">
         {% for variant in product.variants %}

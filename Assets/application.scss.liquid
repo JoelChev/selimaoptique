@@ -879,12 +879,20 @@ a, span, p, label, button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .productpage__primary-image {
     border: 3px solid $color-black;
-    position: relative;
     margin-top: 110px;
+}
+
+.productpage__primary-image-accent {
+    width: 150px;
+    height: 128px;
+    position: absolute;
+    top: 80px;
+    right: -40px;
 }
 
 .productpage__secondary-product-image-row-container {
