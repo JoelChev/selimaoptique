@@ -263,6 +263,12 @@ document.addEventListener('click', function (event) {
         const headerLinksContainerMobile = document.getElementsByClassName('header-links-container-mobile')[0];
         headerLinksContainerMobile.classList.remove('header-links-container-mobile--hidden');
 
+        //Add the overlay
+        const mobileMenuOverlay = document.getElementsByClassName('mobile-nav-modal-overlay')[0];
+        mobileMenuOverlay.classList.remove('mobile-nav-modal-overlay--hidden');
+        const body = document.getElementsByTagName('body')[0];
+        body.style.overflowY = 'hidden';
+        headerLinksContainer.style.paddingRight = '15px';
     } else {
         // Minimize it
         const main = document.getElementById("main");
@@ -277,6 +283,13 @@ document.addEventListener('click', function (event) {
         headerLinksContainer.classList.remove('header-links-container--mobile-expanded');
         const headerLinksContainerMobile = document.getElementsByClassName('header-links-container-mobile')[0];
         headerLinksContainerMobile.classList.add('header-links-container-mobile--hidden');
+
+        //Remove the overlay
+        const mobileMenuOverlay = document.getElementsByClassName('mobile-nav-modal-overlay')[0];
+        mobileMenuOverlay.classList.add('mobile-nav-modal-overlay--hidden');
+        const body = document.getElementsByTagName('body')[0];
+        body.style.overflowY = 'scroll';
+        headerLinksContainer.style.paddingRight = '';
     }
 
 

@@ -158,6 +158,28 @@ a, span, p, label, button {
     }
 }
 
+
+.mobile-nav-modal-overlay {
+    z-index: 999;
+    position: fixed;
+    top: 400px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: $color-black;
+    opacity: 0.8;
+
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.mobile-nav-modal-overlay--hidden {
+    display: none;
+}
+
 // Mixins
 
 @mixin button-primary {
@@ -379,6 +401,16 @@ a, span, p, label, button {
     background: transparent;
     cursor: pointer;
     margin-bottom: 40px;
+
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+
     @media (min-width: $breakpoint-tablet) {
         display: none;
     }
