@@ -803,7 +803,7 @@ a, span, p, label, button {
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 520px;
+    top: 454px;
     left: 25%;
     height: 84px;
     width: 76px;
@@ -817,6 +817,18 @@ a, span, p, label, button {
         outline: 0;
         box-shadow: none!important;
     }
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        top: 390px;
+        width: 56px;
+        left: 19%;
+        height: 60px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        top: 293px;
+        width: 30px;
+        left: 20%;
+        height: 32px;
+    }
 }
 
 .homepage__next-button {
@@ -824,7 +836,7 @@ a, span, p, label, button {
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 492px;
+    top: 428px;
     right: 25%;
     height: 84px;
     width: 76px;
@@ -837,6 +849,18 @@ a, span, p, label, button {
     &:focus {
         outline: 0;
         box-shadow: none!important;
+    }
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        top: 369px;
+        width: 58px;
+        right: 19%;
+        height: 62px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        top: 283px;
+        right: 19%;
+        height: 33px;
+        width: 32px;
     }
 }
 
