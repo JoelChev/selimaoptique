@@ -360,8 +360,17 @@ a, span, p, label, button {
     background-size: 1140px 160px;
     z-index: -1;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-         width: 630px;      
-         background-size: 630px 160px; 
+        left: 138px;
+        width: 630px;      
+        background-size: 630px 160px; 
+    }
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        height: 122px;
+        left: 0;
+        background-image: url("homepage-header-mobile.png");
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
     }
 }
 
@@ -443,6 +452,14 @@ a, span, p, label, button {
     margin: 0 44px;
     z-index: 100;
     color: $color-blue-main;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        font-size: 24px;
+        line-height: 20px;
+        margin: 0 16px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .header__logo-link-container {
@@ -688,6 +705,7 @@ a, span, p, label, button {
 
 .homepage__image-carousel-container {
     text-align: center;
+    position: relative;
     overflow: hidden;
     margin: 40px auto auto auto;
 }
@@ -708,7 +726,7 @@ a, span, p, label, button {
 
 .homepage__image-mask {
     position: absolute;
-    top: 272px;
+    top: 72px;
     left: 0;
     right: 10px;
     margin-left: auto;
@@ -718,12 +736,12 @@ a, span, p, label, button {
     overflow: hidden;
 
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        top: 254px;
+        top: 54px;
         width: 488px;
         height: 292px;       
     }
     @media (max-width: $breakpoint-tablet) {
-        top: 225px;
+        top: 25px;
         width: 244px;
         height: 146px;
     }
@@ -803,8 +821,8 @@ a, span, p, label, button {
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 454px;
-    left: 25%;
+    top: 43%;
+    left: 27px;
     height: 84px;
     width: 76px;
     z-index: 1001;
@@ -818,16 +836,13 @@ a, span, p, label, button {
         box-shadow: none!important;
     }
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        top: 390px;
         width: 56px;
-        left: 19%;
         height: 60px;
     }
     @media (max-width: $breakpoint-tablet) {
-        top: 293px;
         width: 30px;
-        left: 20%;
         height: 32px;
+        left: 12px;
     }
 }
 
@@ -836,8 +851,8 @@ a, span, p, label, button {
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 428px;
-    right: 25%;
+    top: 38%;
+    right: 27px;
     height: 84px;
     width: 76px;
     z-index: 1001;
@@ -851,16 +866,13 @@ a, span, p, label, button {
         box-shadow: none!important;
     }
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        top: 369px;
         width: 58px;
-        right: 19%;
         height: 62px;
     }
     @media (max-width: $breakpoint-tablet) {
-        top: 283px;
-        right: 19%;
         height: 33px;
         width: 32px;
+        right: 12px;
     }
 }
 
