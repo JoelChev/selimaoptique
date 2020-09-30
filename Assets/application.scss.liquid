@@ -151,9 +151,18 @@ a, span, p, label, button {
     color: $color-black;
 }
 
+table,
+tr,
+td {
+    @media (max-width: $breakpoint-desktop) {
+          display: block !important;
+    }
+}
+
 .main--mobile-expanded {
-    margin-top: -400px;
-    @media (min-width: $breakpoint-tablet) {
+    margin-top: -240px;
+    padding-right: 15px;
+    @media (max-width: $breakpoint-tablet) {
         margin-top: 0;
     }
 }
@@ -340,7 +349,7 @@ a, span, p, label, button {
 
 .header-background--mobile-expanded {
      @media (max-width: $breakpoint-tablet) {
-        top: 350px;
+        top: 350px !important;
         //background-color: $color-yellow;
     }
 }
@@ -529,6 +538,8 @@ a, span, p, label, button {
     flex-direction: column;
     margin-top: 40px;
     margin-right: 24px;
+    justify-content: center;
+    align-items: center;
     @media (min-width: $breakpoint-tablet) {
         display: none;
     }
@@ -547,6 +558,22 @@ a, span, p, label, button {
     margin-bottom: 24px;
     text-decoration: none;
     width: content;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.header__link-mobile--selected {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
+    font-color: $color-blue-main;
+    margin-bottom: 24px;
+    text-decoration: none;
+    width: content;
+    border: 2px dashed $color-blue-main;
+    padding: 6px 12px;
     @media (min-width: $breakpoint-tablet) {
         display: none;
     }
@@ -892,12 +919,20 @@ a, span, p, label, button {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    // Both mobile and tablet will stack.
+    @media (max-width: $breakpoint-desktop) {
+        flex-direction: column;
+    }
 }
 
 .collectionspage__tile {
     display: flex;
     flex-direction: column;
     position: relative;
+    // Both mobile and tablet will stack.
+    @media (max-width: $breakpoint-desktop) {
+        margin-bottom: 100px;
+    }
 }
 
 .collectionspage__tile-title {
@@ -917,6 +952,17 @@ a, span, p, label, button {
     z-index: 3;
 }
 
+.collectionspage__mobile-border-container {
+    border-top: 3px dashed $color-black;
+    width: 100%;
+    content: '';
+    height: 3px;
+    margin: 56px 0;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
 .collectionspage__free-shipping-container {
     background-image: url("free-shipping-background.png");
     height: 72px;
@@ -926,6 +972,14 @@ a, span, p, label, button {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: $breakpoint-tablet) {
+        height: 54px;
+        width: 254px;
+        background-repeat: no-repeat;
+        background-size: 254px 54px;
+    }
 }
 
 .collectionspage__free-shipping-message {
@@ -933,13 +987,17 @@ a, span, p, label, button {
     font-weight: 500;
     font-size: 24px;
     line-height: 19px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 14px;
+        line-height: 11px;
+    }
 }
 
 //Collection Page SECTION
 
 .collectionpage {
     background: $color-lavendar;
-    height: 100vh;
+    //height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -950,6 +1008,9 @@ a, span, p, label, button {
     width: 100%;
     background-color: $color-lavendar-dark;
     display: flex;
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .collectionpage__header-title-container {
@@ -971,6 +1032,104 @@ a, span, p, label, button {
     text-decoration: none;
     border-bottom: solid 3px $color-blue-main;
     padding: 0 14px 10px;
+}
+
+.collectionpage__mobile-title-container {
+    padding-left: 16px;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.collectionpage__mobile-title {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
+}
+
+.collectionpage__mobile-header {
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.collectionpage__mobile-collection-options {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding-inline-start: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: -24px;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.collectionpage__mobile-collection-option {
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.collectionpage__mobile-collection-option--left-selected {
+    border: none;
+    background: $color-blue-main;
+    padding: 12px 24px;
+    border-radius: 8px 0 0 8px;
+}
+
+.collectionpage__mobile-collection-option--right-selected {
+    border: none;
+    background: $color-blue-main;
+    padding: 12px 24px;
+    border-radius: 0 8px 8px 0;
+}
+
+.collectionpage__mobile-collection-title {
+    font-family: "HK Grotesk";
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+    text-decoration: none;
+    color: $color-black;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.collectionpage__mobile-collection-title--left {
+    background: $color-white;
+    border-top: 2px dotted $color-blue-main;
+    border-bottom: 2px dotted $color-blue-main;
+    border-radius: 8px 0 0 8px;
+    padding: 12px 24px;
+    border-left: 2px dotted $color-blue-main;
+    border-right: 2px dotted $color-blue-main;
+}
+
+.collectionpage__mobile-collection-title--right {
+    background: $color-white;
+    border-top: 2px dotted $color-blue-main;
+    border-bottom: 2px dotted $color-blue-main;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 24px;
+    border-left: 2px dotted $color-blue-main;
+    border-right: 2px dotted $color-blue-main;
+}
+
+.collectionpage__mobile-collection-title--selected {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 18px;
+    color: $color-white;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .collectionpage__product-table {
@@ -1011,6 +1170,17 @@ a, span, p, label, button {
     line-height: 26px;
 }
 
+.collectionpage__mobile-border-container {
+    border-top: 3px dashed $color-black;
+    width: 100%;
+    content: '';
+    height: 3px;
+    margin: 56px 0;
+    @media (min-width: $breakpoint-desktop) {
+        display: none;
+    }
+}
+
 .collectionpage__free-shipping-container {
     background-image: url("free-shipping-background.png");
     height: 72px;
@@ -1022,6 +1192,12 @@ a, span, p, label, button {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    @media (max-width: $breakpoint-tablet) {
+        height: 54px;
+        width: 254px;
+        background-repeat: no-repeat;
+        background-size: 254px 54px;
+    }
 }
 
 .collectionpage__free-shipping-message {
@@ -1029,6 +1205,10 @@ a, span, p, label, button {
     font-weight: 500;
     font-size: 24px;
     line-height: 19px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 14px;
+        line-height: 11px;
+    }
 }
 
 //Product Page

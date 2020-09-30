@@ -2,11 +2,40 @@
   {% paginate collection.products by 4 %}
     <div class="collectionpage__header">
           <div class="collectionpage__header-title-container">
-            <a class="{% if {{collection.title}} == 'Ladies' %} collectionpage__header-title--highlighted  {% else %} collectionpage__header-title {% endif %}"
+            {% if {{collection.title}} == 'Ladies' %}
+              <span class="collectionpage__header-title--highlighted">Ladies</span>
+            {% else %}
+            <a class="collectionpage__header-title"
               href="{{collections['ladies'].url}}">Ladies</a>
-            <a class="{% if {{collection.title}} == 'Gentlemen' %} collectionpage__header-title--highlighted {% else %} collectionpage__header-title {% endif %}"
+            {% endif %}
+            {% if {{collection.title}} == 'Gentlemen' %}
+              <span class="collectionpage__header-title--highlighted">Gentlemen</span>
+            {% else %}
+            <a class="collectionpage__header-title"
               href="{{collections['gentlemen'].url}}">Gentlemen</a>
+            {% endif %}
           </div>
+    </div>
+    <div class="collectionpage__mobile-title-container">
+      <h1 class="collectionpage__mobile-title">SHOP ONLINE</h1>
+    </div>
+    <div class="collectionpage__mobile-header">
+        <ul class="collectionpage__mobile-collection-options">
+          <li class="collectionpage__mobile-collection-option {% if {{collection.title}} == 'Ladies' %} collectionpage__mobile-collection-option--left-selected {% endif %}">
+            {% if {{collection.title}} == 'Ladies' %}
+              <span class="collectionpage__mobile-collection-title--selected" href="{{collections['ladies'].url}}">Ladies</span>
+            {% else %}
+            <a class="collectionpage__mobile-collection-title collectionpage__mobile-collection-title--left" href="{{collections['ladies'].url}}">Ladies</a>
+            {% endif %}
+          </li>
+          <li class="collectionpage__mobile-collection-option {% if {{collection.title}} == 'Gentlemen' %} collectionpage__mobile-collection-option--right-selected {% endif %}">
+            {% if {{collection.title}} == 'Gentlemen' %}
+              <span class="collectionpage__mobile-collection-title--selected" href="{{collections['gentlemen'].url}}">Gentlemen</span>
+            {% else %}
+            <a class="collectionpage__mobile-collection-title collectionpage__mobile-collection-title--right" href="{{collections['gentlemen'].url}}">Gentlemen</a>
+            {% endif %}
+          </li>
+        </ul>
     </div>
     <table class="collectionpage__product-table">
     {% tablerow product in collection.products cols:2 %}
@@ -24,6 +53,8 @@
       </div>
     {% endtablerow%}
     </table>
+    <div class="collectionpage__mobile-border-container">
+    </div>
     <div class="collectionpage__free-shipping-container">
         <span class="collectionpage__free-shipping-message">FREE SHIPPING IN THE US</span>
     </div>
