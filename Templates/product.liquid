@@ -10,6 +10,27 @@
        <h1 class="productpage__product-title">{{ product.title }}</h1>
        <h2 class="productpage__variant-title">{{current_variant.title}}</h2>
        <h3 class="productpage__variant-price">{{current_variant.price | money}}</h3>
+         <div class="productpage__product-image-container-mobile">
+      <div class="productpage__primary-product-image-container">
+        <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" class="productpage__primary-image">
+        {{ 'butterfly.png' | asset_url | img_tag: 'Product Butterfly Accent', 'productpage__primary-image-accent' }}
+      </div>
+      <div class="productpage__secondary-product-image-row-container">
+        {% for variant in product.variants %}
+          {% if variant.id != current_variant.id %}
+            <button class="productpage__secondary-product-button" id="secondaryProductButton-{{variant.id}}">
+              <img src="{{ variant.image | img_url: '152x76' }}" alt="{{ image.alt | escape }}" class="productpage__secondary-image" id="secondaryProductImage-{{variant.id}}">
+              <span class="productpage__secondary-product-title" id="secondaryProductTitle-{{variant.id}}">{{ variant.title }}</span>
+            </button>
+          {% else %}
+            <div class="productpage__secondary-product-image-container" id="secondaryProductButton-{{variant.id}}">
+              <img src="{{ variant.image | img_url: '152x76' }}" alt="{{ image.alt | escape }}" class="productpage__secondary-image--selected" id="secondaryProductImage-{{variant.id}}">
+              <span class="productpage__secondary-product-title--selected" id="secondaryProductTitle-{{variant.id}}">{{ variant.title }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+  </div>
        <button class="productpage__purchase-button" id="addToCart-{{current_variant.id}}">I'll Take Them!</button>
     </div>
     <div class="productpage__product-description-container">
