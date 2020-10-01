@@ -16,6 +16,7 @@ $color-grey-4: #F5F5F5;
 $color-white: #ffffff;
 $color-black: #222222;
 $color-yellow: #FFFFC5;
+$color-pastel-pink: #F7EAF0;
 
 // Breakpoints
 $breakpoint-mobile: 324px;
@@ -327,7 +328,7 @@ td {
     background: $color-lavendar;
 }
 
-.header-background {
+.header-background-about {
     position: absolute;
     left: 0;
     right: 0;
@@ -336,7 +337,7 @@ td {
     width: 1390px;
     margin-left: auto;
     margin-right: auto;
-    background-image: url("homepage-header.png");
+    background-image: url("about-header.png");
     background-repeat: no-repeat;
     background-size: 1390px 160px;
     z-index: -1;
@@ -351,6 +352,10 @@ td {
         border-bottom-left-radius: 50%;
         border-bottom-right-radius: 50%;
     }
+}
+
+.header--pink {
+    background: $color-pastel-pink;
 }
 
 .header-background--mobile-expanded {
@@ -387,6 +392,10 @@ td {
         border-bottom-left-radius: 50%;
         border-bottom-right-radius: 50%;
     }
+}
+
+.header-background-about {
+
 }
 
 .header-nav-container {

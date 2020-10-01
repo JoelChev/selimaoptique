@@ -15,13 +15,25 @@
   <div class="header
     {% if {{template.name}} == 'list-collections' or {{template.name}} == 'collection' or {{template.name}} == 'product'%}
     header--purple
-    {% endif %}">
+    {% endif %}
+    {% if {{page_title}} == 'About' and {{template.name}} == 'page' %}
+    header--pink
+    {% endif %}"
+    id="{{page_title}}">
     {% if {{template.name}} == 'index' %}
     <div class="header-background">
     </div>
     {% endif %}
     {% if {{template.name}} == 'list-collections' or {{template.name}} == 'collection' or {{template.name}} == 'product'%}
       <div class="header-background-collections">
+      </div>
+    {% endif %}
+    {% if {{page_title}} == 'About' and {{template.name}} == 'page' %}
+      <div class="header-background-about">
+      </div>
+    {% endif %}
+    {% if {{template.name}} == 'about'%}
+      <div class="header-background-about">
       </div>
     {% endif %}
     <div class="header-nav-container">
