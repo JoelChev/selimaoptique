@@ -1,0 +1,41 @@
+<div class="aboutpage">
+    <div class="aboutpage__header">
+          <div class="aboutpage__header-title-container">
+            {% if {{page_title}} == 'About Selima Salaun' %}
+              <span class="aboutpage__header-title--highlighted">Selima Salaun</span>
+            {% else %}
+            <a class="aboutpage__header-title"
+              href="/pages/about-selima-salaun">Selima Salaun</a>
+            {% endif %}
+            {% if {{page_title}} == 'About Selima Optique' %}
+              <span class="collectionpage__header-title--highlighted">Selima Optique</span>
+            {% else %}
+            <a class="aboutpage__header-title"
+              href="/pages/about-selima-optique">Selima Optique</a>
+            {% endif %}
+            {% if {{page_title}} == 'About Glasses Care' %} %}
+              <span class="collectionpage__header-title--highlighted">Glasses Care Guide</span>
+            {% else %}
+            <a class="aboutpage__header-title"
+              href="/pages/about-glasses-care">Glasses Care Guide</a>
+            {% endif %}
+          </div>
+    </div>
+    <div class="aboutpage__selima-salaun-container">
+        <div class="aboutpage__selima-salaun-image-container">
+            {{ 'selimasalaun.png' | asset_url | img_tag: 'Selima Salaun', 'aboutpage__selima-salaun-photo' }}
+            {{ 'drawingroom.png' | asset_url | img_tag: 'Selima Salaun Background Image', 'aboutpage__selima-salaun-background' }}
+        </div>
+        <div class="aboutpage__selima-saluan-text-container">
+            <p class="aboutpage__selima-salaun-text">
+            Selima Salaun is the creative vision behind Selima Optique, the trend-setting, luxury eyewear brand she founded. Selima believes your eyewear is a reflection of your look — the personality you project. Your look is the mood you convey each and every day! Selima was born along the Mediterranean Coast and the rhythm of the Riviera is in her soul. She embodies French sensibility, style and elegance. But her wit and whimsy are all her own, and they bring the brand to life.
+            </p>
+            <p class="aboutpage__selima-salaun-text">
+            Selima is an opticienne-lunetiere, both a licensed optician and an optometrist, who studied and honed her craft in Paris. She began her career with Royal Optique, a company whose early focus on custom designed frames was the epitome of European luxury eyewear. Her ambition and love for eyewear aesthetics took her to New York City to manage the Alain Mikli boutique. When faced with the opportunity to move to Tokyo for the brand, her fate was sealed.
+            </p>
+            <p class="aboutpage__selima-salaun-text">
+            She drew inspiration from the raw energy of New York and couldn’t imagine living anywhere else! With the confluence of passion, expertise, and inspiration, she created her own luxury brand — a fusion of that French sensibility and the creativity that’s uniquely New York.<br/><br/>Selima shares her joys and her dreams with her husband, two children, two cats, and four dogs in SoHo.
+            </p>
+        </div>
+    </div>
+</div>

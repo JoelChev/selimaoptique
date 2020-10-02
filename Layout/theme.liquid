@@ -16,7 +16,7 @@
     {% if {{template.name}} == 'list-collections' or {{template.name}} == 'collection' or {{template.name}} == 'product'%}
     header--purple
     {% endif %}
-    {% if {{page_title}} == 'About' and {{template.name}} == 'page' %}
+    {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
     header--pink
     {% endif %}"
     id="{{page_title}}">
@@ -28,11 +28,7 @@
       <div class="header-background-collections">
       </div>
     {% endif %}
-    {% if {{page_title}} == 'About' and {{template.name}} == 'page' %}
-      <div class="header-background-about">
-      </div>
-    {% endif %}
-    {% if {{template.name}} == 'about'%}
+    {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
       <div class="header-background-about">
       </div>
     {% endif %}
