@@ -1578,11 +1578,17 @@ td {
     display: flex;
     justify-content: space-around;
     padding-top: 56px;
+    @media (max-width: $breakpoint-desktop) {
+        padding: 56px 18px 0;
+    }
 }
 
 .aboutpage__selima-optique-image-container {
     display: flex;
     flex-direction: column;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        max-width: 50%;
+    }
 }
 
 .aboutpage__selima-optique-photo {
@@ -1599,6 +1605,10 @@ td {
 
 .aboutpage__selima-optique-text-container {
     max-width: 568px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        max-width: 50%;
+        padding-left: 18px;
+    }
 }
 
 .aboutpage__selima-optique-text {
