@@ -1,0 +1,36 @@
+<div class="aboutpage">
+    <div class="aboutpage__header">
+          <div class="aboutpage__header-title-container">
+            {% if {{page_title}} == 'About Selima Salaun' %}
+              <span class="aboutpage__header-title--highlighted">Selima Salaun</span>
+            {% else %}
+            <a class="aboutpage__header-title"
+              href="/pages/about-selima-salaun">Selima Salaun</a>
+            {% endif %}
+            {% if {{page_title}} == 'About Selima Optique' %}
+              <span class="collectionpage__header-title--highlighted">Selima Optique</span>
+            {% else %}
+            <a class="aboutpage__header-title"
+              href="/pages/about-selima-optique">Selima Optique</a>
+            {% endif %}
+            {% if {{page_title}} == 'About Glasses Care' %} %}
+              <span class="collectionpage__header-title--highlighted">Glasses Care Guide</span>
+            {% else %}
+            <a class="aboutpage__header-title"
+              href="/pages/about-glasses-care">Glasses Care Guide</a>
+            {% endif %}
+          </div>
+    </div>
+    <div class="aboutpage__selima-optique-container">
+        <div class="aboutpage__selima-optique-image-container">
+            {{ 'selimaoptiquestore.png' | asset_url | img_tag: 'Selima Optique Store', 'aboutpage__selima-optique-photo' }}
+            {{ 'about-selima-optique-title.png' | asset_url | img_tag: 'Selima Optique Title', 'aboutpage__selima-optique-title-image' }}
+            {{ 'raining.png' | asset_url | img_tag: 'Selima Optique Background Image', 'aboutpage__selima-optique-background' }}
+        </div>
+        <div class="aboutpage__selima-optique-text-container">
+            <p class="aboutpage__selima-optique-text">
+            Selima Optique combines high fashion with everyday function, blending tradition and modernity to create truly timeless eyewear. Selima operates eight boutiques in Paris, New York and LA — and her edgy, innovative spectacles and sun wear have developed a loyal following. She's attracted the worldwide attention of media personalities, corporate CEOs, fashion designers... and people from all walks of life who want to see and be seen in a pair of Selima's edgy frames!<br/><br/>In 1993, Selima’s first boutique opened in SoHo and quickly became a rendezvous for all sorts of creative personalities who appreciated the quality craftsmanship of Selima's works. (Admittedly, they were also drawn to the designer's dynamic personality!) Since those early, heady days, Selima Optique has crafted custom frames for the likes of Bono, Liv Tyler and Madonna — to name drop a bit! These custom frame orders led to the official launch of the Selima branded eyewear collection at Barneys New York in 1996 through her own shop-in-shop, the first of its kind. Selima also designs collections of specialty frames for fashion brands Jack Spade and J. Crew.<br/><br/>Over the years, sources in fashion and cinema have inspired the creation of many Selima Optique frames, as much as the vintage frames that Selima herself collects. But the greatest source of inspiration has always been Selima's daily interaction with her clients. In fact, Selima keeps herself busy at all eight boutiques! Selima Optique is the best-kept secret of the hip, the smart and, of course, the savvy. Drop by a Selima Optique and you're sure to be surprised by what you see!
+            </p>
+        </div>
+    </div>
+</div>

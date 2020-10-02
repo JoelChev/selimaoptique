@@ -1,0 +1,24 @@
+<div class="aboutpage">
+    <div class="aboutpage__header">
+          <div class="aboutpage__header-title-container">
+            {% if {{page_title}} == 'About Selima Salaun' %}
+              <span class="aboutpage__header-title--highlighted">Selima Salaun</span>
+            {% else %}
+            <a class="aboutpage__header-title"
+              href="/pages/about-selima-salaun">Selima Salaun</a>
+            {% endif %}
+            {% if {{page_title}} == 'About Selima Optique' %}
+              <span class="collectionpage__header-title--highlighted">Selima Optique</span>
+            {% else %}
+            <a class="aboutpage__header-title"
+              href="/pages/about-selima-optique">Selima Optique</a>
+            {% endif %}
+            {% if {{page_title}} == 'About Glasses Care' %}
+              <span class="collectionpage__header-title--highlighted">Glasses Care Guide</span>
+            {% else %}
+            <a class="aboutpage__header-title"
+              href="/pages/about-glasses-care">Glasses Care Guide</a>
+            {% endif %}
+          </div>
+    </div>
+</div>
