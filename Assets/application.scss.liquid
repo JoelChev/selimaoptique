@@ -1513,6 +1513,19 @@ td {
     flex-direction: column;
 }
 
+.aboutpage__title {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
+    margin-top: 12px;
+    margin-bottom: 22px;
+    margin-left: 18px;
+    @media(min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
 .aboutpage__header {
     margin-top: 20px;
     height: 46px;
@@ -1681,6 +1694,54 @@ td {
     @media (max-width: $breakpoint-tablet) {
         font-size: 16px;
         line-height: 24px;
+    }
+}
+
+.aboutpage__glasses-care-container {
+    display: flex;
+    @media (max-width: $breakpoint-tablet) {
+        padding: 0 18px;
+        margin-top: 64px;
+    }
+}
+
+.aboutpage__glasses-care-image-container {
+    margin-right: 56px;
+    margin-left: 140px;
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.aboutpage__glasses-care-text-container {
+    margin-right: 140px;
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.aboutpage__glasses-care-title {
+    margin-bottom: 8px;
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 20px;
+    @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 16px;
+    }
+}
+
+.aboutpage__glasses-care-text {
+    margin-bottom: 32px;
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 56px;
     }
 }
 
