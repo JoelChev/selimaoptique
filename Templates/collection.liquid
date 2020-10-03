@@ -23,14 +23,14 @@
         <ul class="collectionpage__mobile-collection-options">
           <li class="collectionpage__mobile-collection-option {% if {{collection.title}} == 'Ladies' %} collectionpage__mobile-collection-option--left-selected {% endif %}">
             {% if {{collection.title}} == 'Ladies' %}
-              <span class="collectionpage__mobile-collection-title--selected" href="{{collections['ladies'].url}}">Ladies</span>
+              <span class="collectionpage__mobile-collection-title--selected">Ladies</span>
             {% else %}
             <a class="collectionpage__mobile-collection-title collectionpage__mobile-collection-title--left" href="{{collections['ladies'].url}}">Ladies</a>
             {% endif %}
           </li>
           <li class="collectionpage__mobile-collection-option {% if {{collection.title}} == 'Gentlemen' %} collectionpage__mobile-collection-option--right-selected {% endif %}">
             {% if {{collection.title}} == 'Gentlemen' %}
-              <span class="collectionpage__mobile-collection-title--selected" href="{{collections['gentlemen'].url}}">Gentlemen</span>
+              <span class="collectionpage__mobile-collection-title--selected">Gentlemen</span>
             {% else %}
             <a class="collectionpage__mobile-collection-title collectionpage__mobile-collection-title--right" href="{{collections['gentlemen'].url}}">Gentlemen</a>
             {% endif %}

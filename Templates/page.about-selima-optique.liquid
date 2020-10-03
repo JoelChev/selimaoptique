@@ -14,13 +14,38 @@
             <a class="aboutpage__header-title"
               href="/pages/about-selima-optique">Selima Optique</a>
             {% endif %}
-            {% if {{page_title}} == 'About Glasses Care' %} %}
+            {% if {{page_title}} == 'About Glasses Care' %}
               <span class="collectionpage__header-title--highlighted">Glasses Care Guide</span>
             {% else %}
             <a class="aboutpage__header-title"
               href="/pages/about-glasses-care">Glasses Care Guide</a>
             {% endif %}
           </div>
+    </div>
+    <div class="aboutpage__mobile-header">
+        <ul class="aboutpage__mobile-collection-options">
+          <li class="aboutpage__mobile-collection-option {% if {{page_title}} == 'About Selima Salaun' %} aboutpage__mobile-collection-option--left-selected {% endif %}">
+            {% if {{page_title}} == 'About Selima Salaun' %}
+              <span class="aboutpage__mobile-collection-title--selected">Selima Saluan</span>
+            {% else %}
+            <a class="aboutpage__mobile-collection-title aboutpage__mobile-collection-title--left" href="/pages/about-selima-salaun">Selima Salaun</a>
+            {% endif %}
+          </li>
+          <li class="aboutpage__mobile-collection-option {% if {{page_title}} == 'About Selima Optique' %} aboutpage__mobile-collection-option--center-selected {% endif %}">
+            {% if {{page_title}} == 'About Selima Optique' %}
+              <span class="aboutpage__mobile-collection-title--selected">Selima Optique</span>
+            {% else %}
+            <a class="aboutpage__mobile-collection-title aboutpage__mobile-collection-title--center" href="/pages/about-selima-optique">Selima Optique</a>
+            {% endif %}
+          </li>
+          <li class="aboutpage__mobile-collection-option {% if {{page_title}} == 'About Glasses Care' %} aboutpage__mobile-collection-option--right-selected {% endif %}">
+            {% if {{page_title}} == 'About Glasses Care' %}
+              <span class="aboutpage__mobile-collection-title--selected">Glasses Care</span>
+            {% else %}
+            <a class="aboutpage__mobile-collection-title aboutpage__mobile-collection-title--right" href="/pages/about-glasses-care">Glasses Care</a>
+            {% endif %}
+          </li>
+        </ul>
     </div>
     <div class="aboutpage__selima-optique-container">
         <div class="aboutpage__selima-optique-image-container">
