@@ -93,9 +93,17 @@
                 <a class="header__link-mobile" href="{{ link.url }}">SHOP</a>
               {% endif %}
             {% else %}
-              <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase}}</a>
+              {% if {{link.title}} == 'About' %}
+                {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
+                  <span class="header__link-mobile--selected">ABOUT</span>
+                {% else %}
+                  <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase}}</a>
+                {% endif %}
+              {% else %}
+                <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase}}</a>
+              {% endif %}
             {% endif %}
-          {% endif %}
+          {% endif%}
         {% endfor %}
       </div>
     </div>

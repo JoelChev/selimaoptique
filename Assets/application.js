@@ -246,27 +246,33 @@ document.addEventListener('click', function (event) {
     // Don't follow the link
     event.preventDefault();
 
-    //Check if expanded or not
+    //Check if expanded or not (both default and about header)
     const headerNavContainerExpanded = document.getElementsByClassName('header-nav-container--mobile-expanded');
-    if (headerNavContainerExpanded.length === 0) {
+    const headerNavContainerExpandedAbout = document.getElementsByClassName('header-nav-container--mobile-expanded-about');
+    if (headerNavContainerExpanded.length === 0 && headerNavContainerExpandedAbout.length === 0) {
         //Trigger the expansion
         const main = document.getElementById("main");
         main.classList.add('main--mobile-expanded');
         const header = document.getElementsByClassName('header')[0];
         header.classList.add('header--mobile-expanded');
+        const headerNavContainer = document.getElementsByClassName('header-nav-container')[0];
         //There are different headers on different pages. Need to do further refinement here.
         // Default pages
         if (document.getElementsByClassName('header-background').length > 0) {
             const headerBackground = document.getElementsByClassName('header-background')[0];
             headerBackground.classList.add('header-background--mobile-expanded');
+            headerNavContainer.classList.add('header-nav-container--mobile-expanded');
         } else if (document.getElementsByClassName('header-background-collections').length > 0) {
             // Shop Pages
             const headerBackground = document.getElementsByClassName('header-background-collections')[0];
             headerBackground.classList.add('header-background--mobile-expanded');
+            headerNavContainer.classList.add('header-nav-container--mobile-expanded');
+        } else if (document.getElementsByClassName('header-background-about').length > 0) {
+            // About Pages
+            const headerBackground = document.getElementsByClassName('header-background-about')[0];
+            headerBackground.classList.add('header-background--mobile-expanded');
+            headerNavContainer.classList.add('header-nav-container--mobile-expanded-about');
         }
-
-        const headerNavContainer = document.getElementsByClassName('header-nav-container')[0];
-        headerNavContainer.classList.add('header-nav-container--mobile-expanded');
         const headerLinksContainer = document.getElementsByClassName('header-links-container')[0];
         headerLinksContainer.classList.add('header-links-container--mobile-expanded');
         const headerLinksContainerMobile = document.getElementsByClassName('header-links-container-mobile')[0];
@@ -284,18 +290,24 @@ document.addEventListener('click', function (event) {
         main.classList.remove('main--mobile-expanded');
         const header = document.getElementsByClassName('header')[0];
         header.classList.remove('header--mobile-expanded');
+        const headerNavContainer = document.getElementsByClassName('header-nav-container')[0];
         //There are different headers on different pages. Need to do further refinement here.
         // Default pages
         if (document.getElementsByClassName('header-background').length > 0) {
             const headerBackground = document.getElementsByClassName('header-background')[0];
             headerBackground.classList.remove('header-background--mobile-expanded');
+            headerNavContainer.classList.remove('header-nav-container--mobile-expanded');
         } else if (document.getElementsByClassName('header-background-collections').length > 0) {
             // Shop Pages
             const headerBackground = document.getElementsByClassName('header-background-collections')[0];
             headerBackground.classList.remove('header-background--mobile-expanded');
+            headerNavContainer.classList.remove('header-nav-container--mobile-expanded');
+        } else if (document.getElementsByClassName('header-background-about').length > 0) {
+            // About Pages
+            const headerBackground = document.getElementsByClassName('header-background-about')[0];
+            headerBackground.classList.remove('header-background--mobile-expanded');
+            headerNavContainer.classList.remove('header-nav-container--mobile-expanded-about');
         }
-        const headerNavContainer = document.getElementsByClassName('header-nav-container')[0];
-        headerNavContainer.classList.remove('header-nav-container--mobile-expanded');
         const headerLinksContainer = document.getElementsByClassName('header-links-container')[0];
         headerLinksContainer.classList.remove('header-links-container--mobile-expanded');
         const headerLinksContainerMobile = document.getElementsByClassName('header-links-container-mobile')[0];

@@ -314,6 +314,7 @@ td {
         height: 122px;
         position: sticky;
         top: 0;
+        z-index: 1000000000;
     }
 }
 
@@ -415,7 +416,7 @@ td {
     @media (max-width: $breakpoint-tablet) {
         width: 100%;
         height: 122px;
-        background-image: url("homepage-header-mobile.png");
+        background-image: url("about-header-mobile.png");
         border-bottom-left-radius: 50%;
         border-bottom-right-radius: 50%;
     }
@@ -433,6 +434,13 @@ td {
     @media (max-width: $breakpoint-tablet) {
         height: 400px;
         background-color: $color-yellow;
+    }
+}
+
+.header-nav-container--mobile-expanded-about {
+    @media (max-width: $breakpoint-tablet) {
+        height: 400px;
+        background-color: $color-lavendar-dark;
     }
 }
 
@@ -1541,27 +1549,55 @@ td {
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: $breakpoint-tablet) {
+        padding: 0 18px;
+    }
 }
 
 .aboutpage__selima-salaun-image-container {
     position: relative;
     margin-top: 56px;
+    @media (max-width: $breakpoint-tablet) {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .aboutpage__selima-salaun-photo {
     position: absolute;
     top: 0;
     left: 0;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        max-width: 200px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        display: flex;
+        max-width: 343px;
+        height: auto;
+        position: static;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .aboutpage__selima-salaun-background {
     margin-left: 150px;
     margin-top: 16px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        max-width: 600px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        margin: 0;
+        max-width: 100%;
+    }
 }
 
-.aboutpage__selima-saluan-text-container {
+.aboutpage__selima-salaun-text-container {
     display: flex;
     margin-top: 40px;
+    @media (max-width: $breakpoint-tablet) {
+        flex-direction: column;
+    }
 }
 
 .aboutpage__selima-salaun-text {
@@ -1572,6 +1608,15 @@ td {
     color: $color-black;
     max-width: 328px;
     margin: 0 32px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        max-width: 200px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        max-width: 100%;
+        margin: 16px 0;
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .aboutpage__selima-optique-container {
