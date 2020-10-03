@@ -1284,7 +1284,7 @@ td {
     margin-bottom: 66px;
     @media(max-width: $breakpoint-tablet) {
         margin-bottom: 45px;
-        margin-top: 32px;
+        margin-top: 64px;
     }
 }
 
@@ -1558,6 +1558,17 @@ td {
     padding: 0 14px 10px;
 }
 
+.aboutpage__mobile-border-container {
+    border-top: 3px dashed $color-black;
+    width: 100%;
+    content: '';
+    height: 3px;
+    margin: 56px 0;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
 .aboutpage__selima-salaun-container {
     display: flex;
     flex-direction: column;
@@ -1699,6 +1710,7 @@ td {
 
 .aboutpage__glasses-care-container {
     display: flex;
+    margin-top: 56px;
     @media (max-width: $breakpoint-tablet) {
         padding: 0 18px;
         margin-top: 64px;
@@ -1743,6 +1755,11 @@ td {
         line-height: 24px;
         margin-bottom: 56px;
     }
+}
+
+.aboutpage__glasses-care-link {
+    text-decoration: none;
+    color: $color-blue-main;
 }
 
 
