@@ -62,7 +62,15 @@
                 <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
               {% endif %}
             {% else %}
-              <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
+              {% if {{link.title}} == 'About' %}
+                {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
+                  <span class="header__link--selected">ABOUT</span>
+                {% else %}
+                  <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
+                {% endif %}
+              {% else %}
+                <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
+              {% endif %}
             {% endif %}
           {% endif %}
         {% endfor %}
