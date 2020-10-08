@@ -18,10 +18,17 @@
     {% endif %}
     {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
     header--pink
+    {% endif %}
+    {% if {{template.name}} == 'cart'%}
+    header--white
     {% endif %}"
     id="{{page_title}}">
     {% if {{template.name}} == 'index' %}
     <div class="header-background">
+    </div>
+    {% endif %}
+    {% if {{template.name}} == 'cart' %}
+    <div class="header-background-cart">
     </div>
     {% endif %}
     {% if {{template.name}} == 'list-collections' or {{template.name}} == 'collection' or {{template.name}} == 'product'%}

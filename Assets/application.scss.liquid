@@ -360,6 +360,10 @@ td {
     background: $color-pastel-pink;
 }
 
+.header--white {
+    background: $color-white;
+}
+
 .header-background--mobile-expanded {
      @media (max-width: $breakpoint-tablet) {
         top: 350px !important;
@@ -378,6 +382,34 @@ td {
     margin-left: auto;
     margin-right: auto;
     background-image: url("shop-online-header.png");
+    background-repeat: no-repeat;
+    background-size: 1140px 160px;
+    z-index: -1;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        left: 138px;
+        width: 630px;      
+        background-size: 630px 160px; 
+    }
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        height: 122px;
+        left: 0;
+        background-image: url("homepage-header-mobile.png");
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+}
+
+.header-background-cart {
+    position: absolute;
+    left: 0;
+    right: 200px;
+    top: 0;
+    bottom: 0;
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("cart-header.png");
     background-repeat: no-repeat;
     background-size: 1140px 160px;
     z-index: -1;
@@ -1526,7 +1558,10 @@ td {
     font-size: 18px;
     line-height: 26px;
     display: flex;
-    flex: 0 0 33%;
+    flex: 0 0 40%;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        flex: 0 0 60%;
+    }
 }
 
 .cartpage__price-header {
@@ -1535,18 +1570,26 @@ td {
     font-size: 18px;
     line-height: 26px;
     display: flex;
-    flex: 0 0 33%;
+    flex: 0 0 40%;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        flex: 0 0 25%;
+    }
 }
 
 .cartpage__item-container {
     display: flex;
     margin: 32px 0;
     width: 100%;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed $color-black;
 }
 
 .cartpage__item-image-title-container {
     display: flex;
-    flex: 0 0 33%;
+    flex: 0 0 40%;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        flex: 0 0 60%;
+    }
 }
 
 .cartpage__item-image {
@@ -1579,7 +1622,10 @@ td {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: 0 0 33%;
+    flex: 0 0 40%;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        flex: 0 0 25%;
+    }
 }
 
 .cartpage__item-price {
@@ -1594,6 +1640,117 @@ td {
     align-items: center;
     margin-left: auto;
     margin-right: 16px;
+}
+
+.cartpage__item-remove-button {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: $color-blue-main;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: auto;
+
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
+.cartpage__footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 48px;
+}
+
+.cartpage__footer-text-container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.cartpage__subtotal-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.cartpage__subtotal-label {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.cartpage__subtotal-amount {
+    font-family: "HK Grotesk";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.cartpage__tax-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+}
+
+.cartpage__tax-label {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.cartpage__tax-amount {
+    font-family: "HK Grotesk";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.cartpage__total-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cartpage__total-label {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.cartpage__total-amount {
+    font-family: "HK Grotesk";
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.cartpage__checkout-link {
+    margin-top: 48px;
+    @include button-primary;
+    max-width: 214px;
+    margin-left: auto;
+    text-decoration: none;
+    margin-bottom: 180px;
+    &:hover {
+        cursor: pointer;
+        border-bottom: dashed 2px $color-white;
+    }
+    &:active {
+        background-color: $color-blue-secondary;
+        border-bottom: dashed 2px $color-white;
+    }
 }
 
 // About Page Section
