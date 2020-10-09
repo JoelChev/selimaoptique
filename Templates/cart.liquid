@@ -28,17 +28,9 @@
     {% endfor%}
     <div class="cartpage__footer-container">
       <div class="cartpage__footer-text-container">
-        <div class="cartpage__subtotal-container">
-          <h4 class="cartpage__subtotal-label">Subtotal:</h4>
-          <span class="cartpage__subtotal-amount">{{ cart.total_price | money }}</span>
-        </div>
-        <div class="cartpage__tax-container">
-          <h4 class="cartpage__tax-label">Tax (NY residents only):</h4>
-          <span class="cartpage__tax-amount">{{ cart.total_price | times: 0.08875 | money}}</span>
-        </div>
         <div class="cartpage__total-container">
           <h3 class="cartpage__total-label">Total:</h3>
-          <span class="cartpage__total-amount">{{ cart.total_price | times: 1.08875 | money}}</span>
+          <span class="cartpage__total-amount">{{ cart.total_price | money}}</span>
         </div>
         <a href="/checkout" class="cartpage__checkout-link">Proceed to Checkout</a>
       </div>
