@@ -115,27 +115,27 @@ function _hideCartSummary() {
 
 // Header
 
-//This is used to show the cart summary.
-document.addEventListener('click', function (event) {
-    // If the clicked element doesn't have the right selector, bail
-    if (!event.target.matches('.header__cart-button')
-        && !event.target.matches('.header__cart-icon')
-        && !event.target.matches('.header__cart-total')) {
-        return;
-    }
-    // Don't follow the link
-    event.preventDefault();
+// //This is used to show the cart summary.
+// document.addEventListener('click', function (event) {
+//     // If the clicked element doesn't have the right selector, bail
+//     if (!event.target.matches('.header__cart-button')
+//         && !event.target.matches('.header__cart-icon')
+//         && !event.target.matches('.header__cart-total')) {
+//         return;
+//     }
+//     // Don't follow the link
+//     event.preventDefault();
 
-    // If it is not already showing, get the cart contents into the summary and show it!
-    let headerCartSummaryHidden = document.getElementsByClassName('header__cart-summary--hidden');
-    if (headerCartSummaryHidden.length === 1) {
-        _positionHeaderCartSummary();
-        _getAndShowCartSummary();
-    } else {
-        _hideCartSummary();
-    }
+//     // If it is not already showing, get the cart contents into the summary and show it!
+//     let headerCartSummaryHidden = document.getElementsByClassName('header__cart-summary--hidden');
+//     if (headerCartSummaryHidden.length === 1) {
+//         _positionHeaderCartSummary();
+//         _getAndShowCartSummary();
+//     } else {
+//         _hideCartSummary();
+//     }
 
-}, false);
+// }, false);
 
 //This is used to hide the cart summary.
 document.addEventListener('click', function (event) {

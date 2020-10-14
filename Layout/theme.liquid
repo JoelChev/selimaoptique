@@ -81,15 +81,15 @@
             {% endif %}
           {% endif %}
         {% endfor %}
-        <div class="header__cart-button-container">
-          <button class="header__cart-button">
+        <div class="header__cart-link-container">
+          <a class="header__cart-link" href="/cart">
                 {{ 'shopping-bag.png' | asset_url | img_tag: 'Shopping Bag', 'header__cart-icon' }}
                 {% if {{cart.item_count}} > 0 %}
                   <span class="header__cart-total">({{ cart.item_count }})</span>
                 {% else %}
                   <span class="header__cart-total"></span>
                 {% endif %}
-          </button>
+          </a>
         </div>
       </div>
       <div class="header-links-container-mobile header-links-container-mobile--hidden">
