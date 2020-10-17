@@ -246,10 +246,13 @@ document.addEventListener('click', function (event) {
     // Don't follow the link
     event.preventDefault();
 
-    //Check if expanded or not (both default and about header)
+    //Check if expanded or not (have to check default, cart, and about headers)
     const headerNavContainerExpanded = document.getElementsByClassName('header-nav-container--mobile-expanded');
+    const headerNavContainerExpandedCart = document.getElementsByClassName('header-nav-container--mobile-expanded-cart');
     const headerNavContainerExpandedAbout = document.getElementsByClassName('header-nav-container--mobile-expanded-about');
-    if (headerNavContainerExpanded.length === 0 && headerNavContainerExpandedAbout.length === 0) {
+    if (headerNavContainerExpanded.length === 0
+        && headerNavContainerExpandedCart.length === 0
+        && headerNavContainerExpandedAbout.length === 0) {
         //Trigger the expansion
         const main = document.getElementById("main");
         main.classList.add('main--mobile-expanded');
@@ -267,6 +270,11 @@ document.addEventListener('click', function (event) {
             const headerBackground = document.getElementsByClassName('header-background-collections')[0];
             headerBackground.classList.add('header-background--mobile-expanded');
             headerNavContainer.classList.add('header-nav-container--mobile-expanded');
+        } else if (document.getElementsByClassName('header-background-cart').length > 0) {
+            // Cart Pages
+            const headerBackground = document.getElementsByClassName('header-background-cart')[0];
+            headerBackground.classList.add('header-background--mobile-expanded');
+            headerNavContainer.classList.add('header-nav-container--mobile-expanded-cart');
         } else if (document.getElementsByClassName('header-background-about').length > 0) {
             // About Pages
             const headerBackground = document.getElementsByClassName('header-background-about')[0];
@@ -302,6 +310,12 @@ document.addEventListener('click', function (event) {
             const headerBackground = document.getElementsByClassName('header-background-collections')[0];
             headerBackground.classList.remove('header-background--mobile-expanded');
             headerNavContainer.classList.remove('header-nav-container--mobile-expanded');
+        } else if (document.getElementsByClassName('header-background-cart').length > 0) {
+            // Cart Pages
+            const headerBackground = document.getElementsByClassName('header-background-cart')[0];
+            headerBackground.classList.remove('header-background--mobile-expanded');
+            headerNavContainer.classList.remove('header-nav-container--mobile-expanded-cart');
+
         } else if (document.getElementsByClassName('header-background-about').length > 0) {
             // About Pages
             const headerBackground = document.getElementsByClassName('header-background-about')[0];

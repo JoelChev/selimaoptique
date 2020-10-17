@@ -6,6 +6,7 @@
 // Variables
 $color-pastel-blue: #E6F4FA;
 $color-lavendar: #E4E6F5;
+$color-lavendar-gradient: #EBECFC;
 $color-lavendar-dark: #CBCDFF;
 $color-blue-main: #2F44A7;
 $color-blue-secondary: #1C2966;
@@ -414,7 +415,7 @@ td {
     background-size: 1140px 160px;
     z-index: -1;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        left: 138px;
+        left: 58px;
         width: 630px;      
         background-size: 630px 160px; 
     }
@@ -422,7 +423,7 @@ td {
         width: 100%;
         height: 122px;
         left: 0;
-        background-image: url("homepage-header-mobile.png");
+        background-image: url("cart-header-mobile.png");
         border-bottom-left-radius: 50%;
         border-bottom-right-radius: 50%;
     }
@@ -466,6 +467,13 @@ td {
     @media (max-width: $breakpoint-tablet) {
         height: 400px;
         background-color: $color-yellow;
+    }
+}
+
+.header-nav-container--mobile-expanded-cart {
+    @media (max-width: $breakpoint-tablet) {
+        height: 400px;
+        background-color: $color-lavendar-gradient;
     }
 }
 
@@ -587,7 +595,7 @@ td {
     border: none;
     cursor: pointer;
     text-decoration: none;
-    
+
     &:active {
         outline: 0;
         box-shadow: none!important;
@@ -1543,6 +1551,12 @@ td {
     flex-direction: column;
     margin-top: 36px;
     padding: 0 138px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        padding: 0 72px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        padding: 0 18px;
+    }
 }
 
 .cartpage__headings-container {
@@ -1563,6 +1577,9 @@ td {
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         flex: 0 0 60%;
     }
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .cartpage__price-header {
@@ -1575,6 +1592,9 @@ td {
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         flex: 0 0 25%;
     }
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .cartpage__item-container {
@@ -1583,6 +1603,9 @@ td {
     width: 100%;
     padding-bottom: 16px;
     border-bottom: 1px dashed $color-black;
+    @media (max-width: $breakpoint-tablet) {
+        flex-direction: column;
+    }
 }
 
 .cartpage__item-image-title-container {
@@ -1590,6 +1613,9 @@ td {
     flex: 0 0 40%;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         flex: 0 0 60%;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        flex-direction: column;
     }
 }
 
@@ -1602,6 +1628,11 @@ td {
     flex-direction: column;
     justify-content: center;
     margin-left: 32px;
+    @media (max-width: $breakpoint-tablet) {
+        margin-top: 24px;
+        margin-left: 0;
+        margin-bottom: 16px;
+    }
 }
 
 .cartpage__item-product-title {
@@ -1610,6 +1641,11 @@ td {
     font-size: 14px;
     line-height: 22px;
     margin-bottom: 8px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
 }
 
 .cartpage__item-variant-title {
@@ -1617,6 +1653,10 @@ td {
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .cartpage__item-price-container {
@@ -1627,6 +1667,22 @@ td {
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         flex: 0 0 25%;
     }
+    @media (max-width: $breakpoint-tablet) {
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-bottom: 32px;
+    }
+}
+
+.cartpage__item-price-title-mobile {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    margin-right: 4px;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .cartpage__item-price {
@@ -1634,6 +1690,10 @@ td {
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .cartpage__item-remove-button-container {
@@ -1641,6 +1701,9 @@ td {
     align-items: center;
     margin-left: auto;
     margin-right: 16px;
+    @media (max-width: $breakpoint-tablet) {
+        margin-left: 0;
+    }
 }
 
 .cartpage__item-remove-button {
@@ -1662,6 +1725,10 @@ td {
         outline: 0;
         box-shadow: none!important;
     }
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 26px;
+    }
 }
 
 .cartpage__footer-container {
@@ -1669,18 +1736,27 @@ td {
     display: flex;
     justify-content: flex-end;
     padding-top: 48px;
+    @media (max-width: $breakpoint-tablet) {
+        padding-top: 32px;
+        justify-content: flex-start;
+    }
 }
 
 .cartpage__footer-text-container {
     display: flex;
     flex-direction: column;
     width: 400px;
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+    }
 }
 
 .cartpage__total-container {
     display: flex;
     justify-content: space-between;
-
+    @media (max-width: $breakpoint-tablet) {
+        justify-content: flex-end;
+    }
 }
 
 .cartpage__total-label {
@@ -1688,6 +1764,10 @@ td {
     font-weight: 600;
     font-size: 24px;
     line-height: 30px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 18px;
+        line-height: 26px;
+    }
 }
 
 .cartpage__total-amount {
@@ -1695,6 +1775,12 @@ td {
     font-weight: 400;
     font-size: 24px;
     line-height: 30px;
+
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 18px;
+        line-height: 26px;
+        margin-left: 64px;
+    }
 }
 
 .cartpage__checkout-link {
@@ -1711,6 +1797,13 @@ td {
     &:active {
         background-color: $color-blue-secondary;
         border-bottom: dashed 2px $color-white;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        margin-top: 56px;
+        display: flex;
+        width: calc(100% - 72px);
+        max-width: calc(100% - 72px);
+        justify-content: center;
     }
 }
 

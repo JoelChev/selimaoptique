@@ -6,6 +6,8 @@
       <span class="cartpage__price-header">Price</span>
     </div>
     {% for item in cart.items %}
+      {% assign item_quantity = item.quantity %}
+      {% for i in (1..item_quantity)%}
       <div class="cartpage__item-container">
         <div class="cartpage__item-image-title-container">
           <a href="{{ item.url | within: collections.all }}">
@@ -17,6 +19,7 @@
           </div>
         </div>
         <div class="cartpage__item-price-container">
+          <span class="cartpage__item-price-title-mobile">Price:</span>
           <span class="cartpage__item-price">{{ item.price | money }}</span>
         </div>
         <div class="cartpage__item-remove-button-container">
@@ -25,7 +28,8 @@
           </button>
         </div>
       </div>
-    {% endfor%}
+      {% endfor %}
+    {% endfor %}
     <div class="cartpage__footer-container">
       <div class="cartpage__footer-text-container">
         <div class="cartpage__total-container">
