@@ -17,6 +17,12 @@ function _positionHeaderCartSummary() {
     headerCartSummary.style.right = `${rightOffset}px`;
 }
 
+function _formatNumberWithCommas(number) {
+    let parts = number.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+
 function _getAndShowCartSummary() {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
@@ -64,6 +70,7 @@ function _getAndShowCartSummary() {
                         headerCartSummaryItemPrice.innerHTML = `$${formattedPrice}`;
                         headerCartSummaryItemDescriptionContainer.appendChild(headerCartSummaryItemPrice);
 
+                        // Remove Button Handling in Cart Summary
                         const headerCartSummaryRemoveButton = document.createElement("button");
                         headerCartSummaryRemoveButton.classList.add('header__cart-summary-remove-button');
                         headerCartSummaryRemoveButton.id = `RemoveButton-${j}-${items[i].quantity}-${items[i].variant_id}`;
@@ -81,7 +88,7 @@ function _getAndShowCartSummary() {
                 if (subTotal === "0") {
                     formattedSubTotal = subTotal;
                 } else {
-                    formattedSubTotal = `${subTotal.substr(0, subTotal.length - 2)}.${subTotal.slice(-2)}`;
+                    formattedSubTotal = _formatNumberWithCommas(`${subTotal.substr(0, subTotal.length - 2)}.${subTotal.slice(-2)}`);
                 }
                 let cartSubTotal = document.getElementsByClassName('header__cart-summary-subtotal')[0];
                 cartSubTotal.innerHTML = `Subtotal: $${formattedSubTotal}`;
@@ -167,9 +174,22 @@ document.addEventListener('click', function (event) {
     const removeButtonIdArray = removeButtonId.split('-');
     const label = removeButtonIdArray[0]; //Not super useful, it is parsed out.
     const itemIndex = removeButtonIdArray[1];
-    const itemQuantity = removeButtonIdArray[2];
-    const newItemQuantity = parseInt(itemQuantity) - 1;
+
+    // We are only using the item quantity label to track ids on the page. If a user were to remove multiple quantities of a product from
+    // their cart, this number is no longer accurate, so we need to use JS to get a true count.
+    const itemQuantityLabel = removeButtonIdArray[2];
     const variantId = removeButtonIdArray[3];
+
+    //This gets us a true count of this variant on the summary.
+    const otherItemsInSummaryList = document.querySelectorAll('div[id^="SummaryItem"]');
+    let otherCopiesOfVariantInSummaryCount = 0;
+    for (let i = 0; i < otherItemsInSummaryList.length; i++) {
+        if (otherItemsInSummaryList[i].id.includes(variantId)) {
+            otherCopiesOfVariantInSummaryCount = otherCopiesOfVariantInSummaryCount + 1;
+        }
+    }
+    const newItemQuantity = otherCopiesOfVariantInSummaryCount - 1;
+
 
     const requestBody =
     {
@@ -202,21 +222,21 @@ document.addEventListener('click', function (event) {
             }
             // Also update the subtotal and remove the item from the summary.
             const variantPriceLabel = "VariantPrice";
-            const variantPriceId = `${variantPriceLabel}-${itemIndex}-${itemQuantity}-${variantId}`;
-            variantPriceElement = document.getElementById(variantPriceId);
+            const variantPriceId = `${variantPriceLabel}-${itemIndex}-${itemQuantityLabel}-${variantId}`;
+            const variantPriceElement = document.getElementById(variantPriceId);
             const variantPriceValue = variantPriceElement.innerHTML;
-            const variantPriceNumber = parseInt(variantPriceValue.replace('$', '').replace('.', ''));
+            const variantPriceNumber = parseInt(variantPriceValue.replace('$', '').replace('.', '').replace(',', ''));
 
             let subTotal = document.getElementsByClassName('header__cart-summary-subtotal')[0];
             let subTotalValue = subTotal.innerHTML;
-            let subTotalNumber = parseInt(subTotalValue.replace('Subtotal: $', '').replace('.', ''));
+            let subTotalNumber = parseInt(subTotalValue.replace('Subtotal: $', '').replace('.', '').replace(',', ''));
             let newSubTotal = (subTotalNumber - variantPriceNumber).toString();
             //Need to handle 0 case.
             let newSubTotalString;
             if (newSubTotal === "0") {
                 newSubTotalString = newSubTotal;
             } else {
-                newSubTotalString = `${newSubTotal.substr(0, newSubTotal.length - 2)}.${newSubTotal.slice(-2)}`;
+                newSubTotalString = _formatNumberWithCommas(`${newSubTotal.substr(0, newSubTotal.length - 2)}.${newSubTotal.slice(-2)}`);
             }
             subTotal.innerHTML = `Subtotal: $${newSubTotalString}`;
             //Remove the item!
@@ -230,7 +250,7 @@ document.addEventListener('click', function (event) {
 
     }
     xhr.onerror = function () {
-        console.error("Request to Add to Cart failed");
+        console.error("Request to Remove From Cart Summary failed");
     };
 }, false);
 
@@ -576,4 +596,100 @@ document.addEventListener('click', function (event) {
     url.searchParams.set('variant', variantId);
     window.location.href = url;
 
+}, false);
+
+// Cart page
+
+//This is used to remove a product from the cart.
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.cartpage__item-remove-button')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    const cartRemoveButtonId = event.target.id;
+    // Need to split out the individual pieces of the id for the useful information needed for our dynamic behaviour. It has 4 parts.
+    const cartRemoveButtonIdArray = cartRemoveButtonId.split('-');
+    const label = cartRemoveButtonIdArray[0]; //Not super useful, it is parsed out.
+    const itemIndex = cartRemoveButtonIdArray[1];
+
+    // We are only using the item quantity label to track ids on the page. If a user were to remove multiple quantities of a product from
+    // their cart, this number is no longer accurate, so we need to use JS to get a true count.
+    const itemQuantityLabel = cartRemoveButtonIdArray[2];
+    const variantId = cartRemoveButtonIdArray[3];
+
+    //This gets us a true count of this variant on the page.
+    const otherItemsOnPageList = document.querySelectorAll('div[id^="CartItem"]');
+    let otherCopiesOfVariantOnPageCount = 0;
+    for (let i = 0; i < otherItemsOnPageList.length; i++) {
+        if (otherItemsOnPageList[i].id.includes(variantId)) {
+            otherCopiesOfVariantOnPageCount = otherCopiesOfVariantOnPageCount + 1;
+        }
+    }
+    const newItemQuantity = otherCopiesOfVariantOnPageCount - 1;
+
+    const requestBody =
+    {
+        "id": variantId,
+        "quantity": newItemQuantity,
+    };
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/cart/change.js", true);
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.send(JSON.stringify(requestBody));
+
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            //Update the cart total manually when response is successful.
+            const cartTotal = document.getElementsByClassName('header__cart-total')[0];
+            let cartValue = cartTotal.innerHTML;
+            let newValue;
+            if (cartValue !== '' && cartValue !== undefined) {
+                newValue = parseInt(cartValue.match(/\d+/)[0]) - 1;
+                if (newValue === 0) {
+                    newValue = "";
+                } else {
+                    newValue = "(" + newValue + ")";
+                }
+                while (cartTotal.firstChild) {
+                    cartTotal.removeChild(cartTotal.firstChild);
+                }
+                cartTotal.appendChild(document.createTextNode(newValue));
+
+            }
+            // // Also update the subtotal and remove the item from the summary.
+            const cartVariantPriceLabel = "CartVariantPrice";
+            const cartVariantPriceId = `${cartVariantPriceLabel}-${itemIndex}-${itemQuantityLabel}-${variantId}`;
+            const cartVariantPriceElement = document.getElementById(cartVariantPriceId);
+            const cartVariantPriceValue = cartVariantPriceElement.innerHTML;
+            const cartVariantPriceNumber = parseInt(cartVariantPriceValue.replace('$', '').replace('.', '').replace(',', ''));
+
+            let cartSubTotal = document.getElementsByClassName('cartpage__total-amount')[0];
+            let cartSubTotalValue = cartSubTotal.innerHTML;
+            let cartSubTotalNumber = parseInt(cartSubTotalValue.replace('$', '').replace('.', '').replace(',', ''));
+            let newCartSubTotal = (cartSubTotalNumber - cartVariantPriceNumber).toString();
+            //Need to handle 0 case.
+            let newCartSubTotalString;
+            if (newCartSubTotal === "0") {
+                newCartSubTotalString = newCartSubTotal;
+            } else {
+                newCartSubTotalString = _formatNumberWithCommas(`${newCartSubTotal.substr(0, newCartSubTotal.length - 2)}.${newCartSubTotal.slice(-2)}`);
+            }
+            cartSubTotal.innerHTML = `$${newCartSubTotalString}`;
+            //Remove the item!
+            const cartItemLabel = "CartItem";
+            const cartItemId = `${cartItemLabel}-${itemIndex}-${itemQuantityLabel}-${variantId}`;
+            document.getElementById(cartItemId).remove();
+        } else {
+            // Error case
+            console.error(`Error ${xhr.status}: ${xhr.statusText}`);
+        }
+
+    }
+    xhr.onerror = function () {
+        console.error("Request to Remove from Cart failed");
+    };
 }, false);

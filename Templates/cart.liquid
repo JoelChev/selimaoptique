@@ -8,7 +8,7 @@
     {% for item in cart.items %}
       {% assign item_quantity = item.quantity %}
       {% for i in (1..item_quantity)%}
-      <div class="cartpage__item-container">
+      <div class="cartpage__item-container" id="CartItem-{{i}}-{{item_quantity}}-{{item.variant_id}}">
         <div class="cartpage__item-image-title-container">
           <a href="{{ item.url | within: collections.all }}">
             <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" class="cartpage__item-image">
@@ -20,10 +20,10 @@
         </div>
         <div class="cartpage__item-price-container">
           <span class="cartpage__item-price-title-mobile">Price:</span>
-          <span class="cartpage__item-price">{{ item.price | money }}</span>
+          <span class="cartpage__item-price" id="CartVariantPrice-{{i}}-{{item_quantity}}-{{item.variant_id}}">{{ item.price | money }}</span>
         </div>
         <div class="cartpage__item-remove-button-container">
-          <button class="cartpage__item-remove-button">
+          <button class="cartpage__item-remove-button" id="CartRemoveButton-{{i}}-{{item_quantity}}-{{item.variant_id}}">
             Remove
           </button>
         </div>
