@@ -19,6 +19,9 @@
     {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
     header--pink
     {% endif %}
+    {% if {{page_title}} == 'Locations' %}
+    header--peach
+    {% endif %}
     {% if {{template.name}} == 'cart'%}
     header--white
     {% endif %}"
@@ -37,6 +40,10 @@
     {% endif %}
     {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
       <div class="header-background-about">
+      </div>
+    {% endif %}
+    {% if {{page_title}} == 'Locations' %}
+      <div class="header-background-locations">
       </div>
     {% endif %}
     <div class="header-nav-container">
