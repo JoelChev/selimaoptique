@@ -1,2 +1,44 @@
 <div class="locationspage">
+    <div class="locationspage__locations-container">
+        <div class="locationspage__location_row">
+            <div class="locationspage__location-container">
+                <div class="locationspage__location-header-container">
+                    <div class="locationspage__title-container">
+                        <h2 class="locationspage__title">SOHO</h2>
+                        <div class="locationspage__address-container">
+                            {{ 'locations-pin.png' | asset_url | img_tag: 'Map Pin', 'locationspage__map-pin' }}
+                            <a class="locationspage__address-link" href="https://goo.gl/maps/17kzF7gCcnUtg1kL7">59 Wooster Street <br/> New York, NY 10012</a>
+                        </div>
+                        <div class="locationspage__contact-container">
+                            <div class="locationspage__email-container">
+                                <span class="locationspage__email-label">Contact</span>
+                                <a class="locationspage__email" href="mailto:selimasoho@selimaoptique.com" >selimasoho@selimaoptique.com<a>
+                            </div>
+                            <div class="locationspage__phone-container">
+                                <span class="locationspage__phone-label">Phone</span>
+                                <a class="locationspage__phone" href="tel:1-212-343-9490" class="locationspage__phone">1.212.343.9490<a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locationspage__image-container">
+                        {{ 'locations-soho.png' | asset_url | img_tag: 'Soho Location', 'locationspage__image' }}
+                    </div>
+                </div>
+                <div class="locationspage__description-container">
+                    <p class="locationspage__description">Our flagship SoHo location, opened in 1993, continues to be the epicenter of downtown eyewear. At our Wooster Street boutique, we don’t follow eyewear trends. We define them! Call ahead to schedule an appointment with our optometrist and peruse the finest collection of new and vintage eyewear while you wait. As our first shop, a stop here just might earn a special bisous on each cheek!</p>
+                </div>
+                <div class="locationspage__hours-container">
+                    <span class="locationspage__hours-label">Monday-Saturday</span>
+                    <span class="locationspage__hours-text">11:00am-8:00pm</span>
+                </div>
+                <div class="locationspage__hours-container">
+                    <span class="locationspage__hours-label">Sunday</span>
+                    <span class="locationspage__hours-text">12:00pm-7:00pm</span>
+                </div>
+                <div class="locationspage__optometrist-container">
+                    <span class="locationspage__optometrist-text">Optometrist available on Fridays by appointment</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
