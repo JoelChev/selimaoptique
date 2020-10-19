@@ -157,6 +157,39 @@
   <main id="main" role="main">
       {{ content_for_layout }}
   </main>
+  <div class="footer
+  {% if {{template.name}} == 'list-collections' or {{template.name}} == 'collection' or {{template.name}} == 'product'%}
+    footer--purple
+    {% endif %}
+    {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
+    footer--pink
+    {% endif %}
+    {% if {{page_title}} == 'Locations' %}
+    footer--peach
+    {% endif %}
+    {% if {{template.name}} == 'cart'%}
+    footer--white
+    {% endif %}">
+    <div class="footer__free-shipping-container">
+        <span class="footer__free-shipping-message">FREE SHIPPING IN THE US</span>
+    </div>
+    <div class="footer__link-container">
+      {% for link in linklists.footer.links %}
+        <a class="footer__link" href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+    <div class="footer__social-media-container">
+      <a class="footer__social-media-link" href="https://www.facebook.com/SelimaOptique" target="_blank" rel="noopener noreferrer">
+        {{ 'facebook.svg' | asset_url | img_tag: 'Facebook Logo', 'footer__social-media-icon' }}
+      </a>
+      <a class="footer__social-media-link" href="https://twitter.com/SelimaOptique?s=20" target="_blank" rel="noopener noreferrer">
+        {{ 'twitter.svg' | asset_url | img_tag: 'Twitter Logo', 'footer__social-media-icon' }}
+      </a>
+      <a class="footer__social-media-link" href="https://www.instagram.com/selimaoptique/" target="_blank" rel="noopener noreferrer">
+        {{ 'instagram.svg' | asset_url | img_tag: 'Instagram Logo', 'footer__social-media-icon' }}
+      </a>
+    </div>
+  </div>
   {{ 'application.js' | asset_url | script_tag }}
 </body>
 </html>
