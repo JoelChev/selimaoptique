@@ -1835,10 +1835,12 @@ td {
     &:hover {
         cursor: pointer;
         border-bottom: dashed 2px $color-white;
+        padding: 16px 32px 14px;
     }
     &:active {
         background-color: $color-blue-secondary;
         border-bottom: dashed 2px $color-white;
+        padding: 16px 32px 14px;
     }
     @media (max-width: $breakpoint-tablet) {
         margin-top: 56px;
@@ -2216,13 +2218,36 @@ td {
     flex-direction: column;
 }
 
+.locationspage__mobile-title {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
+    color: $color-black;
+    margin-left: 18px;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
 .locationspage__locations-container {
     padding: 72px 138px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        padding: 72px 32px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        padding: 56px 18px;
+    }
 }
 
 .locationspage__location-row {
     display: flex;
     margin-bottom: 92px;
+    @media (max-width: $breakpoint-tablet) {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+    }
 }
 
 .locationspage__location-container {
@@ -2230,11 +2255,27 @@ td {
     flex-direction: column;
     margin: 0 64px;
     max-width: calc(50% - 128px);
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin: 0 32px;
+        max-width: calc(50% - 64px);
+    }
+    @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 72px;
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+    }
 }
 
 .locationspage__location-header-container {
     display: flex;
     margin-bottom: 24px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        flex-direction: column-reverse;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        flex-direction: column-reverse;
+    }
 }
 
 .locationspage__title-container {
@@ -2249,6 +2290,13 @@ td {
     line-height: 32px;
     margin-bottom: 18px;
     color: $color-black;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 28px;
+        line-height: 22px;
+        br {
+            display: none;
+        }
+    }
 }
 
 .locationspage__address-container {
@@ -2268,6 +2316,13 @@ td {
     font-size: 20px;
     line-height: 26px;
     color: $color-blue-main;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 18px;
+        line-height: 22px;
+        br {
+            display: none;
+        }
+    }
 }
 
 .locationspage__contact-container {
@@ -2286,6 +2341,10 @@ td {
     line-height: 22px;
     color: $color-black;
     margin-right: 8px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .locationspage__email {
@@ -2294,6 +2353,10 @@ td {
     font-size: 14px;
     line-height: 22px;
     color: $color-blue-main;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .locationspage__phone-container {
@@ -2307,6 +2370,10 @@ td {
     line-height: 22px;
     color: $color-black;
     margin-right: 18px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .locationspage__phone {
@@ -2316,10 +2383,21 @@ td {
     line-height: 22px;
     color: $color-black;
     text-decoration: none;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .locationspage__image-container {
     margin-left: 24px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin-left: 0;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        margin: 0;
+        text-align: center;
+    }
 }
 
 .locationspage__description-container {
@@ -2333,6 +2411,10 @@ td {
     font-size: 14px;
     line-height: 22px;
     color: $color-black;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .locationspage__hours-container {
@@ -2355,6 +2437,10 @@ td {
     font-size: 14px;
     line-height: 22px;
     color: $color-black;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .locationspage__optometrist-container {
@@ -2368,6 +2454,10 @@ td {
     font-size: 14px;
     line-height: 22px;
     color: $color-black;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .locationspage__stockist-card {
@@ -2376,11 +2466,24 @@ td {
     height: 426px;
     background-color: $color-peach-dark;
     padding: 56px 138px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        height: 284px;
+        padding: 38px 64px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        height: auto;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 32px 18px;
+    }
 }
 
 .locationspage__stockist-text-container {
     display: flex;
     flex-direction: column;
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+    }
 }
 
 .locationspage__stockist-title {
@@ -2410,17 +2513,33 @@ td {
     &:hover {
         cursor: pointer;
         border-bottom: dashed 2px $color-white;
+        padding: 16px 32px 14px;
     }
     &:active {
         background-color: $color-blue-secondary;
         border-bottom: dashed 2px $color-white;
+        padding: 16px 32px 14px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        max-width: 100%;
+        margin-top: 32px;
+        margin-bottom: 24px;
     }
 }
 
 .locationspage__stockist-image-container {
     margin-left: auto;
+    @media (max-width: $breakpoint-tablet) {
+        margin: 0 0 40px;
+    }
 }
 
 .locationspage__stockist-image {
     max-width: 690px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        max-width: 420px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        max-width: 338px;
+    }
 }
