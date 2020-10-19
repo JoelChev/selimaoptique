@@ -411,7 +411,7 @@ td {
 .header-background-cart {
     position: absolute;
     left: 0;
-    right: 200px;
+    right: 260px;
     top: 0;
     bottom: 0;
     width: 1140px;
@@ -489,6 +489,9 @@ td {
 }
 
 .header-nav-container {
+    @media (min-width: $breakpoint-desktop) {
+        margin-left: -80px;
+    }
     @media (max-width: $breakpoint-tablet) {
         width: 100%;
         display: flex;
@@ -858,7 +861,7 @@ td {
         flex-direction: column;
         align-items: center;
         width: 100%;
-        border-top: 2px dashed $color-black;
+        border-top: 3px dashed $color-black;
     }
 }
 
@@ -1181,17 +1184,6 @@ td {
     z-index: 3;
 }
 
-.collectionspage__mobile-border-container {
-    border-top: 3px dashed $color-black;
-    width: 100%;
-    content: '';
-    height: 3px;
-    margin: 56px 0;
-    @media (min-width: $breakpoint-tablet) {
-        display: none;
-    }
-}
-
 .collectionspage__free-shipping-container {
     background-image: url("free-shipping-background.png");
     height: 72px;
@@ -1204,10 +1196,7 @@ td {
     margin-left: auto;
     margin-right: auto;
     @media (max-width: $breakpoint-tablet) {
-        height: 54px;
-        width: 254px;
-        background-repeat: no-repeat;
-        background-size: 254px 54px;
+        display: none;
     }
 }
 
@@ -1217,8 +1206,7 @@ td {
     font-size: 24px;
     line-height: 19px;
     @media (max-width: $breakpoint-tablet) {
-        font-size: 14px;
-        line-height: 11px;
+        display: none;
     }
 }
 
@@ -1399,17 +1387,6 @@ td {
     line-height: 26px;
 }
 
-.collectionpage__mobile-border-container {
-    border-top: 3px dashed $color-black;
-    width: 100%;
-    content: '';
-    height: 3px;
-    margin: 56px 0;
-    @media (min-width: $breakpoint-desktop) {
-        display: none;
-    }
-}
-
 .collectionpage__free-shipping-container {
     background-image: url("free-shipping-background.png");
     height: 72px;
@@ -1422,10 +1399,7 @@ td {
     margin-left: auto;
     margin-right: auto;
     @media (max-width: $breakpoint-tablet) {
-        height: 54px;
-        width: 254px;
-        background-repeat: no-repeat;
-        background-size: 254px 54px;
+        display: none;
     }
 }
 
@@ -1435,8 +1409,7 @@ td {
     font-size: 24px;
     line-height: 19px;
     @media (max-width: $breakpoint-tablet) {
-        font-size: 14px;
-        line-height: 11px;
+        display: none;
     }
 }
 
@@ -2098,17 +2071,6 @@ td {
     font-size: 11px;
     line-height: 18px;
     color: $color-white;
-    @media (min-width: $breakpoint-tablet) {
-        display: none;
-    }
-}
-
-.aboutpage__mobile-border-container {
-    border-top: 3px dashed $color-black;
-    width: 100%;
-    content: '';
-    height: 3px;
-    margin: 56px 0;
     @media (min-width: $breakpoint-tablet) {
         display: none;
     }
