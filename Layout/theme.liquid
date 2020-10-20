@@ -26,7 +26,7 @@
     header--white
     {% endif %}"
     id="{{page_title}}">
-    {% if {{template.name}} == 'index' %}
+    {% if {{template.name}} == 'index' or {{page_title}} == 'Customer Service'%}
     <div class="header-background">
     </div>
     {% endif %}
@@ -175,7 +175,12 @@
     </div>
     <div class="footer__link-container">
       {% for link in linklists.footer.links %}
-        <a class="footer__link" href="{{ link.url }}">{{ link.title }}</a>
+        {% assign link_title = link.title %}
+        {% if page_title == link_title %}
+          <span class="footer__link--selected">{{ link.title }}</span>
+        {% else %}
+          <a class="footer__link" href="{{ link.url }}">{{ link.title }}</a>
+        {% endif %}
       {% endfor %}
     </div>
     <div class="footer__social-media-container">
