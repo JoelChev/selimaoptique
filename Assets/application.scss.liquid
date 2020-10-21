@@ -2701,16 +2701,32 @@ td {
 .privacypolicypage {
     background: $color-pastel-blue;
     padding: 40px 108px 140px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        padding: 20px 56px 140px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        padding: 10px 18px 60px;
+    }
 }
 
 .privacypolicypage__title-container {
     display: flex;
-    margin-bottom: -16px;
+    margin-bottom: 16px;
     align-items: center;
 }
 
 .privacypolicypage__title-image {
     margin-right: 16px;
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.privacypolicypage__page-title {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
 }
 
 .privacypolicypage__text-image-container {
@@ -2721,4 +2737,95 @@ td {
 
 .privacypolicypage__text-container {
     max-width: 60%;
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.privacypolicypage__text {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-black;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+.privacypolicypage__image-container {
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+// Accessibility Page
+
+.accessibilitypage {
+    background: $color-pastel-blue;
+    padding: 40px 108px 240px;
+    min-height: 100vh;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        padding: 20px 56px 180px;
+        min-height: 50vh;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        padding: 10px 18px 60px;
+        min-height: 40vh;
+    }
+}
+
+.accessibilitypage__title-container {
+    display: flex;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.accessibilitypage__page-title {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
+}
+
+.accessibilitypage__text-image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accessibilitypage__text-container {
+    max-width: 60%;
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.accessibilitypage__text {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-black;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+.accessibilitypage__mail-link {
+    text-decoration: none;
+    color: $color-blue-main;
+}
+
+.accessibilitypage__phone-link {
+    text-decoration: none;
+    color: $color-blue-main;
+}
+
+.accessibilitypage__image-container {
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
