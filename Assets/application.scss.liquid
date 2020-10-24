@@ -2629,6 +2629,10 @@ td {
 .contactpage {
     background: $color-pastel-blue;
     padding: 40px 108px;
+    // Need to adjust spacing when desktop gets narrower.
+    @media (max-width: 1410px) and (min-width: $breakpoint-desktop) {
+        padding-right: 56px;
+    }
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         padding: 40px 56px;
     }
@@ -2639,6 +2643,9 @@ td {
 
 .contactpage__title-container {
     margin-bottom: 56px;
+    @media (max-width: $breakpoint-tablet) { 
+        margin-bottom: 32px;
+    }
 }
 
 .contactpage__page-title {
@@ -2651,6 +2658,12 @@ td {
 
 .contactpage__content-container {
     display: flex;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        justify-content: space-between;
+    }
+    @media (max-width: $breakpoint-tablet) { 
+        flex-direction: column;
+    }
 }
 
 .contactpage__message-container {
@@ -2658,10 +2671,23 @@ td {
     flex-direction: column;
     max-width: 240px;
     margin-right: 156px;
+    // Need to adjust spacing when desktop gets narrower.
+    @media (max-width: 1410px) and (min-width: $breakpoint-desktop) {
+        margin-right: 56px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        margin-right: 0;
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 .contactpage__image-container {
     margin-bottom: 24px;
+    @media (max-width: $breakpoint-tablet) {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .contactpage__message-text {
@@ -2670,6 +2696,10 @@ td {
     font-size: 14px;
     line-height: 22px;
     color: $color-black;
+    @media (max-width: $breakpoint-tablet) { 
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 .contactpage__message-link {
@@ -2693,6 +2723,7 @@ td {
         max-width: 100%;
         margin-top: 32px;
         margin-bottom: 24px;
+        font-size: 18px;
     }
 }
 
@@ -2706,11 +2737,22 @@ td {
     font-size: 18px;
     line-height: 26px;
     color: $color-black;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 26px;
+    }
 }
 
 .contactpage__location-row {
     display: flex;
     margin-bottom: 24px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        flex-direction: column;
+    }
+    @media (max-width: $breakpoint-tablet) { 
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .contactpage__location {
@@ -2718,6 +2760,14 @@ td {
     background-color: $color-blue-dark;
     margin-right: 32px;
     width: 328px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin-bottom: 24px;
+        margin-right: 0;
+    }
+    @media (max-width: $breakpoint-tablet) { 
+        margin-bottom: 16px;
+        margin-right: 0;
+    }
 }
 
 .contactpage__location-title {
@@ -2727,6 +2777,10 @@ td {
     line-height: 19px;
     color: $color-black;
     margin-bottom: 16px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 18px;
+        line-height: 14px;
+    }
 }
 
 .contactpage__location-address-container {
@@ -2738,6 +2792,9 @@ td {
     width: 32px;
     height: 32px;
     margin-right: 36px;
+    @media (max-width: $breakpoint-tablet) {
+        margin-right: 44px;
+    }
 }
 
 .contactpage__location-address-link {
@@ -2755,6 +2812,9 @@ td {
 .contactpage__location-contact-container {
     display: flex;
     margin-bottom: 16px;
+    @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 24px;
+    }
 }
 
 .contactpage__location-contact-label {
@@ -2764,6 +2824,10 @@ td {
     line-height: 22px;
     color: $color-black;
     margin-right: 20px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 22px;
+    }
 }
 
 .contactpage__location-contact-link {
@@ -2774,7 +2838,7 @@ td {
     color: $color-blue-main;
     @media (max-width: $breakpoint-tablet) {
         font-size: 16px;
-        line-height: 24px;
+        line-height: 22px;
     }
 }
 
@@ -2789,6 +2853,10 @@ td {
     line-height: 22px;
     color: $color-black;
     margin-right: 32px;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 22px;
+    }
 }
 
 .contactpage__location-phone-link {
@@ -2799,7 +2867,7 @@ td {
     color: $color-blue-main;
     @media (max-width: $breakpoint-tablet) {
         font-size: 16px;
-        line-height: 24px;
+        line-height: 22px;
     }
 }
 
