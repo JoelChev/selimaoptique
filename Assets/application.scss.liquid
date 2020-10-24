@@ -10,6 +10,7 @@ $color-lavendar-gradient: #EBECFC;
 $color-lavendar-dark: #CBCDFF;
 $color-blue-main: #2F44A7;
 $color-blue-secondary: #1C2966;
+$color-blue-dark: #CCE3ED;
 $color-grey-1: #747474;
 $color-grey-2: #BABABA;
 $color-grey-3: #E0E0E0;
@@ -2622,6 +2623,186 @@ td {
         max-width: 338px;
     }
 }
+
+//Contact Page
+
+.contactpage {
+    background: $color-pastel-blue;
+    padding: 40px 108px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        padding: 40px 56px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        padding: 10px 18px;
+    }
+}
+
+.contactpage__title-container {
+    margin-bottom: 56px;
+}
+
+.contactpage__page-title {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
+    color: $color-black;
+}
+
+.contactpage__content-container {
+    display: flex;
+}
+
+.contactpage__message-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 240px;
+    margin-right: 156px;
+}
+
+.contactpage__image-container {
+    margin-bottom: 24px;
+}
+
+.contactpage__message-text {
+    font-family: "HK Grotesk";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-black;
+}
+
+.contactpage__message-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    max-width: 120px;
+    @include button-primary;
+    text-decoration: none;
+    &:hover {
+        cursor: pointer;
+        border-bottom: dashed 2px $color-white;
+        padding: 16px 32px 14px;
+    }
+    &:active {
+        background-color: $color-blue-secondary;
+        border-bottom: dashed 2px $color-white;
+        padding: 16px 32px 14px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        max-width: 100%;
+        margin-top: 32px;
+        margin-bottom: 24px;
+    }
+}
+
+.contactpage__locations-title-container {
+    margin-bottom: 16px;
+}
+
+.contactpage__locations-title {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    color: $color-black;
+}
+
+.contactpage__location-row {
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.contactpage__location {
+    padding: 24px;
+    background-color: $color-blue-dark;
+    margin-right: 32px;
+    width: 328px;
+}
+
+.contactpage__location-title {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 19px;
+    color: $color-black;
+    margin-bottom: 16px;
+}
+
+.contactpage__location-address-container {
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.contactpage__map-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 36px;
+}
+
+.contactpage__location-address-link {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    color: $color-blue-main;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+.contactpage__location-contact-container {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.contactpage__location-contact-label {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-black;
+    margin-right: 20px;
+}
+
+.contactpage__location-contact-link {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-blue-main;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+.contactpage__location-phone-container {
+    display: flex;
+}
+
+.contactpage__location-phone-label {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-black;
+    margin-right: 32px;
+}
+
+.contactpage__location-phone-link {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-blue-main;
+    @media (max-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
 
 // Customer Service Page
 

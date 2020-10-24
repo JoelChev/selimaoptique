@@ -1,14 +1,118 @@
-<h1>{{ page.title }}</h1>
-{% form 'contact' %}
-  {% if form.posted_successfully? %} Thank you for your contact {% endif %}
-  {{ form.errors | default_errors }}
-  <label for="ContactFormName">name</label>
-  <input type="text" id="ContactFormName" name="contact[name]">
-  <label for="ContactFormEmail">email</label>
-  <input type="email" id="ContactFormEmail" name="contact[email]">
-  <label for="ContactFormPhone">phone</label>
-  <input type="tel" id="ContactFormPhone" name="contact[phone]">
-  <label for="ContactFormMessage">message</label>
-  <textarea rows="10" id="ContactFormMessage" name="contact[body]"></textarea>
-  <input type="submit" value="send">
-{% endform %}
+<div class="contactpage">
+<div class="contactpage__title-container">
+  <h1 class="contactpage__page-title">CONTACT US</h1>
+</div>
+<div class="contactpage__content-container">
+  <div class="contactpage__message-container">
+    <div class="contactpage__image-container">
+      {{ 'selima_bird.png' | asset_url | img_tag: 'Selima Bird', 'contactpage__image' }}
+    </div>
+    <p class="contactpage__message-text">
+    Selima welcomes your questions and comments. Please don't hesitate to contact us if you are having site complications, want to inquire about wholesale options, or just want to lend your opinion about our site.<br/><br/>
+    You will be contacted by a Selima representative shortly.
+    </p>
+    <a class="contactpage__message-link" href="mailto:info@selimaoptique.com">Send A Message</a>
+  </div>
+  <div class="contactpage__location-container">
+    <div class="contactpage__locations-title-container">
+      <h3 class="contactpage__locations-title">Our Locations</h3>
+    </div>
+    <div class="contactpage__location-row">
+      <div class="contactpage__location">
+        <h4 class="contactpage__location-title">SOHO</h4>
+        <div class="contactpage__location-address-container">
+          {{ 'locations-pin.png' | asset_url | img_tag: 'Map Pin', 'contactpage__map-icon' }}
+          <a class="contactpage__location-address-link" href="https://goo.gl/maps/17kzF7gCcnUtg1kL7" target="_blank" rel="noopener noreferrer">59 Wooster Street<br/>New York, NY 10012</a>
+        </div>
+        <div class="contactpage__location-contact-container">
+          <span class="contactpage__location-contact-label">Contact</span>
+          <a class="contactpage__location-contact-link" href="mailto:selimasoho@selimaoptique.com">selimasoho@selimaoptique.com</a>
+        </div>
+        <div class="contactpage__location-phone-container">
+          <span class="contactpage__location-phone-label">Phone</span>
+          <a class="contactpage__location-phone-link" href="tel:1-212-343-9490">1.212.343.9490</a>
+        </div>
+      </div>
+      <div class="contactpage__location">
+        <h4 class="contactpage__location-title">NOHO</h4>
+        <div class="contactpage__location-address-container">
+          {{ 'locations-pin.png' | asset_url | img_tag: 'Map Pin', 'contactpage__map-icon' }}
+          <a class="contactpage__location-address-link" href="https://goo.gl/maps/EP3iaM8e2snoQLZN8" target="_blank" rel="noopener noreferrer">7 Bond Street<br/>New York, NY 10012</a>
+        </div>
+        <div class="contactpage__location-contact-container">
+          <span class="contactpage__location-contact-label">Contact</span>
+          <a class="contactpage__location-contact-link" href="mailto:bond07@selimaoptique.com">bond07@selimaoptique.com</a>
+        </div>
+        <div class="contactpage__location-phone-container">
+          <span class="contactpage__location-phone-label">Phone</span>
+          <a class="contactpage__location-phone-link" href="tel:1-212-677-8487">1.212.677.8487</a>
+        </div>
+      </div>
+    </div>
+    <div class="contactpage__location-row">
+      <div class="contactpage__location">
+        <h4 class="contactpage__location-title">WEST VILLAGE</h4>
+        <div class="contactpage__location-address-container">
+          {{ 'locations-pin.png' | asset_url | img_tag: 'Map Pin', 'contactpage__map-icon' }}
+          <a class="contactpage__location-address-link" href="https://g.page/selima-optique-west-village?share" target="_blank" rel="noopener noreferrer">9 Christopher Street<br/>New York, NY 10014</a>
+        </div>
+        <div class="contactpage__location-contact-container">
+          <span class="contactpage__location-contact-label">Contact</span>
+          <a class="contactpage__location-contact-link" href="mailto:WestVillage@selimaoptique.com">WestVillage@selimaoptique.com</a>
+        </div>
+        <div class="contactpage__location-phone-container">
+          <span class="contactpage__location-phone-label">Phone</span>
+          <a class="contactpage__location-phone-link" href="tel:1-212-352-1640">1.212.352.1640</a>
+        </div>
+      </div>
+      <div class="contactpage__location">
+        <h4 class="contactpage__location-title">MADISON</h4>
+        <div class="contactpage__location-address-container">
+          {{ 'locations-pin.png' | asset_url | img_tag: 'Map Pin', 'contactpage__map-icon' }}
+          <a class="contactpage__location-address-link" href="https://goo.gl/maps/EP3iaM8e2snoQLZN8" target="_blank" rel="noopener noreferrer">899 Madison Avenue<br/>New York, NY 10021</a>
+        </div>
+        <div class="contactpage__location-contact-container">
+          <span class="contactpage__location-contact-label">Contact</span>
+          <a class="contactpage__location-contact-link" href="mailto:madisonstore@selimaoptique.com">madisonstore@selimaoptique.com</a>
+        </div>
+        <div class="contactpage__location-phone-container">
+          <span class="contactpage__location-phone-label">Phone</span>
+          <a class="contactpage__location-phone-link" href="tel:1-212-988-6690">1.212.988.6690</a>
+        </div>
+      </div>
+    </div>
+    <div class="contactpage__location-row">
+      <div class="contactpage__location">
+        <h4 class="contactpage__location-title">SANTA MONICA</h4>
+        <div class="contactpage__location-address-container">
+          {{ 'locations-pin.png' | asset_url | img_tag: 'Map Pin', 'contactpage__map-icon' }}
+          <a class="contactpage__location-address-link" href="https://goo.gl/maps/cCSB3zp1yoFpQSGm6" target="_blank" rel="noopener noreferrer">Selima et Benjamin<br/> 225 26th Street, #24 <br/> Santa Monica, CA<br/>90402</a>
+        </div>
+        <div class="contactpage__location-contact-container">
+          <span class="contactpage__location-contact-label">Contact</span>
+          <a class="contactpage__location-contact-link" href="mailto:S-et-B@selimaoptique.com">S-et-B@selimaoptique.com</a>
+        </div>
+        <div class="contactpage__location-phone-container">
+          <span class="contactpage__location-phone-label">Phone</span>
+          <a class="contactpage__location-phone-link" href="tel:1-310-260-0160">1.310.260.0160</a>
+        </div>
+      </div>
+      <div class="contactpage__location">
+        <h4 class="contactpage__location-title">PARIS PALACE DES VOSGES</h4>
+        <div class="contactpage__location-address-container">
+          {{ 'locations-pin.png' | asset_url | img_tag: 'Map Pin', 'contactpage__map-icon' }}
+          <a class="contactpage__location-address-link" href="https://goo.gl/maps/kmbsckcjx9qvGCL67" target="_blank" rel="noopener noreferrer">14 Rue de Birague<br/>75004 Paris, France</a>
+        </div>
+        <div class="contactpage__location-contact-container">
+          <span class="contactpage__location-contact-label">Contact</span>
+          <a class="contactpage__location-contact-link" href="mailto:paris@selimaoptique.com">paris@selimaoptique.com</a>
+        </div>
+        <div class="contactpage__location-phone-container">
+          <span class="contactpage__location-phone-label">Phone</span>
+          <a class="contactpage__location-phone-link" href="tel:33-1-4763-2339">33.1.4763.2339</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
