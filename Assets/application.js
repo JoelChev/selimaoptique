@@ -626,6 +626,10 @@ document.addEventListener('click', function (event) {
     // If it is hidden show it!
     if (hiddenProductCareModalOverlay) {
         hiddenProductCareModalOverlay.classList.remove('productpage__product-care-guide-modal-overlay--hidden');
+        // Remove the scroll bar and add appropriate padding
+        const body = document.getElementsByTagName('body')[0];
+        body.style.overflowY = 'hidden';
+        body.style.paddingRight = '15px';
     }
 
 }, false);
@@ -645,6 +649,9 @@ document.addEventListener('click', function (event) {
     // Hide it!
     if (productCareModalOverlay) {
         productCareModalOverlay.classList.add('productpage__product-care-guide-modal-overlay--hidden');
+        const body = document.getElementsByTagName('body')[0];
+        body.style.overflowY = 'scroll';
+        body.style.paddingRight = '';
     }
 
 }, false);
