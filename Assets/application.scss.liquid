@@ -1574,6 +1574,27 @@ td {
     color: $color-black;
 }
 
+.productpage__product-care-guide-container {
+    display: flex;
+    margin-bottom: 66px;
+    @media(max-width: $breakpoint-tablet) {
+        margin-bottom: 45px;
+        margin-top: 64px;
+    }
+}
+
+.productpage__product-care-guide-link {
+    @include link-text;
+    margin-top: -8px;
+    font-size: 16px;
+}
+
+.productpage__product-care-guide-link-icon {
+    width: 22px;
+    height: 22px;
+    margin-left: 8px;
+}
+
 .productpage__product-image-container {
     margin-right: 138px;
     display: flex;

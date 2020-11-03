@@ -37,6 +37,10 @@
       <p class="productpage__description">{{product.description}} </p>
       <p class="productpage__free-shipping-message">Free Shipping both ways in the USA </p>
     </div>
+    <div class="productpage__product-care-guide-container">
+      <button class="productpage__product-care-guide-link">Care Guide</button>
+      {{ 'arrow-right.png' | asset_url | img_tag: 'Care Guide', 'productpage__product-care-guide-link-icon' }}
+    </div>
   </div>
   <div class="productpage__product-image-container">
       <div class="productpage__primary-product-image-container">
