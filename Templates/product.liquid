@@ -1,4 +1,21 @@
 <div class="productpage">
+<div class="productpage__product-care-guide-modal-overlay productpage__product-care-guide-modal-overlay--hidden">
+    <div class="productpage__product-care-guide-modal">
+      <div class="productpage__product-care-guide-modal-close-icon-container">
+        <button class="productpage__product-care-guide-modal-close-button">
+          {{ 'close-icon.png' | asset_url | img_tag: 'Close', 'productpage__product-care-guide-modal-close-icon' }}
+        </button>
+      </div>
+      <div class="productpage__product-care-guide-modal-container">
+        <h2 class="productpage__product-care-guide-title"> Lens Care</h2>
+        <p class="productpage__product-care-guide-text">Your glasses open up your eyes to the world... so take care of them! Not sure how? We've got a few simple guidelines you can follow to care for your handcrafted frames and lenses.</p>
+        <h4 class="productpage__product-care-guide-subTitle">Cellulose Acetate (Plastic) Frames</h4>
+        <p class="productpage__product-care-guide-text">Over time, oxidation — evidenced by a cloudy, white build-up — may occur on your cellulose acetate frames. This reduces the beauty of your frame and can also cause the plastic to become more brittle. You can delay the onset of oxidation by periodically cleaning your frame with warm, soapy water. Avoid soaps that are scented or contain dyes. After cleaning, make sure to completely dry your frame. Under no circumstances should you clean your frame with chemical cleaners. If your frame begins to lose its glossy, luminous finish, please contact Selima Optique about our frame buffing services.
+        <br/><br/>
+        It's also common for cellulose acetate frames to become slightly stretched or loose over time. The simplest way to help your glasses keep their shape is to avoid placing them on top of your head and to use two hands to take your glasses on and off. Should your frames become loose, bring them to your nearest Selima Optique for an adjustment. Never adjust your frames on your own!</p>
+      </div>
+  </div>
+</div>
   {% assign current_variant = product.selected_or_first_available_variant %}
   {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
   <div class="productpage__product-information-container">
@@ -38,8 +55,8 @@
       <p class="productpage__free-shipping-message">Free Shipping both ways in the USA </p>
     </div>
     <div class="productpage__product-care-guide-container">
-      <button class="productpage__product-care-guide-link">Care Guide</button>
-      {{ 'arrow-right.png' | asset_url | img_tag: 'Care Guide', 'productpage__product-care-guide-link-icon' }}
+      <button class="productpage__product-care-guide-button">Care Guide</button>
+      {{ 'arrow-right.png' | asset_url | img_tag: 'Care Guide', 'productpage__product-care-guide-button-icon' }}
     </div>
   </div>
   <div class="productpage__product-image-container">

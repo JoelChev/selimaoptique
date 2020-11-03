@@ -610,6 +610,45 @@ document.addEventListener('click', function (event) {
 
 }, false);
 
+//This handles the opening of the Care Guide Modal.
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.productpage__product-care-guide-button')
+        && !event.target.matches('.productpage__product-care-guide-button-icon')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    //Depending on if the hidden class is there or not, show or hide the modal!
+    const hiddenProductCareModalOverlay = document.getElementsByClassName('productpage__product-care-guide-modal-overlay--hidden')[0];
+    // If it is hidden show it!
+    if (hiddenProductCareModalOverlay) {
+        hiddenProductCareModalOverlay.classList.remove('productpage__product-care-guide-modal-overlay--hidden');
+    }
+
+}, false);
+
+//This handles the closing of the Care Guide Modal.
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.productpage__product-care-guide-modal-close-button')
+        && !event.target.matches('.productpage__product-care-guide-modal-close-icon')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    const productCareModalOverlay = document.getElementsByClassName('productpage__product-care-guide-modal-overlay')[0];
+    // Hide it!
+    if (productCareModalOverlay) {
+        productCareModalOverlay.classList.add('productpage__product-care-guide-modal-overlay--hidden');
+    }
+
+}, false);
+
 // Cart page
 
 //This is used to remove a product from the cart.

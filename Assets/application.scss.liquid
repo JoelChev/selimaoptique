@@ -1465,6 +1465,83 @@ td {
 
 }
 
+.productpage__product-care-guide-modal-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(228, 230, 245, 0.8); // $color-lavendar with 0.8 opacity
+    display: flex;
+}
+
+.productpage__product-care-guide-modal-overlay--hidden {
+    display: none;
+}
+
+.productpage__product-care-guide-modal {
+    background: $color-white;
+    border: dashed 2px $color-blue-main;
+    margin: auto;
+    opacity: 1;
+    max-width: 900px;
+    box-shadow: 0 2px 4px 2px rgba(0,0,0,0.25);
+}
+
+.productpage__product-care-guide-modal-close-icon-container {
+    margin-top: 24px;
+    margin-right: 24px;
+    margin-left: auto;
+    display: flex;
+}
+
+.productpage__product-care-guide-modal-close-button {
+    border: none;
+    background: transparent;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.productpage__product-care-guide-modal-close-icon {
+    height: 30px;
+    width: 30px;
+}
+
+.productpage__product-care-guide-modal-container {
+    margin-top: 18px;
+    padding: 0 56px;
+}
+
+.productpage__product-care-guide-title {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26px;
+    color: $color-black;
+    padding-bottom: 24px;
+}
+
+.productpage__product-care-guide-text {
+    font-family: "HK Grotesk";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-black;
+    padding-bottom: 24px;
+}
+
+.productpage__product-care-guide-subTitle {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-black;
+    padding-bottom: 8px;
+}
+
 .productpage__product-information-container {
     margin-left: 138px;
     @media(max-width: $breakpoint-desktop) {
@@ -1583,13 +1660,13 @@ td {
     }
 }
 
-.productpage__product-care-guide-link {
+.productpage__product-care-guide-button {
     @include link-text;
     margin-top: -8px;
     font-size: 16px;
 }
 
-.productpage__product-care-guide-link-icon {
+.productpage__product-care-guide-button-icon {
     width: 22px;
     height: 22px;
     margin-left: 8px;
