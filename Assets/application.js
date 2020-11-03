@@ -656,6 +656,26 @@ document.addEventListener('click', function (event) {
 
 }, false);
 
+
+!(function (d) {
+    //Test
+    console.log("SLAMMA JAMMA");
+    const productImageAccentList = document.getElementsByClassName('productpage__primary-image-accent');
+    if (productImageAccentList.length > 0) {
+        //As we duplicate product accent images on both mobile and desktop, we need to divide the real number by two.
+        const uniqueProductImageCount = productImageAccentList.length / 2;
+
+        //This gets the index of the image to be shown.
+        const indexOfImageToShow = Math.floor(Math.random() * uniqueProductImageCount);
+        const otherIndexOfImageToShow = indexOfImageToShow + uniqueProductImageCount;
+        productImageAccentList[indexOfImageToShow].classList.remove('productpage__primary-image-accent--hidden');
+        productImageAccentList[otherIndexOfImageToShow].classList.remove('productpage__primary-image-accent--hidden');
+    }
+
+
+}(document));
+
+
 // Cart page
 
 //This is used to remove a product from the cart.

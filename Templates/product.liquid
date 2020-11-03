@@ -30,7 +30,11 @@
          <div class="productpage__product-image-container-mobile">
       <div class="productpage__primary-product-image-container">
         <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" class="productpage__primary-image">
-        {{ 'butterfly.png' | asset_url | img_tag: 'Product Butterfly Accent', 'productpage__primary-image-accent' }}
+          {{ 'bird.png' | asset_url | img_tag: 'Product Bird Accent', 'productpage__primary-image-accent productpage__primary-image-accent--hidden' }}
+          {{ 'butterfly.png' | asset_url | img_tag: 'Product Butterfly Accent', 'productpage__primary-image-accent productpage__primary-image-accent--hidden' }}
+          {{ 'butterfly2.png' | asset_url | img_tag: 'Product Butterfly Accent 2', 'productpage__primary-image-accent productpage__primary-image-accent--hidden' }}
+          {{ 'flower-bird.png' | asset_url | img_tag: 'Product Flower Bird Accent', 'productpage__primary-image-accent productpage__primary-image-accent--hidden' }}
+          {{ 'nature-clouds.png' | asset_url | img_tag: 'Product Nature Clouds Accent', 'productpage__primary-image-accent productpage__primary-image-accent--cloud productpage__primary-image-accent--hidden' }}
       </div>
       <div class="productpage__secondary-product-image-row-container">
         {% for variant in product.variants %}
@@ -62,7 +66,11 @@
   <div class="productpage__product-image-container">
       <div class="productpage__primary-product-image-container">
         <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" class="productpage__primary-image">
-        {{ 'butterfly.png' | asset_url | img_tag: 'Product Butterfly Accent', 'productpage__primary-image-accent' }}
+          {{ 'bird.png' | asset_url | img_tag: 'Product Bird Accent', 'productpage__primary-image-accent productpage__primary-image-accent--hidden' }}
+          {{ 'butterfly.png' | asset_url | img_tag: 'Product Butterfly Accent', 'productpage__primary-image-accent productpage__primary-image-accent--hidden' }}
+          {{ 'butterfly2.png' | asset_url | img_tag: 'Product Butterfly Accent 2', 'productpage__primary-image-accent productpage__primary-image-accent--hidden' }}
+          {{ 'flower-bird.png' | asset_url | img_tag: 'Product Flower Bird Accent', 'productpage__primary-image-accent productpage__primary-image-accent--hidden' }}
+          {{ 'nature-clouds.png' | asset_url | img_tag: 'Product Nature Clouds Accent', 'productpage__primary-image-accent productpage__primary-image-accent--cloud productpage__primary-image-accent--hidden' }}
       </div>
       <div class="productpage__secondary-product-image-row-container">
         {% for variant in product.variants %}
