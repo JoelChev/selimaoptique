@@ -37,6 +37,10 @@
           </li>
         </ul>
     </div>
+    <div class="collectionpage__flower-container">
+        {{ 'flower-line-1.png' | asset_url | img_tag: 'Flowers 1', 'collectionpage__flower-one-icon' }}
+        {{ 'flower-line-2.png' | asset_url | img_tag: 'Flowers 2', 'collectionpage__flower-two-icon' }}
+    </div>
     <table class="collectionpage__product-table">
     {% tablerow product in collection.products cols:2 %}
       <div class="collectionpage__product-tile">
