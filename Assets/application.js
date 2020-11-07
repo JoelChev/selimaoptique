@@ -656,23 +656,21 @@ document.addEventListener('click', function (event) {
 
 }, false);
 
-
+// This function randomizes the accent images on the product page, so it rotates through the list of images on refresh.
 !(function (d) {
-    //Test
-    console.log("SLAMMA JAMMA");
     const productImageAccentList = document.getElementsByClassName('productpage__primary-image-accent');
     if (productImageAccentList.length > 0) {
-        //As we duplicate product accent images on both mobile and desktop, we need to divide the real number by two.
+        // As we duplicate product accent images on both mobile and desktop, we need to divide the real number by two.
+        // We need to show both the mobile and the desktop one potentially.
         const uniqueProductImageCount = productImageAccentList.length / 2;
 
-        //This gets the index of the image to be shown.
+        // This gets the index of the image to be shown.
         const indexOfImageToShow = Math.floor(Math.random() * uniqueProductImageCount);
+        // This gets the other index of the image to be shown. 
         const otherIndexOfImageToShow = indexOfImageToShow + uniqueProductImageCount;
         productImageAccentList[indexOfImageToShow].classList.remove('productpage__primary-image-accent--hidden');
         productImageAccentList[otherIndexOfImageToShow].classList.remove('productpage__primary-image-accent--hidden');
     }
-
-
 }(document));
 
 

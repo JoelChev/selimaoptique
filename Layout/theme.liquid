@@ -13,7 +13,7 @@
 <body>
 
   <div class="header
-    {% if {{template.name}} == 'list-collections' or {{template.name}} == 'collection' or {{template.name}} == 'product'%}
+    {% if {{template.name}} == 'list-collections' or {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product'%}
     header--purple
     {% endif %}
     {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
@@ -21,6 +21,9 @@
     {% endif %}
     {% if {{page_title}} == 'Locations' %}
     header--peach
+    {% endif %}
+    {% if {{page_title}} == 'Media' %}
+    header--green
     {% endif %}
     {% if {{template.name}} == 'cart'%}
     header--white
@@ -34,7 +37,7 @@
     <div class="header-background-cart">
     </div>
     {% endif %}
-    {% if {{template.name}} == 'list-collections' or {{template.name}} == 'collection' or {{template.name}} == 'product'%}
+    {% if {{template.name}} == 'list-collections' or {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product'%}
       <div class="header-background-collections">
       </div>
     {% endif %}
@@ -44,6 +47,10 @@
     {% endif %}
     {% if {{page_title}} == 'Locations' %}
       <div class="header-background-locations">
+      </div>
+    {% endif %}
+    {% if {{page_title}} == 'Media' %}
+      <div class="header-background-media">
       </div>
     {% endif %}
     <div class="header-nav-container">
@@ -70,7 +77,7 @@
             {% endfor %}]
           {% else %}
             {% if  {{link.title}} == 'Shop Online' %}
-              {% if {{template.name}} == 'collection' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
+              {% if {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
                 <span class="header__link--selected"> {{link.title | upcase}}</span>
               {% else %}
                 <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
@@ -109,7 +116,7 @@
             {% endfor %}]
           {% else %}
             {% if  {{link.title}} == 'Shop Online' %}
-              {% if {{template.name}} == 'collection' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
+              {% if {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
                 <span class="header__link-mobile--selected">SHOP</span>
               {% else %}
                 <a class="header__link-mobile" href="{{ link.url }}">SHOP</a>
@@ -158,7 +165,7 @@
       {{ content_for_layout }}
   </main>
   <div class="footer
-  {% if {{template.name}} == 'list-collections' or {{template.name}} == 'collection' or {{template.name}} == 'product'%}
+  {% if {{template.name}} == 'list-collections' or {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product'%}
     footer--purple
     {% endif %}
     {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
@@ -166,6 +173,9 @@
     {% endif %}
     {% if {{page_title}} == 'Locations' %}
     footer--peach
+    {% endif %}
+    {% if {{page_title}} == 'Media' %}
+    footer--green
     {% endif %}
     {% if {{template.name}} == 'cart'%}
     footer--white

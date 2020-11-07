@@ -23,6 +23,7 @@ $color-pastel-pink-dark: #FCD7EA;
 $color-peach: #F6E0D0;
 $color-peach-dark: #F1CDBE;
 $color-mint: #B9E1CA;
+$color-pastel-green: #CFE7D5;
 
 // Breakpoints
 $breakpoint-mobile: 324px;
@@ -373,6 +374,10 @@ td {
     background: $color-peach;
 }
 
+.header--green {
+    background: $color-pastel-green;
+}
+
 .header-background--mobile-expanded {
      @media (max-width: $breakpoint-tablet) {
         top: 350px !important;
@@ -488,6 +493,33 @@ td {
         border-bottom-right-radius: 50%;
     }
 }
+
+.header-background-media {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1390px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("media-header.png");
+    background-repeat: no-repeat;
+    background-size: 1390px 160px;
+    z-index: -1;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+         width: 768px;      
+         background-size: 768px 160px; 
+    }
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        height: 122px;
+        background-image: url("media-header-mobile.png");
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+}
+
 
 .header-nav-container {
     @media (min-width: $breakpoint-desktop) {
@@ -880,6 +912,10 @@ td {
 
 .footer--peach {
     background: $color-peach;
+}
+
+.footer--green {
+    background: $color-pastel-green;
 }
 
 .footer__free-shipping-container {
@@ -2796,6 +2832,32 @@ td {
     @media (max-width: $breakpoint-tablet) {
         max-width: 338px;
     }
+}
+
+//Media Page
+
+.mediapage {
+    background: $color-pastel-green;
+    display: flex;
+    max-width: 100%;
+    padding: 72px 132px;
+    flex-wrap: wrap;
+}
+
+.mediapage__image-container {
+    display: flex;
+    min-width: calc(50% - 32px);
+    max-width: calc(50% - 32px);
+    height: auto;
+    align-items: center;
+    justify-content: space-around;
+    margin: 16px;
+}
+
+.mediapage__image {
+    border: 3px solid $color-black;
+    max-width: 100%;
+    height: auto;
 }
 
 //Contact Page
