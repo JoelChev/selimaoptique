@@ -1,4 +1,21 @@
 {% if {{collection.handle}} == 'media' %}
+  <div class="mediapage__modal-overlay">
+    <div class="mediapage__modal-close-container">
+    </div>
+    <div class="mediapage__modal-body-container">
+      <img class="mediapage__modal-image" src="https://cdn.shopify.com/s/files/1/0260/1789/0397/products/2435_large.jpg?v=1604780290"/>
+      <div class="mediapage__modal-description-container">
+        <h4>Eric White, Patricia-Arquette and Elizabeth Olsen - The Window, February 19th, 2015</h4>
+        <p>
+        Barneys and Vanity Fair joined host Rooney Mara for an intimate dinner celebrating OXFAM, on February 19th, 2015 at Chateau Marmont, West Hollywood. Patricia Arquette founded GiveLove with Rosetta Getty to assist displaced families after the 2010 Haiti earthquake and active Community-led sanitation projects since. For our part, we find Mr White mighty handsome in his Alabama in Olive.
+        <br><br>
+        Story by Catie Horseman for The Window, Barney’s online journal of events
+        </p>
+      </div>
+    </div>
+    <div class="mediapage__modal-footer-container">
+    </div>
+  </div>
   <div class="mediapage">
     {% paginate collection.products by 4 %}
       {% for product in collection.products %}
