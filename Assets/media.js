@@ -4,6 +4,14 @@ var test = {
     "joel": "huzzzah!"
 }
 
+const mediaContent = {
+    "Agathe-Eric": {
+        "title": "Eric White, Patricia-Arquette and Elizabeth Olsen - The Window, February 19th, 2015",
+        "text": "Barneys and Vanity Fair joined host Rooney Mara for an intimate dinner celebrating OXFAM, on February 19th, 2015 at Chateau Marmont, West Hollywood. Patricia Arquette founded GiveLove with Rosetta Getty to assist displaced families after the 2010 Haiti earthquake and active Community-led sanitation projects since. For our part, we find Mr White mighty handsome in his Alabama in Olive.<br/><br/>Story by Catie Horseman for The Window, Barney’s online journal of events",
+        "variant": "36607135350951",
+    }
+}
+
 //This handles the opening of the Media Modal.
 document.addEventListener('click', function (event) {
     // If the clicked element doesn't have the right selector, bail
