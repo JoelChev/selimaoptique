@@ -2855,11 +2855,62 @@ td {
     height: 100vh;
     // This is $color-black at 0.8 opacity
     background: rgba(34, 34, 34, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mediapage__modal-overlay--hidden {
+    display: none;
+}
+
+.mediapage__modal-close-container {
+    position: absolute;
+    top: 72px;
+    right: 162px;
+}
+
+.mediapage__modal-close-button {
+    cursor: pointer;
+    border: none;
+    width: 57px;
+    height: 57px;
+    background: $color-white;
+    border-radius: 50%;
+}
+
+.mediapage__modal-close-button-icon {
+    width: 30px;
+    height: 30px;
 }
 
 .mediapage__modal-body-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.mediapage__modal-title {
+    font-family: "HK Grotesk";
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    color: $color-black;
+    margin-bottom: 24px;
+}
+
+.mediapage__modal-text {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: $color-black;
+    margin-bottom: 24px;
+    a {
+        color: $color-blue-main;
+        text-decoration: none;
+    }
 }
 
 .mediapage__modal-image {
@@ -2869,7 +2920,39 @@ td {
 .mediapage__modal-description-container {
     background: $color-white;
     border: 3px dashed $color-blue-main;
-    width: 568px;
+    width: 446px;
+    padding: 40px 40px 60px;
+}
+
+.mediapage__modal-footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.mediapage__modal-previous-media-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mediapage__modal-footer-counter-container {
+    margin: 0 36px;
+}
+
+.mediapage__modal-footer-counter {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    color: $color-white;
+}
+
+.mediapage__modal-next-media-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .mediapage__image-container {
@@ -2880,6 +2963,12 @@ td {
     align-items: center;
     justify-content: space-around;
     margin: 16px;
+}
+
+.mediapage__image-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .mediapage__image {

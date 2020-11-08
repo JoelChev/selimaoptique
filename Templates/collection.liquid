@@ -1,12 +1,13 @@
 {% if {{collection.handle}} == 'media' %}
-  <div class="mediapage__modal-overlay">
+  <div class="mediapage__modal-overlay mediapage__modal-overlay--hidden">
     <div class="mediapage__modal-close-container">
+      <button class="mediapage__modal-close-button">{{ 'close-icon.png' | asset_url | img_tag: 'Close Modal', 'mediapage__modal-close-button-icon' }}</button>
     </div>
     <div class="mediapage__modal-body-container">
       <img class="mediapage__modal-image" src="https://cdn.shopify.com/s/files/1/0260/1789/0397/products/2435_large.jpg?v=1604780290"/>
       <div class="mediapage__modal-description-container">
-        <h4>Eric White, Patricia-Arquette and Elizabeth Olsen - The Window, February 19th, 2015</h4>
-        <p>
+        <h4 class="mediapage__modal-title">Eric White, Patricia-Arquette and Elizabeth Olsen - The Window, February 19th, 2015</h4>
+        <p class="mediapage__modal-text">
         Barneys and Vanity Fair joined host Rooney Mara for an intimate dinner celebrating OXFAM, on February 19th, 2015 at Chateau Marmont, West Hollywood. Patricia Arquette founded GiveLove with Rosetta Getty to assist displaced families after the 2010 Haiti earthquake and active Community-led sanitation projects since. For our part, we find Mr White mighty handsome in his Alabama in Olive.
         <br><br>
         Story by Catie Horseman for The Window, Barney’s online journal of events
@@ -14,23 +15,36 @@
       </div>
     </div>
     <div class="mediapage__modal-footer-container">
+      <button class="mediapage__modal-previous-media-button">{{ 'arrow-white-left.png' | asset_url | img_tag: 'Previous Media Arrow', 'mediapage__modal-previous-media-icon' }}
+      </button>
+      <div class="mediapage__modal-footer-counter-container">
+        <span class="mediapage__modal-footer-counter">1/56</span>
+      </div>
+      <button class="mediapage__modal-next-media-button">{{ 'arrow-white-right.png' | asset_url | img_tag: 'Next Media Arrow', 'mediapage__modal-next-media-icon' }}
+      </button>
     </div>
   </div>
   <div class="mediapage">
     {% paginate collection.products by 4 %}
       {% for product in collection.products %}
-        {% tablerow image in product.images cols:2 %}
+        {% for image in product.images %}
           {% unless image.attached_to_variant?%}
             <div class="mediapage__image-container">
-              <img class="mediapage__image" src="{{ image | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+              <button class="mediapage__image-button" id=>
+              <img class="mediapage__image" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+              </button>
             </div>
           {% endunless %}
-        {% endtablerow %}
+        {% endfor %}
       {% endfor %}
       {% if paginate.pages > 1 %}
         {{ paginate | default_pagination }}
       {% endif %}
     {% endpaginate %}
+    {{ 'media.js' | asset_url | script_tag }}
+    <script>
+      console.log( test.joel );
+    </script>
   </div>
 {% else %}
   <div class="collectionpage">
