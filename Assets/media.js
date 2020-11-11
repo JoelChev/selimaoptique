@@ -57,3 +57,53 @@ document.addEventListener('click', function (event) {
     }
 
 }, false);
+
+//This handles the previous button click
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.mediapage__modal-previous-media-button')
+        && !event.target.matches('.mediapage__modal-previous-media-icon')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    // Get the counter and increment it!
+    const mediaModalCounter = document.getElementsByClassName('mediapage__modal-footer-counter')[0];
+    const mediaModalIndexAndTotal = mediaModalCounter.textContent.split("/");
+    const mediaModalIndex = parseInt(mediaModalIndexAndTotal[0]);
+    const mediaModalTotal = parseInt(mediaModalIndexAndTotal[1]);
+
+    let newMediaModalIndex = (mediaModalIndex - 1);
+    if (newMediaModalIndex === 0) {
+        newMediaModalIndex = mediaModalTotal;
+    }
+
+    mediaModalCounter.textContent = `${newMediaModalIndex}/${mediaModalTotal}`
+
+}, false);
+
+//This handles the next button click
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.mediapage__modal-next-media-button')
+        && !event.target.matches('.mediapage__modal-next-media-icon')) {
+        return;
+    }
+
+    // Don't follow the link
+    event.preventDefault();
+
+    // Get the counter and increment it!
+    const mediaModalCounter = document.getElementsByClassName('mediapage__modal-footer-counter')[0];
+    const mediaModalIndexAndTotal = mediaModalCounter.textContent.split("/");
+    const mediaModalIndex = parseInt(mediaModalIndexAndTotal[0]);
+    const mediaModalTotal = parseInt(mediaModalIndexAndTotal[1]);
+
+    const newMediaModalIndex = (mediaModalIndex + 1) % mediaModalTotal;
+
+    mediaModalCounter.textContent = `${newMediaModalIndex}/${mediaModalTotal}`
+
+}, false);
+
