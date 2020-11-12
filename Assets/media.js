@@ -91,7 +91,6 @@ document.addEventListener('click', function (event) {
 
     //Set the desired modal text
     const mediaModalText = document.getElementsByClassName('mediapage__modal-text')[0];
-    console.log(mediaModalContent.text);
     mediaModalText.innerHTML = mediaModalContent.text;
 
 
@@ -162,6 +161,17 @@ document.addEventListener('click', function (event) {
     const nextModalMediaImage = document.getElementsByClassName('mediapage__image')[newMediaModalIndex - 1];
     mediaModalImage.src = nextModalMediaImage.src;
 
+    const altTag = nextModalMediaImage.alt;
+    const mediaModalContent = mediaContent[altTag];
+
+    //Set the desired modal title
+    const mediaModalTitle = document.getElementsByClassName('mediapage__modal-title')[0];
+    mediaModalTitle.textContent = mediaModalContent.title;
+
+    //Set the desired modal text
+    const mediaModalText = document.getElementsByClassName('mediapage__modal-text')[0];
+    mediaModalText.innerHTML = mediaModalContent.text;
+
     mediaModalCounter.textContent = `${newMediaModalIndex}/${mediaModalTotal}`;
 
 }, false);
@@ -193,6 +203,17 @@ document.addEventListener('click', function (event) {
     mediaModalImage.src = nextModalMediaImage.src;
 
     mediaModalCounter.textContent = `${newMediaModalIndex}/${mediaModalTotal}`
+
+    const altTag = nextModalMediaImage.alt;
+    const mediaModalContent = mediaContent[altTag];
+
+    //Set the desired modal title
+    const mediaModalTitle = document.getElementsByClassName('mediapage__modal-title')[0];
+    mediaModalTitle.textContent = mediaModalContent.title;
+
+    //Set the desired modal text
+    const mediaModalText = document.getElementsByClassName('mediapage__modal-text')[0];
+    mediaModalText.innerHTML = mediaModalContent.text;
 
 }, false);
 
