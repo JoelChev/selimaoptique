@@ -42,8 +42,8 @@
         {% for image in product.images %}
           {% unless image.attached_to_variant?%}
             <div class="mediapage__image-container">
-              <button class="mediapage__image-button" id=>
-              <img class="mediapage__image" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+              <button class="mediapage__image-button" id="mediaPageImageButton-{{image.alt}}-{{product.id}}">
+              <img class="mediapage__image" id="mediaPageImage-{{image.alt}}-{{product.id}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
               </button>
             </div>
           {% endunless %}

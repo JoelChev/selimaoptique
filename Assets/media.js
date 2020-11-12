@@ -5,12 +5,61 @@ var test = {
 }
 
 const mediaContent = {
-    "Agathe-Eric": {
+    // Adri O
+    "Adri_Lycra": {
+        "title": "Lycra Ad // 2006",
+        "text": "Featuring the <a class='test' href='/'>Adri-0</a> in black",
+        "variant": "",
+    },
+    "Adri_Jane": {
+        "title": "JANE // October 2003",
+        "text": "Featuring the Adri-0 in tortoise",
+        "variant": "",
+    },
+    "Adri_Gaga": {
+        "title": "GagaFashionLand.com // May 2012",
+        "text": "Lady Gaga wears the <a class='test' href='/'>Adri-0</a>",
+        "variant": "",
+    },
+    "Adri_Parlour": {
+        "title": "Parlour Magazine // 2011",
+        "text": "A beautiful shot of the <a class='test' href='/'>Adri-0</a> in Crystal Pink",
+        "variant": "",
+    },
+    "Adri_Elle": {
+        "title": "Elle France // 2001",
+        "text": "Featuring <a class='test' href='/'>Adri-0</a> in Black",
+        "variant": "",
+    },
+    "Adri_Muppets": {
+        "title": "Lady Gaga Cameo in Muppets Most Wanted 2014 trailer",
+        "text": "Screen grab of Lady Gaga’s Cameo In Muppets Most Wanted 2014 sequel.. She wears the <a class='test' href='/'>Adri-0</a>!",
+        "variant": "",
+    },
+    // Agathe
+    "Agathe_Eric": {
         "title": "Eric White, Patricia-Arquette and Elizabeth Olsen - The Window, February 19th, 2015",
         "text": "Barneys and Vanity Fair joined host Rooney Mara for an intimate dinner celebrating OXFAM, on February 19th, 2015 at Chateau Marmont, West Hollywood. Patricia Arquette founded GiveLove with Rosetta Getty to assist displaced families after the 2010 Haiti earthquake and active Community-led sanitation projects since. For our part, we find Mr White mighty handsome in his Alabama in Olive.<br/><br/>Story by Catie Horseman for The Window, Barney’s online journal of events",
         "variant": "36607135350951",
     }
 }
+
+// This function handles assigning dynamic ids to the modals as they pop up.
+!(function (d) {
+    const modalMediaButtons = document.getElementsByClassName('mediapage__image-button');
+    console.log(modalMediaButtons);
+    const modalMediaImages = document.getElementsByClassName('mediapage__image');
+    for (let i = 0; i < modalMediaButtons.length; i++) {
+        let modalMediaButton = modalMediaButtons[i];
+        let modalMediaImage = modalMediaImages[i];
+        modalMediaButton.id = modalMediaButton.id + `-${i + 1}`;
+        modalMediaImage.id = modalMediaImage.id + `-${i + 1}`;
+    }
+    // Init the counter on the expanded modal as well
+    const mediaModalCounter = document.getElementsByClassName('mediapage__modal-footer-counter')[0];
+    mediaModalCounter.textContent = `1/${modalMediaButtons.length}`
+
+}(document));
 
 //This handles the opening of the Media Modal.
 document.addEventListener('click', function (event) {
@@ -19,6 +68,35 @@ document.addEventListener('click', function (event) {
         && !event.target.matches('.mediapage__image')) {
         return;
     }
+    // The id is a combination of identifier-alt_tag-product_id-index
+    const splitId = event.target.id.split("-");
+
+    const altTag = splitId[1];
+    const mediaModalContent = mediaContent[altTag];
+
+    const index = splitId[splitId.length - 1];
+    // Set the counter based on which image is expanded.
+    const mediaModalCounter = document.getElementsByClassName('mediapage__modal-footer-counter')[0];
+    const mediaModalIndexAndTotal = mediaModalCounter.textContent.split("/");
+    const mediaModalTotal = parseInt(mediaModalIndexAndTotal[1]);
+
+    //Set the desired image in the modal
+    const mediaModalImage = document.getElementsByClassName('mediapage__modal-image')[0];
+    const selectedModalMediaImage = document.getElementsByClassName('mediapage__image')[index - 1];
+    mediaModalImage.src = selectedModalMediaImage.src;
+
+    //Set the desired modal title
+    const mediaModalTitle = document.getElementsByClassName('mediapage__modal-title')[0];
+    mediaModalTitle.textContent = mediaModalContent.title;
+
+    //Set the desired modal text
+    const mediaModalText = document.getElementsByClassName('mediapage__modal-text')[0];
+    console.log(mediaModalContent.text);
+    mediaModalText.innerHTML = mediaModalContent.text;
+
+
+    //Set the footer counter
+    mediaModalCounter.textContent = `${index}/${mediaModalTotal}`;
 
     // Don't follow the link
     event.preventDefault();
@@ -79,8 +157,12 @@ document.addEventListener('click', function (event) {
     if (newMediaModalIndex === 0) {
         newMediaModalIndex = mediaModalTotal;
     }
+    //Update the image, get the previous image
+    const mediaModalImage = document.getElementsByClassName('mediapage__modal-image')[0];
+    const nextModalMediaImage = document.getElementsByClassName('mediapage__image')[newMediaModalIndex - 1];
+    mediaModalImage.src = nextModalMediaImage.src;
 
-    mediaModalCounter.textContent = `${newMediaModalIndex}/${mediaModalTotal}`
+    mediaModalCounter.textContent = `${newMediaModalIndex}/${mediaModalTotal}`;
 
 }, false);
 
@@ -101,7 +183,14 @@ document.addEventListener('click', function (event) {
     const mediaModalIndex = parseInt(mediaModalIndexAndTotal[0]);
     const mediaModalTotal = parseInt(mediaModalIndexAndTotal[1]);
 
-    const newMediaModalIndex = (mediaModalIndex + 1) % mediaModalTotal;
+    let newMediaModalIndex = (mediaModalIndex + 1) % (mediaModalTotal + 1);
+    if (newMediaModalIndex === 0) {
+        newMediaModalIndex = 1;
+    }
+    //Update the image, get the next image
+    const mediaModalImage = document.getElementsByClassName('mediapage__modal-image')[0];
+    const nextModalMediaImage = document.getElementsByClassName('mediapage__image')[newMediaModalIndex - 1];
+    mediaModalImage.src = nextModalMediaImage.src;
 
     mediaModalCounter.textContent = `${newMediaModalIndex}/${mediaModalTotal}`
 
