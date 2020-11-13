@@ -191,6 +191,12 @@ function _getProductDetailsAndShowNextModal(newMediaModalIndex) {
 
                     _setProductContent(productJSON, selectedVariant, variantId);
                     _setMediaModalContentOnTransition(newMediaModalIndex);
+
+                    //Set the query parameters for navigation
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('selected-media', altTag);
+                    history.pushState({}, null, url);
+
                     break;
                 }
             }
@@ -230,9 +236,56 @@ function _showModal() {
     }
     // Init the counter on the expanded modal as well
     const mediaModalCounter = document.getElementsByClassName('mediapage__modal-footer-counter')[0];
-    mediaModalCounter.textContent = `1/${modalMediaButtons.length}`
+    mediaModalCounter.textContent = `1/${modalMediaButtons.length}`;
 
 }(document));
+
+// This function opens a media modal if there are query parameters on refresh of page
+!(function (d) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedMedia = urlParams.get('selected-media');
+    if (selectedMedia !== undefined && selectedMedia !== null && selectedMedia !== '') {
+        let allImages = document.getElementsByTagName("img");
+        let selectedImage;
+        for (let i = 0, len = allImages.length; i < len; ++i) {
+            if (allImages[i].alt === selectedMedia) {
+                selectedImage = allImages[i];
+            }
+        }
+        //If an image is found that matches the alt tag, display it!
+        if (selectedImage !== undefined && selectedImage !== null) {
+            // The id is a combination of identifier-alt_tag-product_id-index
+            const splitId = selectedImage.id.split("-");
+
+            const altTag = splitId[1];
+            const mediaModalContent = mediaContent[altTag];
+            const productHandle = splitId[splitId.length - 2];
+            _getProductDetailsAndShowModal(productHandle, mediaModalContent.variant, true);
+            const index = splitId[splitId.length - 1];
+            // Set the counter based on which image is expanded.
+            const mediaModalCounter = document.getElementsByClassName('mediapage__modal-footer-counter')[0];
+            const mediaModalIndexAndTotal = mediaModalCounter.textContent.split("/");
+            const mediaModalTotal = parseInt(mediaModalIndexAndTotal[1]);
+
+            //Set the desired image in the modal
+            const mediaModalImage = document.getElementsByClassName('mediapage__modal-image')[0];
+            const selectedModalMediaImage = document.getElementsByClassName('mediapage__image')[index - 1];
+            mediaModalImage.src = selectedModalMediaImage.src;
+
+            //Set the desired modal title
+            const mediaModalTitle = document.getElementsByClassName('mediapage__modal-title')[0];
+            mediaModalTitle.textContent = mediaModalContent.title;
+
+            //Set the desired modal text
+            const mediaModalText = document.getElementsByClassName('mediapage__modal-text')[0];
+            mediaModalText.innerHTML = mediaModalContent.text;
+
+            //Set the footer counter
+            mediaModalCounter.textContent = `${index}/${mediaModalTotal}`;
+        }
+    }
+}(document));
+
 
 //This handles the opening of the Media Modal.
 document.addEventListener('click', function (event) {
@@ -267,13 +320,14 @@ document.addEventListener('click', function (event) {
     const mediaModalText = document.getElementsByClassName('mediapage__modal-text')[0];
     mediaModalText.innerHTML = mediaModalContent.text;
 
-
     //Set the footer counter
     mediaModalCounter.textContent = `${index}/${mediaModalTotal}`;
 
 
-
-
+    //Set the query parameters for navigation
+    const url = new URL(window.location.href);
+    url.searchParams.set('selected-media', altTag);
+    history.pushState({}, null, url);
 
     // Don't follow the link
     event.preventDefault();
@@ -299,6 +353,10 @@ document.addEventListener('click', function (event) {
         body.style.overflowY = 'scroll';
         body.style.paddingRight = '';
     }
+    // Clear the query parameter too.
+    const url = new URL(window.location.href);
+    url.searchParams.delete('selected-media');
+    history.pushState({}, null, url);
 
 }, false);
 
