@@ -2872,6 +2872,9 @@ td {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 .mediapage__modal-overlay--hidden {
@@ -2882,6 +2885,10 @@ td {
     position: absolute;
     top: 72px;
     right: 162px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        top: 40px;
+        right: 40px;
+    }
 }
 
 .mediapage__modal-close-button {
@@ -3023,6 +3030,11 @@ td {
     border: 3px dashed $color-blue-main;
     width: 446px;
     padding: 40px 40px 60px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 320px;
+        padding: 20px 20px 30px;
+    }
+    
 }
 
 .mediapage__modal-footer-container {
@@ -3066,6 +3078,30 @@ td {
     @media (min-width: $breakpoint-tablet) {
         display: none;
     }
+}
+
+.mediapage__modal-overlay-mobile {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    // This is $color-black at 0.8 opacity
+    background: rgba(34, 34, 34, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+
+.mediapage__modal-overlay-mobile--hidden {
+    display: none;
 }
 
 .mediapage__image-container {
