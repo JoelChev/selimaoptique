@@ -269,10 +269,12 @@ document.addEventListener('click', function (event) {
     const headerNavContainerExpandedCart = document.getElementsByClassName('header-nav-container--mobile-expanded-cart');
     const headerNavContainerExpandedAbout = document.getElementsByClassName('header-nav-container--mobile-expanded-about');
     const headerNavContainerExpandedLocations = document.getElementsByClassName('header-nav-container--mobile-expanded-locations');
+    const headerNavContainerExpandedMedia = document.getElementsByClassName('header-nav-container--mobile-expanded-media');
     if (headerNavContainerExpanded.length === 0
         && headerNavContainerExpandedCart.length === 0
         && headerNavContainerExpandedAbout.length === 0
-        && headerNavContainerExpandedLocations.length === 0) {
+        && headerNavContainerExpandedLocations.length === 0
+        && headerNavContainerExpandedMedia.length === 0) {
         //Trigger the expansion
         const main = document.getElementById("main");
         main.classList.add('main--mobile-expanded');
@@ -305,6 +307,11 @@ document.addEventListener('click', function (event) {
             const headerBackground = document.getElementsByClassName('header-background-locations')[0];
             headerBackground.classList.add('header-background--mobile-expanded');
             headerNavContainer.classList.add('header-nav-container--mobile-expanded-locations');
+        } else if (document.getElementsByClassName('header-background-media').length > 0) {
+            // Media Pages
+            const headerBackground = document.getElementsByClassName('header-background-media')[0];
+            headerBackground.classList.add('header-background--mobile-expanded');
+            headerNavContainer.classList.add('header-nav-container--mobile-expanded-media');
         }
         const headerLinksContainer = document.getElementsByClassName('header-links-container')[0];
         headerLinksContainer.classList.add('header-links-container--mobile-expanded');
@@ -351,6 +358,11 @@ document.addEventListener('click', function (event) {
             const headerBackground = document.getElementsByClassName('header-background-locations')[0];
             headerBackground.classList.remove('header-background--mobile-expanded');
             headerNavContainer.classList.remove('header-nav-container--mobile-expanded-locations');
+        } else if (document.getElementsByClassName('header-background-media').length > 0) {
+            // Media Pages
+            const headerBackground = document.getElementsByClassName('header-background-media')[0];
+            headerBackground.classList.remove('header-background--mobile-expanded');
+            headerNavContainer.classList.remove('header-nav-container--mobile-expanded-media');
         }
         const headerLinksContainer = document.getElementsByClassName('header-links-container')[0];
         headerLinksContainer.classList.remove('header-links-container--mobile-expanded');
