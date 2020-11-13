@@ -6,20 +6,17 @@
     <div class="mediapage__modal-body-container">
       <img class="mediapage__modal-image" src="https://cdn.shopify.com/s/files/1/0260/1789/0397/products/2435_large.jpg?v=1604780290"/>
       <div class="mediapage__modal-description-container">
-        <h4 class="mediapage__modal-title">Eric White, Patricia-Arquette and Elizabeth Olsen - The Window, February 19th, 2015</h4>
+        <h4 class="mediapage__modal-title"></h4>
         <p class="mediapage__modal-text">
-        Barneys and Vanity Fair joined host Rooney Mara for an intimate dinner celebrating OXFAM, on February 19th, 2015 at Chateau Marmont, West Hollywood. Patricia Arquette founded GiveLove with Rosetta Getty to assist displaced families after the 2010 Haiti earthquake and active Community-led sanitation projects since. For our part, we find Mr White mighty handsome in his Alabama in Olive.
-        <br><br>
-        Story by Catie Horseman for The Window, Barney’s online journal of events
         </p>
         <div class="mediapage__modal-product-container">
           <h6 class="mediapage__modal-product-container-title">In this photo...</h6>
           <div class="mediapage__modal-product-image-description-container">
-            <img class="mediapage__modal-product-image" src="https://cdn.shopify.com/s/files/1/0260/1789/0397/products/2178_152x76.jpg?v=1600827412"/>
+            <img class="mediapage__modal-product-image" src=""/>
             <div class="mediapage__modal-product-description-container">
-              <h6 class="mediapage__modal-product-title">Adri O</h6>
-              <h6 class="mediapage__modal-product-variant-title">Baby Blue/ Green</h6>
-              <h6 class="mediapage__modal-product-price"> 450.00</h6>
+              <h6 class="mediapage__modal-product-title"></h6>
+              <h6 class="mediapage__modal-product-variant-title"></h6>
+              <h6 class="mediapage__modal-product-price"></h6>
               <a class="mediapage__modal-product-link" href="">See More Details</a>
             </div>
           </div>
@@ -42,8 +39,8 @@
         {% for image in product.images %}
           {% unless image.attached_to_variant?%}
             <div class="mediapage__image-container">
-              <button class="mediapage__image-button" id="mediaPageImageButton-{{image.alt}}-{{product.id}}">
-              <img class="mediapage__image" id="mediaPageImage-{{image.alt}}-{{product.id}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+              <button class="mediapage__image-button" id="mediaPageImageButton-{{image.alt}}-{{product.handle}}">
+              <img class="mediapage__image" id="mediaPageImage-{{image.alt}}-{{product.handle}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
               </button>
             </div>
           {% endunless %}

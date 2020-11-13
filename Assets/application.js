@@ -28,9 +28,7 @@ function _getAndShowCartSummary() {
     xhr.onreadystatechange = function () {
         if (this.readyState == 4) {
             if (xhr.status == 200) {
-                console.log(xhr.responseText);
                 let cartJSON = JSON.parse(xhr.responseText);
-                console.log(cartJSON);
                 //Now to parse the json.
                 const cartSummaryItemsList = document.getElementsByClassName('header__cart-summary-item-list-container')[0];
                 const items = cartJSON.items;
