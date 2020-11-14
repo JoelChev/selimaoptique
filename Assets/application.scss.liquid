@@ -3081,7 +3081,7 @@ td {
 }
 
 .mediapage__modal-overlay-mobile {
-    z-index: 999;
+    z-index: 1000000001; //One higher than the header
     position: fixed;
     top: 0;
     bottom: 0;
@@ -3093,7 +3093,6 @@ td {
     background: rgba(34, 34, 34, 0.8);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     @media (min-width: $breakpoint-tablet) {
         display: none;
     }
@@ -3103,6 +3102,213 @@ td {
 .mediapage__modal-overlay-mobile--hidden {
     display: none;
 }
+
+.mediapage__modal-mobile-back-container {
+    width: 100%;
+    min-height: 66px;
+    background: $color-white;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 18px;
+}
+
+.mediapage__modal-mobile-back-button-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.mediapage__modal-mobile-back-button {
+    @include link-text;
+    font-size: 18px;
+    line-height: 26px;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
+.mediapage__modal-mobile-image-container {
+    border-top: 3px solid $color-black;
+    width: 100%;
+    min-height: 400px;
+    max-height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.mediapage__modal-mobile-image {
+    object-fit: cover;
+    width: 100%;
+}
+
+.mediapage__modal-mobile-navigation-container {
+    z-index: 1000000002;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(34, 34, 34, 0.2); //$color-black at 20% opacity
+    position: absolute;
+    bottom: 0;
+    min-height: 64px;
+    width: calc(100% - 36px);
+    padding: 0 18px;
+}
+
+.mediapage__modal-mobile-previous-media-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mediapage__modal-mobile-previous-media-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.mediapage__modal-footer-counter-container {
+    padding: 0 36px;
+}
+
+.mediapage__modal-mobile-footer-counter {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    color: $color-white;
+}
+
+.mediapage__modal-mobile-next-media-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mediapage__modal-mobile-next-media-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.mediapage__modal-mobile-description-container {
+    padding: 32px 18px;
+    min-height: 500px;
+    background: $color-white;
+}
+
+//HERE 
+
+.mediapage__modal-mobile-title {
+    font-family: "HK Grotesk";
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 600;
+    color: $color-black;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.mediapage__modal-mobile-text {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: $color-black;
+    margin-bottom: 24px;
+    text-align: center;
+    a {
+        color: $color-blue-main;
+        text-decoration: none;
+    }
+}
+
+.mediapage__modal-mobile-product-container {
+    border-top: 1px solid $color-grey-3;
+    padding-top: 24px;
+}
+
+.mediapage__modal-mobile-product-container-title {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 26px;
+    color: $color-black;
+    margin-bottom: 16px;
+}
+
+.mediapage__modal-mobile-product-image-description-container {
+
+}
+
+.mediapage__modal-mobile-product-image {
+    max-width: 152px;
+    max-height: 72px;
+}
+
+.mediapage__modal-mobile-product-description-container {
+
+}
+
+.mediapage__modal-mobile-product-title {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: $color-black;
+    margin-bottom: 4px;
+}
+
+.mediapage__modal-mobile-product-variant-title {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: $color-black;
+    margin-bottom: 4px;
+}
+
+.mediapage__modal-mobile-product-price {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: $color-black;
+}
+
+.mediapage__modal-mobile-product-link {
+    margin-top: 32px;
+    @include button-secondary;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.mediapage__modal-mobile-product-image-description-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.mediapage__modal-mobile-product-image {
+    border: 3px solid $color-black;
+    margin-right: 20px;
+}
+
+.mediapage__modal-mobile-product-description-container {
+    display: flex;
+    flex-direction: column;
+}
+
+//TO HERE
+
 
 .mediapage__image-container {
     display: flex;

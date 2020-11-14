@@ -33,37 +33,42 @@
       </button>
     </div>
   </div>
-  <div class="mediapage__modal-overlay-mobile ">
+  <div class="mediapage__modal-overlay-mobile">
     <div class="mediapage__modal-mobile-back-container">
+      {{ 'arrow-left.png' | asset_url | img_tag: 'Back', 'mediapage__modal-mobile-back-button-icon' }}
       <button class="mediapage__modal-mobile-back-button">Back</button>
     </div>
     <div class="mediapage__modal-mobile-image-container">
       <img class="mediapage__modal-mobile-image" src="https://cdn.shopify.com/s/files/1/0260/1789/0397/products/2435_large.jpg?v=1604780290"/>
-      <button class="mediapage__modal-mobile-previous-media-button">{{ 'arrow-white-left.png' | asset_url | img_tag: 'Previous Media Arrow', 'mediapage__modal-previous-media-icon' }}
-      </button>
-      <div class="mediapage__modal-mobile-footer-counter-container">
-        <span class="mediapage__modal-mobile-footer-counter">1/56</span>
+      <div class="mediapage__modal-mobile-navigation-container">
+        <button class="mediapage__modal-mobile-previous-media-button">{{ 'arrow-white-left.png' | asset_url | img_tag: 'Previous Media Arrow', 'mediapage__modal-mobile-previous-media-icon' }}
+        </button>
+        <div class="mediapage__modal-mobile-footer-counter-container">
+          <span class="mediapage__modal-mobile-footer-counter">1/56</span>
+        </div>
+        <button class="mediapage__modal-mobile-next-media-button">{{ 'arrow-white-right.png' | asset_url | img_tag: 'Next Media Arrow', 'mediapage__modal-mobile-next-media-icon' }}
+        </button>
       </div>
-      <button class="mediapage__modal-mobile-next-media-button">{{ 'arrow-white-right.png' | asset_url | img_tag: 'Next Media Arrow', 'mediapage__modal-next-media-icon' }}
-      </button>
     </div>
-    <div class="mediapage__modal-mobile-body-container">
-      <div class="mediapage__modal-description-container">
-        <h4 class="mediapage__modal-title"></h4>
-        <p class="mediapage__modal-text">
-        </p>
-        <div class="mediapage__modal-product-container">
-          <h6 class="mediapage__modal-product-container-title">In this photo...</h6>
-          <div class="mediapage__modal-product-image-description-container">
-            <img class="mediapage__modal-product-image" src=""/>
-            <div class="mediapage__modal-product-description-container">
-              <h6 class="mediapage__modal-product-title"></h6>
-              <h6 class="mediapage__modal-product-variant-title"></h6>
-              <h6 class="mediapage__modal-product-price"></h6>
-              <a class="mediapage__modal-product-link" href="">See More Details</a>
-            </div>
+    <div class="mediapage__modal-mobile-description-container">
+      <h4 class="mediapage__modal-mobile-title">Harper’s Bazaar Vietnam April 2020 Issue</h4>
+      <p class="mediapage__modal-mobile-text">
+      DJ Curvy,  aka Amy Rebecca, sports the Edna from our June Ambrose collaboration.
+      <br/><br/>
+      Style and artistic direction: Marty Mc’fresh.
+      Photography:  Jentrie Bentley
+      </p>
+      <div class="mediapage__modal-mobile-product-container">
+        <h6 class="mediapage__modal-mobile-product-container-title">In this photo...</h6>
+        <div class="mediapage__modal-mobile-product-image-description-container">
+          <img class="mediapage__modal-mobile-product-image" src="https://cdn.shopify.com/s/files/1/0260/1789/0397/products/3_152x76.jpg?v=1600827549"/>
+          <div class="mediapage__modal-mobile-product-description-container">
+            <h6 class="mediapage__modal-mobile-product-title">Edna</h6>
+            <h6 class="mediapage__modal-mobile-product-variant-title">Blue/Green</h6>
+            <h6 class="mediapage__modal-mobile-product-price">450.00</h6>
           </div>
         </div>
+        <a class="mediapage__modal-mobile-product-link" href="">View Glasses</a>
       </div>
     </div>
   </div>

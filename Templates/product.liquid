@@ -20,7 +20,7 @@
   {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
   <div class="productpage__product-information-container">
     <div class="productpage__product-back-link-container">
-      {{ 'arrow-left.png' | asset_url | img_tag: 'Back', 'productpage__product-back-link-icon' }}
+      <a href="{{collection.url}}" class="'productpage__product-back-link-icon'"> {{ 'arrow-left.png' | asset_url | img_tag: 'Back' }}</a>
       <a class="productpage__product-back-link" href="{{collection.url}}">Back</a>
     </div>
     <div class="productpage__product-title-container">
