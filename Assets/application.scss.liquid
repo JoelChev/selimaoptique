@@ -1622,6 +1622,10 @@ td {
         margin-left: 0;
         padding-left: 18px;
     }
+    @media(max-width: $breakpoint-tablet) {
+        //margin-top: 230px;
+        // TODO: Fix the product spacing on mobile
+    }
 }
 
 .productpage__product-back-link-container {
@@ -1839,11 +1843,13 @@ td {
 .productpage__secondary-product-image-row-container {
     margin-top: 32px;
     display: flex;
+    flex-wrap: wrap;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         max-width: 400px;
     }
     @media (max-width: $breakpoint-tablet) {
         margin-left: -16px;
+        justify-content: center;
     }
 }
 
@@ -1879,6 +1885,7 @@ td {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 16px;
 }
 
 .productpage__secondary-image--selected {
@@ -2898,6 +2905,14 @@ td {
     height: 57px;
     background: $color-white;
     border-radius: 50%;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
 }
 
 .mediapage__modal-close-button-icon {
@@ -3048,6 +3063,14 @@ td {
     background: transparent;
     border: none;
     cursor: pointer;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
 }
 
 .mediapage__modal-footer-counter-container {
@@ -3066,6 +3089,14 @@ td {
     background: transparent;
     border: none;
     cursor: pointer;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
 }
 
 .mediapage__mobile-title {
@@ -3078,6 +3109,64 @@ td {
     @media (min-width: $breakpoint-tablet) {
         display: none;
     }
+}
+
+.mediapage__modal-overlay-mobile-expanded {
+    z-index: 1000000002; //One higher than the other mobile modal
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    // This is $color-black at 0.5 opacity
+    background: rgba(34, 34, 34, 0.5);
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.mediapage__modal-overlay-mobile-expanded--hidden {
+    display: none;
+}
+
+.mediapage__modal-overlay-mobile-expanded-close-container {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+}
+
+.mediapage__modal-expanded-close-button {
+    cursor: pointer;
+    border: none;
+    width: 36px;
+    height: 36px;
+    background: $color-white;
+    border-radius: 50%;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
+.mediapage__modal-expanded-close-button-icon {
+    width: 19px;
+    height: 19px;
+}
+
+.mediapage__modal-overlay-mobile-expanded-image-container {
+    margin: auto;
+}
+
+.mediapage__modal-overlay-mobile-expanded-image {
+    border: 3px solid $color-black;
 }
 
 .mediapage__modal-overlay-mobile {
@@ -3138,13 +3227,13 @@ td {
 .mediapage__modal-mobile-image-container {
     border-top: 3px solid $color-black;
     width: 100%;
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 300px;
     overflow: hidden;
     position: relative;
 }
 
 .mediapage__modal-mobile-image {
+    cursor: pointer;
     object-fit: cover;
     width: 100%;
 }
@@ -3166,6 +3255,14 @@ td {
     background: transparent;
     border: none;
     cursor: pointer;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
 }
 
 .mediapage__modal-mobile-previous-media-icon {
@@ -3189,6 +3286,14 @@ td {
     background: transparent;
     border: none;
     cursor: pointer;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
 }
 
 .mediapage__modal-mobile-next-media-icon {
@@ -3198,11 +3303,10 @@ td {
 
 .mediapage__modal-mobile-description-container {
     padding: 32px 18px;
-    min-height: 500px;
+    height: 100%;
     background: $color-white;
+    overflow-y: scroll;
 }
-
-//HERE 
 
 .mediapage__modal-mobile-title {
     font-family: "HK Grotesk";
@@ -3307,8 +3411,6 @@ td {
     flex-direction: column;
 }
 
-//TO HERE
-
 
 .mediapage__image-container {
     display: flex;
@@ -3334,6 +3436,15 @@ td {
     background: transparent;
     border: none;
     cursor: pointer;
+
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
 }
 
 .mediapage__image {
