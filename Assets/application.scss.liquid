@@ -8,6 +8,7 @@ $color-pastel-blue: #E6F4FA;
 $color-lavendar: #E4E6F5;
 $color-lavendar-gradient: #EBECFC;
 $color-lavendar-dark: #CBCDFF;
+$color-lavendar-darkest: #D5D8EA;
 $color-blue-main: #2F44A7;
 $color-blue-secondary: #1C2966;
 $color-blue-dark: #CCE3ED;
@@ -321,6 +322,7 @@ td {
         position: sticky;
         top: 0;
         z-index: 1000000000;
+        background: transparent;
     }
 }
 
@@ -360,22 +362,37 @@ td {
 
 .header--purple {
     background: $color-lavendar;
+    @media (max-width: $breakpoint-tablet) {
+        background: transparent;
+    }
 }
 
 .header--pink {
     background: $color-pastel-pink;
+    @media (max-width: $breakpoint-tablet) {
+        background: transparent;
+    }
 }
 
 .header--white {
     background: $color-white;
+    @media (max-width: $breakpoint-tablet) {
+        background: transparent;
+    }
 }
 
 .header--peach {
     background: $color-peach;
+    @media (max-width: $breakpoint-tablet) {
+        background: transparent;
+    }
 }
 
 .header--green {
     background: $color-pastel-green;
+    @media (max-width: $breakpoint-tablet) {
+        background: transparent;
+    }
 }
 
 .header-background--mobile-expanded {
@@ -892,6 +909,12 @@ td {
     text-decoration: none;
 }
 
+main {
+    @media (max-width: $breakpoint-tablet) { 
+        margin-top: -60px;
+    }
+}
+
 .footer {
     padding: 40px 0;
     display: flex;
@@ -1021,6 +1044,9 @@ td {
     height: calc(100vh - 200px);
     display: flex;
     margin: auto;
+    @media (max-width: $breakpoint-tablet) { 
+        padding-top: 60px;
+    }
 }
 
 .homepage__image-carousel-container {
@@ -1205,6 +1231,9 @@ td {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    @media (max-width: $breakpoint-tablet) {
+        padding-top: 60px;
+    }
 }
 
 .collectionspage__tile-container {
@@ -1278,6 +1307,9 @@ td {
     //height: 100vh;
     display: flex;
     flex-direction: column;
+    @media (max-width: $breakpoint-tablet) {
+        padding-top: 60px;
+    }
 }
 
 .collectionpage__header {
@@ -1500,12 +1532,11 @@ td {
     background: $color-lavendar;
     height: 100vh;
     display: flex;
-    justify-content: space-evenly;
-    
-    @media(max-width: $breakpoint-tablet) {
-        flex-direction: column;
+    flex-direction: column;
+    @media (max-width: $breakpoint-tablet) {
+        padding-top: 60px;
+        height: auto;
     }
-
 }
 
 .productpage__product-care-guide-modal-overlay {
@@ -1616,6 +1647,15 @@ td {
     }
 }
 
+.productpage__product-information-image-container {
+    display: flex;
+    justify-content: space-evenly;
+    @media(max-width: $breakpoint-tablet) {
+        flex-direction: column;
+    }
+
+}
+
 .productpage__product-information-container {
     margin-left: 138px;
     @media(max-width: $breakpoint-desktop) {
@@ -1633,7 +1673,6 @@ td {
     margin-bottom: 66px;
     @media(max-width: $breakpoint-tablet) {
         margin-bottom: 45px;
-        margin-top: 64px;
     }
 }
 
@@ -1733,7 +1772,6 @@ td {
     display: flex;
     margin-bottom: 66px;
     @media(max-width: $breakpoint-tablet) {
-        margin-bottom: 160px;
         margin-top: 32px;
     }
 }
@@ -1901,6 +1939,86 @@ td {
     padding-bottom: 4px;
 }
 
+.productpage__media-container {
+    width: calc(100%-144px);
+    padding: 52px 72px 72px;
+    background: $color-lavendar-darkest;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: $breakpoint-tablet) {
+        padding: 32px 18px;
+    }
+}
+
+.productpage__media-title {
+    font-family: "HK Grotesk";
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: $color-black;
+    margin-bottom: 40px;
+}
+
+.productpage__media-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.productpage__media-image-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
+.productpage__media-image {
+    border: 3px solid $color-black;
+}
+
+.productpage__media-mobile-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.productpage__media-mobile-image-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    margin-bottom: 32px;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
+
+.productpage__media-mobile-image {
+    border: 3px solid $color-black;
+    max-width: 100%;
+}
+
 // Cart Page Section
 
 .cartpage {
@@ -1912,7 +2030,7 @@ td {
         padding: 0 72px;
     }
     @media (max-width: $breakpoint-tablet) {
-        padding: 0 18px;
+        padding: 60px 18px 0;
     }
 }
 
@@ -2174,6 +2292,9 @@ td {
     //height: 100vh;
     display: flex;
     flex-direction: column;
+    @media (max-width: $breakpoint-tablet) {
+        padding-top: 60px;
+    }
 }
 
 .aboutpage__title {
@@ -2520,6 +2641,9 @@ td {
     //height: 100vh;
     display: flex;
     flex-direction: column;
+    @media (max-width: $breakpoint-tablet) {
+        padding-top: 60px;
+    }
 }
 
 .locationspage__mobile-title {
@@ -2861,7 +2985,7 @@ td {
         padding: 56px 64px;
     }
      @media (max-width: $breakpoint-tablet) {
-        padding: 10px 18px;
+        padding: 70px 18px 10px;
     }
 }
 
@@ -3466,7 +3590,7 @@ td {
         padding: 40px 56px;
     }
     @media (max-width: $breakpoint-tablet) {
-        padding: 10px 18px;
+        padding: 70px 18px 10px;
     }
 }
 
@@ -3711,7 +3835,7 @@ td {
         padding: 40px 56px;
     }
     @media (max-width: $breakpoint-tablet) {
-        padding: 10px 18px;
+        padding: 70px 18px 10px;
     }
 }
 
@@ -3784,7 +3908,7 @@ td {
         padding: 20px 56px 140px;
     }
     @media (max-width: $breakpoint-tablet) {
-        padding: 10px 18px 60px;
+        padding: 70px 18px 60px;
     }
 }
 
@@ -3850,7 +3974,7 @@ td {
         min-height: 50vh;
     }
     @media (max-width: $breakpoint-tablet) {
-        padding: 10px 18px 60px;
+        padding: 70px 18px 60px;
         min-height: 40vh;
     }
 }

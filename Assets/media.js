@@ -36,13 +36,15 @@ const mediaContent = {
         "text": "Screen grab of Lady Gaga’s Cameo In Muppets Most Wanted 2014 sequel.. She wears the <a class='test' href='/'>Adri-0</a>!",
         "variant": "",
     },
-    // Agathe
-    "Agathe_Eric": {
+    // Alabama
+    "Alabama_Eric": {
         "title": "Eric White, Patricia-Arquette and Elizabeth Olsen - The Window, February 19th, 2015",
         "text": "Barneys and Vanity Fair joined host Rooney Mara for an intimate dinner celebrating OXFAM, on February 19th, 2015 at Chateau Marmont, West Hollywood. Patricia Arquette founded GiveLove with Rosetta Getty to assist displaced families after the 2010 Haiti earthquake and active Community-led sanitation projects since. For our part, we find Mr White mighty handsome in his Alabama in Olive.<br/><br/>Story by Catie Horseman for The Window, Barney’s online journal of events",
-        "variant": "36607135350951",
+        "variant": "",
     }
 }
+
+// Media Page Section
 
 // this helper function sets the product content on the desktop modal when it appears!
 function _setProductContentDesktop(productJSON, selectedVariant, variantId) {
@@ -310,27 +312,28 @@ function _showModal() {
 
 }
 
-// This function handles assigning dynamic ids to the modals as they pop up.
+// This function handles assigning dynamic ids to the modals on the Media Page as they pop up.
 !(function (d) {
     const modalMediaButtons = document.getElementsByClassName('mediapage__image-button');
     const modalMediaImages = document.getElementsByClassName('mediapage__image');
-    for (let i = 0; i < modalMediaButtons.length; i++) {
-        let modalMediaButton = modalMediaButtons[i];
-        let modalMediaImage = modalMediaImages[i];
-        modalMediaButton.id = modalMediaButton.id + `-${i + 1}`;
-        modalMediaImage.id = modalMediaImage.id + `-${i + 1}`;
+    if (modalMediaButtons.length > 0 && modalMediaImages.length > 0) {
+        for (let i = 0; i < modalMediaButtons.length; i++) {
+            let modalMediaButton = modalMediaButtons[i];
+            let modalMediaImage = modalMediaImages[i];
+            modalMediaButton.id = modalMediaButton.id + `-${i + 1}`;
+            modalMediaImage.id = modalMediaImage.id + `-${i + 1}`;
+        }
+        // Init the counter on the expanded modal for desktop
+        const mediaModalCounter = document.getElementsByClassName('mediapage__modal-footer-counter')[0];
+        mediaModalCounter.textContent = `1/${modalMediaButtons.length}`;
+
+        // Init the counter on the expanded modal for mobile
+        const mediaModalMobileCounter = document.getElementsByClassName('mediapage__modal-mobile-footer-counter')[0];
+        mediaModalMobileCounter.textContent = `1/${modalMediaButtons.length}`;
     }
-    // Init the counter on the expanded modal for desktop
-    const mediaModalCounter = document.getElementsByClassName('mediapage__modal-footer-counter')[0];
-    mediaModalCounter.textContent = `1/${modalMediaButtons.length}`;
-
-    // Init the counter on the expanded modal for mobile
-    const mediaModalMobileCounter = document.getElementsByClassName('mediapage__modal-mobile-footer-counter')[0];
-    mediaModalMobileCounter.textContent = `1/${modalMediaButtons.length}`;
-
 }(document));
 
-// This function opens a media modal if there are query parameters on refresh of page
+// This function opens a media modal if there are query parameters on refresh of the Media Page
 !(function (d) {
     const urlParams = new URLSearchParams(window.location.search);
     const selectedMedia = urlParams.get('selected-media');
@@ -646,4 +649,6 @@ document.addEventListener('click', function (event) {
     _getProductDetailsAndShowNextModal(newMediaModalIndex);
 
 }, false);
+
+// Product Page Section
 
