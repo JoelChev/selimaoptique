@@ -1539,6 +1539,102 @@ main {
     }
 }
 
+.productpage__media-modal-overlay {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    // This is $color-black at 0.8 opacity
+    background: rgba(34, 34, 34, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.productpage__media-modal-overlay--hidden {
+    display: none;
+}
+
+.productpage__media-modal-close-container {
+    position: absolute;
+    top: 72px;
+    right: 162px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        top: 40px;
+        right: 40px;
+    }
+}
+
+.productpage__media-modal-close-button {
+    cursor: pointer;
+    border: none;
+    width: 57px;
+    height: 57px;
+    background: $color-white;
+    border-radius: 50%;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
+.productpage__media-modal-close-button-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.productpage__media-modal-body-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.productpage__media-modal-description-container {
+    background: $color-white;
+    border: 3px dashed $color-blue-main;
+    width: 446px;
+    padding: 40px 40px 60px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 320px;
+        padding: 20px 20px 30px;
+    }
+    
+}
+
+.productpage__media-modal-title {
+    font-family: "HK Grotesk";
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    color: $color-black;
+    margin-bottom: 24px;
+}
+
+.productpage__media-modal-text {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: $color-black;
+    margin-bottom: 24px;
+    a {
+        color: $color-blue-main;
+        text-decoration: none;
+    }
+}
+
 .productpage__product-care-guide-modal-overlay {
     position: fixed;
     top: 0;

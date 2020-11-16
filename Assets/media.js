@@ -215,7 +215,7 @@ function _getProductDetailsAndShowModal(productHandle, variantId, showModal) {
                     _setProductContentMobile(productJSON, selectedVariant, variantId);
 
                     if (showModal) {
-                        _showModal();
+                        _showMediaPageModal();
                     }
                     break;
                 }
@@ -287,8 +287,8 @@ function _getProductDetailsAndShowNextModal(newMediaModalIndex) {
     xhr.send();
 }
 
-// A helper function to show the modal (on both desktop and mobile).
-function _showModal() {
+// A helper function to show the modal on the Media Page (on both desktop and mobile).
+function _showMediaPageModal() {
     //Depending on if the hidden class is there or not, show or hide the modal!
     const hiddenMediaModalOverlay = document.getElementsByClassName('mediapage__modal-overlay--hidden')[0];
     // If it is hidden show it!
@@ -651,4 +651,139 @@ document.addEventListener('click', function (event) {
 }, false);
 
 // Product Page Section
+
+// A helper function to show the product media modal on the product page (on both desktop and mobile).
+function _showProductMediaModal() {
+    //Depending on if the hidden class is there or not, show or hide the modal!
+    const hiddenProductMediaModalOverlay = document.getElementsByClassName('productpage__media-modal-overlay--hidden')[0];
+    // If it is hidden show it!
+    if (hiddenProductMediaModalOverlay) {
+        hiddenProductMediaModalOverlay.classList.remove('productpage__media-modal-overlay--hidden');
+        // Remove the scroll bar and add appropriate padding
+        const body = document.getElementsByTagName('body')[0];
+        body.style.overflowY = 'hidden';
+        body.style.paddingRight = '15px';
+    }
+    // //Depending on if the hidden class is there or not, show or hide the modal on mobile too!
+    // const hiddenMediaModalMobileOverlay = document.getElementsByClassName('mediapage__modal-overlay-mobile--hidden')[0];
+    // // If it is hidden show it!
+    // if (hiddenMediaModalMobileOverlay) {
+    //     hiddenMediaModalMobileOverlay.classList.remove('mediapage__modal-overlay-mobile--hidden');
+    //     // Remove the scroll bar and add appropriate padding
+    //     const body = document.getElementsByTagName('body')[0];
+    //     body.style.overflowY = 'hidden';
+    //     body.style.paddingRight = '15px';
+    // }
+
+}
+
+// This function handles assigning dynamic ids to the media on the Product Page as they pop up.
+!(function (d) {
+    const productMediaButtons = document.getElementsByClassName('productpage__media-image-button');
+    const productMediaImages = document.getElementsByClassName('productpage__media-image');
+    const productMediaMobileButtons = document.getElementsByClassName('productpage__media-mobile-image-button');
+    const productMediaMobileImages = document.getElementsByClassName('productpage__media-mobile-image');
+    if (productMediaButtons.length > 0 && productMediaImages.length > 0
+        && productMediaMobileButtons.length > 0 && productMediaMobileImages.length > 0) {
+        for (let i = 0; i < productMediaButtons.length; i++) {
+            let productMediaButton = productMediaButtons[i];
+            let productMediaImage = productMediaImages[i];
+            let productMediaMobileButton = productMediaMobileButtons[i];
+            let productMediaMobileImage = productMediaMobileImages[i];
+            productMediaButton.id = productMediaButton.id + `-${i + 1}`;
+            productMediaImage.id = productMediaImage.id + `-${i + 1}`;
+            productMediaMobileButton.id = productMediaMobileButton.id + `-${i + 1}`;
+            productMediaMobileImage.id = productMediaMobileImage.id + `-${i + 1}`;
+        }
+        // // Init the counter on the expanded modal for desktop
+        const productMediaModalCounter = document.getElementsByClassName('productpage__media-modal-footer-counter')[0];
+        productMediaModalCounter.textContent = `1/${productMediaButtons.length}`;
+
+        // // Init the counter on the expanded modal for mobile
+        // const mediaModalMobileCounter = document.getElementsByClassName('mediapage__modal-mobile-footer-counter')[0];
+        // mediaModalMobileCounter.textContent = `1/${modalMediaButtons.length}`;
+    }
+}(document));
+
+//This handles the opening of the Media Modal on the Product Page (on desktop AND mobile)
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.productpage__media-image-button')
+        && !event.target.matches('.productpage__media-image')
+        && !event.target.matches('.productpage__media-mobile-image-button')
+        && !event.target.matches('.productpage__media-mobile-image')) {
+        return;
+    }
+    // The id is a combination of identifier-alt_tag-product_id-index
+    const splitId = event.target.id.split("-");
+
+    const altTag = splitId[1];
+    const mediaModalContent = mediaContent[altTag];
+    //     const productHandle = splitId[splitId.length - 2];
+    //     _getProductDetailsAndShowModal(productHandle, mediaModalContent.variant, true);
+    const index = splitId[splitId.length - 1];
+    // Set the counter based on which image is expanded.
+    const productMediaModalCounter = document.getElementsByClassName('productpage__media-modal-footer-counter')[0];
+    const productMediaModalIndexAndTotal = productMediaModalCounter.textContent.split("/");
+    const productMediaModalTotal = parseInt(productMediaModalIndexAndTotal[1]);
+
+    //     //This handles the desktop display
+
+    //     //Set the desired image in the modal
+    const productMediaModalImage = document.getElementsByClassName('productpage__media-modal-image')[0];
+    //Get the mobile image as it is full-sized!
+    const selectedProductMediaImage = document.getElementsByClassName('productpage__media-mobile-image')[index - 1];
+    productMediaModalImage.src = selectedProductMediaImage.src;
+
+    //Set the desired modal title
+    const productMediaModalTitle = document.getElementsByClassName('productpage__media-modal-title')[0];
+    productMediaModalTitle.textContent = mediaModalContent.title;
+
+    //Set the desired modal text
+    const productMediaModalText = document.getElementsByClassName('productpage__media-modal-text')[0];
+    productMediaModalText.innerHTML = mediaModalContent.text;
+
+    //Set the footer counter
+    productMediaModalCounter.textContent = `${index}/${productMediaModalTotal}`;
+
+    //     // This handles the mobile display
+
+    //     // Set the counter based on which image is expanded.
+    //     const mediaModalMobileCounter = document.getElementsByClassName('mediapage__modal-mobile-footer-counter')[0];
+    //     const mediaModalMobileIndexAndTotal = mediaModalMobileCounter.textContent.split("/");
+    //     const mediaModalMobileTotal = parseInt(mediaModalMobileIndexAndTotal[1]);
+
+    //     //Set the desired image in the modal
+    //     const mediaModalMobileImage = document.getElementsByClassName('mediapage__modal-mobile-image')[0];
+    //     const selectedModalMobileMediaImage = document.getElementsByClassName('mediapage__image')[index - 1];
+    //     mediaModalMobileImage.src = selectedModalMobileMediaImage.src;
+
+    //     //Set the desired modal title
+    //     const mediaModalMobileTitle = document.getElementsByClassName('mediapage__modal-mobile-title')[0];
+    //     mediaModalMobileTitle.textContent = mediaModalContent.title;
+
+    //     //Set the desired modal text
+    //     const mediaModalMobileText = document.getElementsByClassName('mediapage__modal-mobile-text')[0];
+    //     mediaModalMobileText.innerHTML = mediaModalContent.text;
+
+    //     //Set the footer counter
+    //     mediaModalMobileCounter.textContent = `${index}/${mediaModalMobileTotal}`;
+
+    _showProductMediaModal();
+
+    //     //This handles the expanded mobile display
+
+    //     //Set the expanded modal image!
+    //     const mediaModalExpandedImage = document.getElementsByClassName('mediapage__modal-overlay-mobile-expanded-image')[0];
+    //     mediaModalExpandedImage.src = selectedModalMobileMediaImage.src;
+
+    //     //Set the query parameters for navigation
+    //     const url = new URL(window.location.href);
+    //     url.searchParams.set('selected-media', altTag);
+    //     history.pushState({}, null, url);
+
+    // Don't follow the link
+    event.preventDefault();
+
+}, false);
 

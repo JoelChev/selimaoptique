@@ -1,4 +1,26 @@
 <div class="productpage">
+  <div class="productpage__media-modal-overlay productpage__media-modal-overlay--hidden">
+    <div class="productpage__media-modal-close-container">
+      <button class="productpage__media-modal-close-button">{{ 'close-icon.png' | asset_url | img_tag: 'Close Modal', 'productpage__media-modal-close-button-icon' }}</button>
+    </div>
+    <div class="productpage__media-modal-body-container">
+      <img class="productpage__media-modal-image" src="https://cdn.shopify.com/s/files/1/0260/1789/0397/products/2435_large.jpg?v=1604780290"/>
+      <div class="productpage__media-modal-description-container">
+        <h4 class="productpage__media-modal-title"></h4>
+        <p class="productpage__media-modal-text">
+        </p>
+      </div>
+    </div>
+    <div class="productpage__media-modal-footer-container">
+      <button class="productpage__media-modal-previous-media-button">{{ 'arrow-white-left.png' | asset_url | img_tag: 'Previous Media Arrow', 'productpage__media-modal-previous-media-icon' }}
+      </button>
+      <div class="productpage__modal-media-footer-counter-container">
+        <span class="productpage__media-modal-footer-counter">1/56</span>
+      </div>
+      <button class="productpage__media-modal-next-media-button">{{ 'arrow-white-right.png' | asset_url | img_tag: 'Next Media Arrow', 'productpage__media-modal-next-media-icon' }}
+      </button>
+    </div>
+  </div>
   <div class="productpage__product-care-guide-modal-overlay productpage__product-care-guide-modal-overlay--hidden">
       <div class="productpage__product-care-guide-modal">
         <div class="productpage__product-care-guide-modal-close-icon-container">
