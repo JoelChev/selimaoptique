@@ -11,7 +11,7 @@
         </p>
       </div>
     </div>
-    <div class="productpage__media-modal-footer-container">
+    <div class="productpage__media-modal-footer-container productpage__media-modal-footer-container--hidden">
       <button class="productpage__media-modal-previous-media-button">{{ 'arrow-white-left.png' | asset_url | img_tag: 'Previous Media Arrow', 'productpage__media-modal-previous-media-icon' }}
       </button>
       <div class="productpage__modal-media-footer-counter-container">
@@ -19,6 +19,37 @@
       </div>
       <button class="productpage__media-modal-next-media-button">{{ 'arrow-white-right.png' | asset_url | img_tag: 'Next Media Arrow', 'productpage__media-modal-next-media-icon' }}
       </button>
+    </div>
+  </div>
+  <div class="productpage__media-modal-overlay-mobile-expanded productpage__media-modal-overlay-mobile-expanded--hidden">
+    <div class="productpage__media-modal-overlay-mobile-expanded-close-container">
+      <button class="productpage__media-modal-expanded-close-button">{{ 'close-icon.png' | asset_url | img_tag: 'Close Modal', 'productpage__media-modal-expanded-close-button-icon' }}</button>
+    </div>
+    <div class="productpage__media-modal-overlay-mobile-expanded-image-container">
+      <img class="productpage__media-modal-overlay-mobile-expanded-image" src=""/>
+    </div>
+  </div>
+  <div class="productpage__media-modal-overlay-mobile productpage__media-modal-overlay-mobile--hidden">
+    <div class="productpage__media-modal-mobile-back-container">
+      {{ 'arrow-left.png' | asset_url | img_tag: 'Back', 'productpage__media-modal-mobile-back-button-icon' }}
+      <button class="productpage__media-modal-mobile-back-button">Back</button>
+    </div>
+    <div class="productpage__media-modal-mobile-image-container">
+      <img class="productpage__media-modal-mobile-image" src=""/>
+      <div class="productpage__media-modal-mobile-navigation-container productpage__media-modal-mobile-navigation-container--hidden">
+        <button class="productpage__media-modal-mobile-previous-media-button">{{ 'arrow-white-left.png' | asset_url | img_tag: 'Previous Media Arrow', 'productpage__media-modal-mobile-previous-media-icon' }}
+        </button>
+        <div class="productpage__media-modal-mobile-footer-counter-container">
+          <span class="productpage__media-modal-mobile-footer-counter"></span>
+        </div>
+        <button class="productpage__media-modal-mobile-next-media-button">{{ 'arrow-white-right.png' | asset_url | img_tag: 'Next Media Arrow', 'productpage__media-modal-mobile-next-media-icon' }}
+        </button>
+      </div>
+    </div>
+    <div class="productpage__media-modal-mobile-description-container">
+      <h4 class="productpage__media-modal-mobile-title"></h4>
+      <p class="productpage__media-modal-mobile-text">
+      </p>
     </div>
   </div>
   <div class="productpage__product-care-guide-modal-overlay productpage__product-care-guide-modal-overlay--hidden">
@@ -142,7 +173,7 @@
     <button type="submit" name="add" id="AddToCart">Add to cart</button>
   </form>
   <div>{{ product.description }}</div> {% endcomment %}
-  <div class="productpage__media-container">
+  <div class="productpage__media-container productpage__media-container--hidden">
     <h4 class="productpage__media-title">Media</h4>
     <div class="productpage__media-image-container">
       {% for image in product.images %}
