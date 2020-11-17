@@ -1601,6 +1601,10 @@ main {
     margin: auto;
 }
 
+.productpage__media-modal-image {
+    margin-right: 40px;
+}
+
 .productpage__media-modal-description-container {
     background: $color-white;
     border: 3px dashed $color-blue-main;
@@ -1632,6 +1636,53 @@ main {
     a {
         color: $color-blue-main;
         text-decoration: none;
+    }
+}
+
+.productpage__media-modal-footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.productpage__media-modal-previous-media-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
+.productpage__modal-media-footer-counter-container {
+    padding: 0 36px;
+}
+
+.productpage__media-modal-footer-counter {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    color: $color-white;
+}
+
+.productpage__media-modal-next-media-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
     }
 }
 
