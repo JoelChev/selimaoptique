@@ -25,6 +25,9 @@
     {% if {{page_title}} == 'Media' %}
     header--green
     {% endif %}
+    {% if {{page_title}} == 'Journal' %}
+    header--purple
+    {% endif %}
     {% if {{template.name}} == 'cart'%}
     header--white
     {% endif %}"
@@ -51,6 +54,10 @@
     {% endif %}
     {% if {{page_title}} == 'Media' %}
       <div class="header-background-media">
+      </div>
+    {% endif %}
+    {% if {{page_title}} == 'Journal' %}
+      <div class="header-background-journal">
       </div>
     {% endif %}
     <div class="header-nav-container">
@@ -176,6 +183,9 @@
     {% endif %}
     {% if {{page_title}} == 'Media' %}
     footer--green
+    {% endif %}
+    {% if {{page_title}} == 'Journal' %}
+    footer--purple
     {% endif %}
     {% if {{template.name}} == 'cart'%}
     footer--white

@@ -21,6 +21,7 @@ $color-black: #222222;
 $color-yellow: #FFFFC5;
 $color-pastel-pink: #F7EAF0;
 $color-pastel-pink-dark: #FCD7EA;
+$color-pink: #FECEEB;
 $color-peach: #F6E0D0;
 $color-peach-dark: #F1CDBE;
 $color-mint: #B9E1CA;
@@ -395,6 +396,13 @@ td {
     }
 }
 
+.header--purple {
+    background: $color-lavendar;
+    @media (max-width: $breakpoint-tablet) {
+        background: transparent;
+    }
+}
+
 .header-background--mobile-expanded {
      @media (max-width: $breakpoint-tablet) {
         top: 350px !important;
@@ -537,6 +545,32 @@ td {
     }
 }
 
+.header-background-journal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1390px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("journal-header.png");
+    background-repeat: no-repeat;
+    background-size: 1390px 160px;
+    z-index: -1;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+         width: 768px;      
+         background-size: 768px 160px; 
+    }
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        height: 122px;
+        background-image: url("journal-header-mobile.png");
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+}
+
 
 .header-nav-container {
     @media (min-width: $breakpoint-desktop) {
@@ -581,6 +615,13 @@ td {
     @media (max-width: $breakpoint-tablet) {
         height: 400px;
         background-color: $color-peach;
+    }
+}
+
+.header-nav-container--mobile-expanded-journal {
+    @media (max-width: $breakpoint-tablet) {
+        height: 400px;
+        background-color: $color-pink;
     }
 }
 
@@ -3955,6 +3996,38 @@ main {
     border: 3px solid $color-black;
     max-width: 100%;
     height: auto;
+}
+
+// Journal Page
+
+.journalpage {
+    background: $color-lavendar;
+    display: flex;
+    flex-dispay: column;
+    @media (max-width: $breakpoint-tablet) {
+        padding-top: 70px;
+    }
+}
+
+.journalpage__mobile-title {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
+    color: $color-black;
+    margin-bottom: 24px;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.journalpage__article-title {
+    font-family: "HK Grotesk";
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: $color-black;
+    margin-bottom: 24px;
 }
 
 //Contact Page
