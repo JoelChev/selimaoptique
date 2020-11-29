@@ -6,7 +6,7 @@
       <h2 class="journalpage__article-title">{{ article.title }}</h2>
       {{ article.author }} @ {{ article.published_at }}
       <div class="journalpage__article">
-        <p class="journalpage__article-content">{{ article.content  }}</p>
+        {{ article.content  }}
       </div>
     </div>
   {% endfor %}

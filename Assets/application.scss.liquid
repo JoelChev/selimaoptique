@@ -1107,7 +1107,6 @@ main {
 }
 
 .homepage__image-carousel {
-    tansform-style: preserve-3d;
     box-sizing: border-box;
 }
 
@@ -4028,6 +4027,159 @@ main {
     line-height: 32px;
     color: $color-black;
     margin-bottom: 24px;
+}
+
+.journalpage__article {
+    position: relative;
+}
+
+.journalpage__image-carousel {
+    margin: 0 104px;
+    position: relative;
+    width: calc(100% - 208px);
+    min-height: 600px;
+    background: rgba(203, 205, 255, 0.4); // A transparent purple
+    box-sizing: border-box;
+}
+
+.journalpage__image-mask {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    height: 600px;
+    overflow: hidden;
+
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        top: 54px;
+        width: 488px;
+        height: 292px;       
+    }
+    @media (max-width: $breakpoint-tablet) {
+        top: 25px;
+        width: 244px;
+        height: 146px;
+    }
+}
+
+.journalpage__carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    transition: transform .5s, z-index .5s;
+
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 488px;
+        height: 292px;       
+    }
+    @media (max-width: $breakpoint-tablet) {
+        width: 244px;
+        height: 146px;
+    }
+}
+
+.journalpage__carousel-image--initial {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 488px;
+        height: 292px;       
+    }
+    @media (max-width: $breakpoint-tablet) {
+        width: 244px;
+        height: 146px;
+    }
+}
+
+.journalpage__carousel-image--active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 488px;
+        height: 292px;       
+    }
+    @media (max-width: $breakpoint-tablet) {
+        width: 244px;
+        height: 146px;
+    }
+}
+
+.journalpage__carousel-image--prev {
+    z-index: 800;
+    transform: translateX(-100%); /* Move 'prev' item to the left */
+}
+
+.journalpage__carousel-image--next {
+    z-index: 800;
+    transform: translateX(100%); /* Move 'next' item to the right */
+}
+
+.journalpage__image-carousel-footer-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 24px;
+    left: calc(50% - 104px);
+}
+
+.journalpage__carousel-previous-image-button {
+    cursor: pointer;
+    background: $color-white;
+    border-radius: 50%;
+    width: 37px;
+    height: 37px;
+    border: none;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    img {
+        padding-top: 4px;
+    }
+}
+
+.journalpage__imageCounter {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 600;
+    color: $color-black;
+    margin: 0 36px;
+}
+
+.journalpage__carousel-next-image-button {
+    cursor: pointer;
+    background: $color-white;
+    border-radius: 50%;
+    width: 37px;
+    height: 37px;
+    border: none;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
 }
 
 //Contact Page
