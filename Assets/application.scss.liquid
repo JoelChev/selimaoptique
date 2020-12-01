@@ -4002,7 +4002,8 @@ main {
 .journalpage {
     background: $color-lavendar;
     display: flex;
-    flex-dispay: column;
+    flex-direction: column;
+    padding: 0 104px;
     @media (max-width: $breakpoint-tablet) {
         padding-top: 70px;
     }
@@ -4026,17 +4027,37 @@ main {
     font-size: 24px;
     line-height: 32px;
     color: $color-black;
+    margin-top: 65px;
     margin-bottom: 24px;
 }
 
 .journalpage__article {
     position: relative;
+    padding-bottom: 56px;
+    border-bottom: 2px dashed $color-lavendar-dark;
+
+    p {
+        font-family: "HK Grotesk";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        color: $color-black;
+        margin-bottom: 8px;
+        margin-top: 0 !important; 
+        padding: 0 !important;
+    }
+    span {
+        font-family: "HK Grotesk";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        color: $color-black;
+    }
 }
 
 .journalpage__image-carousel {
-    margin: 0 104px;
     position: relative;
-    width: calc(100% - 208px);
+    width: 100%;
     min-height: 600px;
     background: rgba(203, 205, 255, 0.4); // A transparent purple
     box-sizing: border-box;
@@ -4049,7 +4070,7 @@ main {
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 800px;
+    width: 600px;
     height: 600px;
     overflow: hidden;
 

@@ -2,14 +2,12 @@
 // This helper function gets the image from a node (if it exists), or returns nothing if none is found.
 function __getImageFromNode(childNode) {
     let imageSrc = "";
-    console.log(childNode);
     if (childNode.firstChild) {
         return __getImageFromNode(childNode.firstChild);
     }
     else if (childNode.tagName === "IMG") {
         imageSrc = childNode.src;
     }
-    console.log(imageSrc);
     return imageSrc;
 }
 
@@ -18,13 +16,11 @@ function __getImageFromNode(childNode) {
     const journalArticles = document.getElementsByClassName('journalpage__article');
     for (let i = 0; i < journalArticles.length; i++) {
         const journalArticle = journalArticles[i];
-        console.log(journalArticle);
         let childrenNodes = journalArticle.childNodes;
         let images = [];
         let nodesToRemove = [];
         for (let j = 0; j < childrenNodes.length; j++) {
             let childNode = childrenNodes[j];
-            console.log(childNode);
             // Filter out the images!
             const imageSrc = __getImageFromNode(childNode);
             if (imageSrc !== "") {
@@ -47,7 +43,13 @@ function __getImageFromNode(childNode) {
             const carouselImage = document.createElement("img");
             carouselImage.classList.add('journalpage__carousel-image');
             if (k == 0) {
-                carouselImage.classList.add('journalpage__carousel-image--initial');
+                carouselImage.classList.add('journalpage__carousel-image--active');
+            }
+            if (k == 1) {
+                carouselImage.classList.add('journalpage__carousel-image--next');
+            }
+            if (k == images.length - 1) {
+                carouselImage.classList.add('journalpage__carousel-image--prev');
             }
             carouselImage.id = `JournalArticleImage-${i}-${k}`;
             carouselImage.src = images[k];
@@ -63,7 +65,7 @@ function __getImageFromNode(childNode) {
             const previousImageButton = document.createElement("button");
             previousImageButton.classList.add('journalpage__carousel-previous-image-button');
             previousImageButton.id = `JournalCarouselFooterPreviousImageButton-${i}`;
-            previousImageButton.innerHTML = `<img src="https://cdn.shopify.com/s/files/1/0260/1789/0397/t/7/assets/arrow-left.png" />`;
+            previousImageButton.innerHTML = `<img class="journalpage__carousel-previous-image-button-icon" id="JournalCarouselFooterPreviousImageButtonIcon-${i}" src="https://cdn.shopify.com/s/files/1/0260/1789/0397/t/7/assets/arrow-left.png" />`;
             carouselFooterContainer.appendChild(previousImageButton);
 
             const imageCounter = document.createElement("span");
@@ -75,7 +77,7 @@ function __getImageFromNode(childNode) {
             const nextImageButton = document.createElement("button");
             nextImageButton.classList.add('journalpage__carousel-next-image-button');
             nextImageButton.id = `JournalCarouselFooterNextImageButton-${i}`;
-            nextImageButton.innerHTML = `<img src="https://cdn.shopify.com/s/files/1/0260/1789/0397/t/7/assets/arrow-right.png" />`;
+            nextImageButton.innerHTML = `<img class="journalpage__carousel-next-image-button-icon" id="JournalCarouselFooterNextImageButtonIcon-${i}" src="https://cdn.shopify.com/s/files/1/0260/1789/0397/t/7/assets/arrow-right.png" />`;
             imageCarousel.appendChild(carouselFooterContainer);
             carouselFooterContainer.appendChild(nextImageButton);
         }
@@ -83,3 +85,105 @@ function __getImageFromNode(childNode) {
         journalArticle.appendChild(imageCarousel);
     }
 }(document));
+
+
+//This handles the previous image button press in the journal image carousels
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.journalpage__carousel-previous-image-button')
+        && !event.target.matches('.journalpage__carousel-previous-image-button-icon')) {
+        return;
+    }
+    const nextButtonId = event.target.id;
+    //Need to parse out the carousel index
+    const carouselIndex = nextButtonId.split("-")[1];
+
+    const carouselFooterCounter = document.getElementById(`JournalCarouselImageCounter-${carouselIndex}`);
+    const carouselFooterIndexAndTotal = carouselFooterCounter.textContent.split("/");
+    const imageIndex = parseInt(carouselFooterIndexAndTotal[0]) - 1;
+    const imageTotal = parseInt(carouselFooterIndexAndTotal[1]) - 1;
+    let nextImageIndex = imageIndex + 1;
+    let previousImageIndex = imageIndex - 1;
+    let previousPreviousImageIndex = imageIndex - 2;
+    if (imageIndex == imageTotal) {
+        nextImageIndex = 0;
+    }
+    if (imageIndex == 0) {
+        previousImageIndex = imageTotal;
+        previousPreviousImageIndex = imageTotal - 1;
+    }
+    if (imageIndex == 1) {
+        previousPreviousImageIndex = imageTotal;
+    }
+
+    //Now get the right images and change their class!
+    const activeImage = document.getElementById(`JournalArticleImage-${carouselIndex}-${imageIndex}`);
+    const previousPreviousImage = document.getElementById(`JournalArticleImage-${carouselIndex}-${previousPreviousImageIndex}`);
+    const previousImage = document.getElementById(`JournalArticleImage-${carouselIndex}-${previousImageIndex}`);
+    const nextImage = document.getElementById(`JournalArticleImage-${carouselIndex}-${nextImageIndex}`);
+
+    previousImage.classList.remove('journalpage__carousel-image--prev');
+    previousImage.classList.add('journalpage__carousel-image--active');
+
+    activeImage.classList.remove('journalpage__carousel-image--active');
+    activeImage.classList.add('journalpage__carousel-image--next');
+
+    nextImage.classList.remove('journalpage__carousel-image--next');
+
+    previousPreviousImage.classList.add('journalpage__carousel-image--prev');
+
+    //Finally update the counter!
+    const newImageIndex = previousImageIndex + 1;
+    const newImageTotal = imageTotal + 1;
+    carouselFooterCounter.textContent = `${newImageIndex}/${newImageTotal}`;
+
+}, false);
+
+//This handles the next image button press in the journal image carousels
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.journalpage__carousel-next-image-button')
+        && !event.target.matches('.journalpage__carousel-next-image-button-icon')) {
+        return;
+    }
+    const nextButtonId = event.target.id;
+    //Need to parse out the carousel index
+    const carouselIndex = nextButtonId.split("-")[1];
+
+    const carouselFooterCounter = document.getElementById(`JournalCarouselImageCounter-${carouselIndex}`);
+    const carouselFooterIndexAndTotal = carouselFooterCounter.textContent.split("/");
+    const imageIndex = parseInt(carouselFooterIndexAndTotal[0]) - 1;
+    const imageTotal = parseInt(carouselFooterIndexAndTotal[1]) - 1;
+    let nextImageIndex = imageIndex + 1;
+    let nextNextImageIndex = imageIndex + 2;
+    let previousImageIndex = imageIndex - 1;
+    if (imageIndex == imageTotal) {
+        nextImageIndex = 0;
+        nextNextImageIndex = 1;
+    }
+    if (imageIndex == imageTotal - 1) {
+        nextNextImageIndex = 0;
+    }
+    if (imageIndex == 0) {
+        previousImageIndex = imageTotal;
+    }
+
+    //Now get the right images and change their class!
+    const activeImage = document.getElementById(`JournalArticleImage-${carouselIndex}-${imageIndex}`);
+    const previousImage = document.getElementById(`JournalArticleImage-${carouselIndex}-${previousImageIndex}`);
+    const nextImage = document.getElementById(`JournalArticleImage-${carouselIndex}-${nextImageIndex}`);
+    const nextNextImage = document.getElementById(`JournalArticleImage-${carouselIndex}-${nextNextImageIndex}`);
+
+    previousImage.classList.remove('journalpage__carousel-image--prev');
+    activeImage.classList.remove('journalpage__carousel-image--active');
+    activeImage.classList.add('journalpage__carousel-image--prev');
+    nextImage.classList.remove('journalpage__carousel-image--next');
+    nextImage.classList.add('journalpage__carousel-image--active');
+    nextNextImage.classList.add('journalpage__carousel-image--next');
+
+    //Finally update the counter!
+    const newImageIndex = nextImageIndex + 1;
+    const newImageTotal = imageTotal + 1;
+    carouselFooterCounter.textContent = `${newImageIndex}/${newImageTotal}`;
+
+}, false);
