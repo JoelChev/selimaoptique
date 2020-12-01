@@ -1,10 +1,12 @@
 <div class="journalpage">
   {% paginate blog.articles by 5 %}
-  <h1 class="journalpage__mobile-title">{{ blog.title }}</h1>
+  <h1 class="journalpage__mobile-title">{{ blog.title | upcase }}</h1>
   {% for article in blog.articles %}
     <div>
+      <h4 class="journalpage__article-published-date">
+        {{ article.published_at | date: "%b %d, %Y"}}
+      </h4>
       <h2 class="journalpage__article-title">{{ article.title }}</h2>
-      {{ article.author }} @ {{ article.published_at }}
       <div class="journalpage__article">
         {{ article.content  }}
       </div>

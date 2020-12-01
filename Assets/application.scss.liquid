@@ -22,6 +22,7 @@ $color-yellow: #FFFFC5;
 $color-pastel-pink: #F7EAF0;
 $color-pastel-pink-dark: #FCD7EA;
 $color-pink: #FECEEB;
+$color-tan: #FAE2D8;
 $color-peach: #F6E0D0;
 $color-peach-dark: #F1CDBE;
 $color-mint: #B9E1CA;
@@ -170,7 +171,7 @@ td {
 }
 
 .main--mobile-expanded {
-    margin-top: -278px;
+    margin-top: -338px;
     padding-right: 15px;
     @media (min-width: $breakpoint-tablet) {
         margin-top: 0;
@@ -382,8 +383,8 @@ td {
     }
 }
 
-.header--peach {
-    background: $color-peach;
+.header--tan {
+    background: $color-tan;
     @media (max-width: $breakpoint-tablet) {
         background: transparent;
     }
@@ -614,7 +615,7 @@ td {
 .header-nav-container--mobile-expanded-media {
     @media (max-width: $breakpoint-tablet) {
         height: 400px;
-        background-color: $color-peach;
+        background-color: $color-tan;
     }
 }
 
@@ -981,8 +982,8 @@ main {
     background: $color-white;
 }
 
-.footer--peach {
-    background: $color-peach;
+.footer--tan {
+    background: $color-tan;
 }
 
 .footer--green {
@@ -3056,7 +3057,7 @@ main {
 // Locations Page Section
 
 .locationspage {
-    background: $color-peach;
+    background: $color-tan;
     width: 100%;
     //height: 100vh;
     display: flex;
@@ -4004,8 +4005,13 @@ main {
     display: flex;
     flex-direction: column;
     padding: 0 104px;
+
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        padding: 0 56px;
+    }
+
     @media (max-width: $breakpoint-tablet) {
-        padding-top: 70px;
+        padding: 70px 18px 0;
     }
 }
 
@@ -4021,14 +4027,31 @@ main {
     }
 }
 
+.journalpage__article-published-date {
+    font-family: "HK Grotesk";
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: $color-black;
+    margin-top: 65px;
+    margin-bottom: 16px;
+    @media (min-width: $breakpoint-tablet) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
 .journalpage__article-title {
     font-family: "HK Grotesk";
     font-weight: 600;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 22px;
+    line-height: 26px;
     color: $color-black;
-    margin-top: 65px;
     margin-bottom: 24px;
+    @media (min-width: $breakpoint-tablet) {
+        font-size: 24px;
+        line-height: 32px;
+    }
 }
 
 .journalpage__article {
@@ -4045,6 +4068,10 @@ main {
         margin-bottom: 8px;
         margin-top: 0 !important; 
         padding: 0 !important;
+        @media (min-width: $breakpoint-tablet) {
+            font-size: 16px;
+            line-height: 24px;
+        }
     }
     span {
         font-family: "HK Grotesk";
@@ -4052,7 +4079,28 @@ main {
         font-weight: 400;
         line-height: 22px;
         color: $color-black;
+        @media (min-width: $breakpoint-tablet) {
+            font-size: 16px;
+            line-height: 24px;
+        }
     }
+}
+
+.journalpage__read-more-button {
+    @include link-text;
+    margin-bottom: 24px;
+    &:active {
+        outline: 0;
+        box-shadow: none!important;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: none!important;
+    }
+}
+
+.journalpage__article-element--hidden {
+    display: none;
 }
 
 .journalpage__image-carousel {
@@ -4075,14 +4123,13 @@ main {
     overflow: hidden;
 
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        top: 54px;
-        width: 488px;
-        height: 292px;       
+        top: 36px;
+        width: 600px;
+        height: 600px;       
     }
     @media (max-width: $breakpoint-tablet) {
-        top: 25px;
-        width: 244px;
-        height: 146px;
+        max-width: calc(100% - 36px);
+        width: 600px;
     }
 }
 
@@ -4095,31 +4142,11 @@ main {
     z-index: 100;
     transition: transform .5s, z-index .5s;
 
-    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        width: 488px;
-        height: 292px;       
-    }
     @media (max-width: $breakpoint-tablet) {
-        width: 244px;
-        height: 146px;
+        max-width: 100%;
+        height: auto;
     }
-}
 
-.journalpage__carousel-image--initial {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 900;
-    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        width: 488px;
-        height: 292px;       
-    }
-    @media (max-width: $breakpoint-tablet) {
-        width: 244px;
-        height: 146px;
-    }
 }
 
 .journalpage__carousel-image--active {
@@ -4129,24 +4156,30 @@ main {
     right: 0;
     bottom: 0;
     z-index: 900;
-    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        width: 488px;
-        height: 292px;       
-    }
     @media (max-width: $breakpoint-tablet) {
-        width: 244px;
-        height: 146px;
+        max-width: 100%;
+        height: auto;
     }
 }
 
 .journalpage__carousel-image--prev {
     z-index: 800;
     transform: translateX(-100%); /* Move 'prev' item to the left */
+
+     @media (max-width: $breakpoint-tablet) {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 .journalpage__carousel-image--next {
     z-index: 800;
     transform: translateX(100%); /* Move 'next' item to the right */
+
+     @media (max-width: $breakpoint-tablet) {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 .journalpage__image-carousel-footer-container {
@@ -4155,6 +4188,18 @@ main {
     position: absolute;
     bottom: 24px;
     left: calc(50% - 104px);
+
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        left: calc(50% - 56px);
+        padding-top: 16px;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        width: calc(100% - 40px);
+        left: 20px;
+        justify-content: space-between;
+    }
+
 }
 
 .journalpage__carousel-previous-image-button {
@@ -4237,9 +4282,7 @@ main {
 
 .contactpage__content-container {
     display: flex;
-    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        justify-content: space-between;
-    }
+    justify-content: space-evenly;
     @media (max-width: $breakpoint-tablet) { 
         flex-direction: column;
     }

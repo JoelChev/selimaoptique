@@ -18,17 +18,34 @@ function __getImageFromNode(childNode) {
         const journalArticle = journalArticles[i];
         let childrenNodes = journalArticle.childNodes;
         let images = [];
-        let nodesToRemove = [];
+        let imageNodesToRemove = [];
         for (let j = 0; j < childrenNodes.length; j++) {
             let childNode = childrenNodes[j];
             // Filter out the images!
             const imageSrc = __getImageFromNode(childNode);
             if (imageSrc !== "") {
-                nodesToRemove.push(j);
+                imageNodesToRemove.push(j);
                 images.push(imageSrc)
                 journalArticle.removeChild(childrenNodes[j]);
             }
         }
+        // Now to handle hiding the appropriate text. We only want the first paragraph to be shown the rest are hidden unless expanded.
+        const paragraphChildrenNodes = journalArticle.getElementsByTagName("P");
+        for (let k = 0; k < paragraphChildrenNodes.length; k++) {
+            if (k > 0) {
+                paragraphChildrenNodes[k].className += `journalpage__article-element--body-${i}`;
+                paragraphChildrenNodes[k].className += ` journalpage__article-element--hidden`;
+            }
+        }
+
+        //Add a button to expand the article out
+
+        const readMoreButton = document.createElement("button");
+        readMoreButton.innerHTML = "Read More";
+        readMoreButton.classList.add("journalpage__read-more-button");
+        readMoreButton.id = `JournalReadMoreButton-${i}`;
+        journalArticle.appendChild(readMoreButton);
+
         //Add a div with JUST the images in it.
         const imageCarousel = document.createElement("div");
         imageCarousel.classList.add('journalpage__image-carousel');
@@ -39,20 +56,20 @@ function __getImageFromNode(childNode) {
         imageCarouselMask.id = `JournalImageMask-${i}`;
         imageCarousel.appendChild(imageCarouselMask);
 
-        for (let k = 0; k < images.length; k++) {
+        for (let m = 0; m < images.length; m++) {
             const carouselImage = document.createElement("img");
             carouselImage.classList.add('journalpage__carousel-image');
-            if (k == 0) {
+            if (m == 0) {
                 carouselImage.classList.add('journalpage__carousel-image--active');
             }
-            if (k == 1) {
+            if (m == 1) {
                 carouselImage.classList.add('journalpage__carousel-image--next');
             }
-            if (k == images.length - 1) {
+            if (m == images.length - 1) {
                 carouselImage.classList.add('journalpage__carousel-image--prev');
             }
-            carouselImage.id = `JournalArticleImage-${i}-${k}`;
-            carouselImage.src = images[k];
+            carouselImage.id = `JournalArticleImage-${i}-${m}`;
+            carouselImage.src = images[m];
             imageCarouselMask.appendChild(carouselImage);
         }
 
@@ -85,6 +102,35 @@ function __getImageFromNode(childNode) {
         journalArticle.appendChild(imageCarousel);
     }
 }(document));
+
+//This handles the read more button click
+document.addEventListener('click', function (event) {
+    // If the clicked element doesn't have the right selector, bail
+    if (!event.target.matches('.journalpage__read-more-button')) {
+        return;
+    }
+
+    const readMoreButtonId = event.target.id;
+    //Need to parse out the article index
+    const articleIndex = readMoreButtonId.split("-")[1];
+    if (event.target.innerHTML === "Read More") {
+        //Expand Case
+        const journalArticleElementsHidden = document.getElementsByClassName(`journalpage__article-element--body-${articleIndex}`);
+        for (let i = 0; i < journalArticleElementsHidden.length; i++) {
+            journalArticleElementsHidden[i].classList.remove(`journalpage__article-element--hidden`);
+        }
+        event.target.innerHTML = "Read Less";
+    } else {
+        //Contract Case
+        const journalArticleElementsHidden = document.getElementsByClassName(`journalpage__article-element--body-${articleIndex}`);
+        for (let i = 0; i < journalArticleElementsHidden.length; i++) {
+            journalArticleElementsHidden[i].classList.add(`journalpage__article-element--hidden`);
+        }
+        event.target.innerHTML = "Read More";
+    }
+
+}, false);
+
 
 
 //This handles the previous image button press in the journal image carousels
