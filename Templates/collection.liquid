@@ -78,108 +78,84 @@
   </div>
   <div class="mediapage">
     <h1 class="mediapage__mobile-title">MEDIA</h1>
-    {% paginate collection.products by 4 %}
-      {% for product in collection.products %}
-        {% for image in product.images %}
-          {% unless image.attached_to_variant?%}
-            {%if image.width > 100 %}
-              <div class="mediapage__image-container">
-                <button class="mediapage__image-button" id="mediaPageImageButton-{{image.alt}}-{{product.handle}}">
-                <img class="mediapage__image" id="mediaPageImage-{{image.alt}}-{{product.handle}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
-                </button>
-              </div>
-            {% endif %}
-          {% endunless %}
-        {% endfor %}
+    {% for product in collection.products %}
+      {% for image in product.images %}
+        {% unless image.attached_to_variant?%}
+          {%if image.width > 100 %}
+            <div class="mediapage__image-container">
+              <button class="mediapage__image-button" id="mediaPageImageButton-{{image.alt}}-{{product.handle}}">
+              <img class="mediapage__image" id="mediaPageImage-{{image.alt}}-{{product.handle}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+              </button>
+            </div>
+          {% endif %}
+        {% endunless %}
       {% endfor %}
-      {% if paginate.pages > 1 %}
-        {{ paginate | default_pagination }}
-      {% endif %}
-    {% endpaginate %}
+    {% endfor %}
     {{ 'media.js' | asset_url | script_tag }}
   </div>
 {% else %}
   <div class="collectionpage">
-    {% paginate collection.products by 4 %}
-      <div class="collectionpage__header">
-            <div class="collectionpage__header-title-container">
-              {% if {{collection.title}} == 'Ladies' %}
-                <span class="collectionpage__header-title--highlighted">Ladies</span>
-              {% else %}
-              <a class="collectionpage__header-title"
-                href="{{collections['ladies'].url}}">Ladies</a>
-              {% endif %}
-              {% if {{collection.title}} == 'Gentlemen' %}
-                <span class="collectionpage__header-title--highlighted">Gentlemen</span>
-              {% else %}
-              <a class="collectionpage__header-title"
-                href="{{collections['gentlemen'].url}}">Gentlemen</a>
-              {% endif %}
-            </div>
+    <div class="collectionpage__header">
+          <div class="collectionpage__header-title-container">
+            {% if {{collection.title}} == 'Ladies' %}
+              <span class="collectionpage__header-title--highlighted">Ladies</span>
+            {% else %}
+            <a class="collectionpage__header-title"
+              href="{{collections['ladies'].url}}">Ladies</a>
+            {% endif %}
+            {% if {{collection.title}} == 'Gentlemen' %}
+              <span class="collectionpage__header-title--highlighted">Gentlemen</span>
+            {% else %}
+            <a class="collectionpage__header-title"
+              href="{{collections['gentlemen'].url}}">Gentlemen</a>
+            {% endif %}
+          </div>
+    </div>
+    <div class="collectionpage__mobile-title-container">
+      <h1 class="collectionpage__mobile-title">SHOP ONLINE</h1>
+    </div>
+    <div class="collectionpage__mobile-header">
+        <ul class="collectionpage__mobile-collection-options">
+          <li class="collectionpage__mobile-collection-option {% if {{collection.title}} == 'Ladies' %} collectionpage__mobile-collection-option--left-selected {% endif %}">
+            {% if {{collection.title}} == 'Ladies' %}
+              <span class="collectionpage__mobile-collection-title--selected">Ladies</span>
+            {% else %}
+            <a class="collectionpage__mobile-collection-title collectionpage__mobile-collection-title--left" href="{{collections['ladies'].url}}">Ladies</a>
+            {% endif %}
+          </li>
+          <li class="collectionpage__mobile-collection-option {% if {{collection.title}} == 'Gentlemen' %} collectionpage__mobile-collection-option--right-selected {% endif %}">
+            {% if {{collection.title}} == 'Gentlemen' %}
+              <span class="collectionpage__mobile-collection-title--selected">Gentlemen</span>
+            {% else %}
+            <a class="collectionpage__mobile-collection-title collectionpage__mobile-collection-title--right" href="{{collections['gentlemen'].url}}">Gentlemen</a>
+            {% endif %}
+          </li>
+        </ul>
+    </div>
+    <div class="collectionpage__flower-container">
+        {{ 'flower-line-1.png' | asset_url | img_tag: 'Flowers 1', 'collectionpage__flower-one-icon' }}
+        {{ 'flower-line-2.png' | asset_url | img_tag: 'Flowers 2', 'collectionpage__flower-two-icon' }}
+    </div>
+    <table class="collectionpage__product-table">
+    {% tablerow product in collection.products cols:2 %}
+      <div class="collectionpage__product-tile">
+        {% comment%}
+        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+        This may be useful later, not right now.
+        {% endcomment%}
+        <a href="{{ product.url | within: collection }}">
+          <img class="collectionpage__product-tile-image" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        </a>
+        <a class="collectionpage__product-tile-title-container" href="{{ product.url | within: collection }}">
+          <span class="collectionpage__product-tile-title" >{{ product.title | upcase }}</span>
+        </a>
       </div>
-      <div class="collectionpage__mobile-title-container">
-        <h1 class="collectionpage__mobile-title">SHOP ONLINE</h1>
-      </div>
-      <div class="collectionpage__mobile-header">
-          <ul class="collectionpage__mobile-collection-options">
-            <li class="collectionpage__mobile-collection-option {% if {{collection.title}} == 'Ladies' %} collectionpage__mobile-collection-option--left-selected {% endif %}">
-              {% if {{collection.title}} == 'Ladies' %}
-                <span class="collectionpage__mobile-collection-title--selected">Ladies</span>
-              {% else %}
-              <a class="collectionpage__mobile-collection-title collectionpage__mobile-collection-title--left" href="{{collections['ladies'].url}}">Ladies</a>
-              {% endif %}
-            </li>
-            <li class="collectionpage__mobile-collection-option {% if {{collection.title}} == 'Gentlemen' %} collectionpage__mobile-collection-option--right-selected {% endif %}">
-              {% if {{collection.title}} == 'Gentlemen' %}
-                <span class="collectionpage__mobile-collection-title--selected">Gentlemen</span>
-              {% else %}
-              <a class="collectionpage__mobile-collection-title collectionpage__mobile-collection-title--right" href="{{collections['gentlemen'].url}}">Gentlemen</a>
-              {% endif %}
-            </li>
-          </ul>
-      </div>
-      <div class="collectionpage__flower-container">
-          {{ 'flower-line-1.png' | asset_url | img_tag: 'Flowers 1', 'collectionpage__flower-one-icon' }}
-          {{ 'flower-line-2.png' | asset_url | img_tag: 'Flowers 2', 'collectionpage__flower-two-icon' }}
-      </div>
-      <table class="collectionpage__product-table">
-      {% tablerow product in collection.products cols:2 %}
-        <div class="collectionpage__product-tile">
-          {% comment%}
-          {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-          This may be useful later, not right now.
-          {% endcomment%}
-          <a href="{{ product.url | within: collection }}">
-            <img class="collectionpage__product-tile-image" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-          </a>
-          <a class="collectionpage__product-tile-title-container" href="{{ product.url | within: collection }}">
-            <span class="collectionpage__product-tile-title" >{{ product.title | upcase }}</span>
-          </a>
-        </div>
-      {% endtablerow%}
-      </table>
-      <div class="collectionpage__mobile-border-container">
-      </div>
-      <div class="collectionpage__free-shipping-container">
-          <span class="collectionpage__free-shipping-message">FREE SHIPPING IN THE US</span>
-      </div>
-      {%comment%}
-      {% for product in collection.products %}
-        <div class="product__tile">
-          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-          {{ product.price | money }}
-          {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-          <a href="{{ product.url | within: collection }}">
-            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-          </a>
-        </div>
-      {% else %}
-        <p>no matches</p>
-      {% endfor %}
-      {% endcomment %}
-      {% if paginate.pages > 1 %}
-        {{ paginate | default_pagination }}
-      {% endif %}
-    {% endpaginate %}
+    {% endtablerow%}
+    </table>
+    <div class="collectionpage__mobile-border-container">
+    </div>
+    <div class="collectionpage__free-shipping-container">
+        <span class="collectionpage__free-shipping-message">FREE SHIPPING IN THE US</span>
+    </div>
   </div>
 {% endif %}

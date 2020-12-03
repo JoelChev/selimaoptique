@@ -1,5 +1,5 @@
 <div class="journalpage">
-  {% paginate blog.articles by 5 %}
+  {% paginate blog.articles by 1 %}
   <h1 class="journalpage__mobile-title">{{ blog.title | upcase }}</h1>
   {% for article in blog.articles %}
     <div>
@@ -14,7 +14,9 @@
   {% endfor %}
 
   {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
+    <div class="journalpage__pagination-container">
+      {{ paginate | default_pagination }}
+    </div>
   {% endif %}
 
   {% endpaginate %}
