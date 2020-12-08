@@ -8,7 +8,7 @@ const mediaContent = {
     // Adri O
     "Adri_Lycra": {
         "title": "Lycra Ad // 2006",
-        "text": "Featuring the <a class='test' href='/'>Adri-0</a> in black",
+        "text": "Featuring the Adri-0 in black",
         "variant": "",
     },
     "Adri_Jane": {
@@ -18,22 +18,22 @@ const mediaContent = {
     },
     "Adri_Gaga": {
         "title": "GagaFashionLand.com // May 2012",
-        "text": "Lady Gaga wears the <a class='test' href='/'>Adri-0</a>",
+        "text": "Lady Gaga wears the Adri-0",
         "variant": "",
     },
     "Adri_Parlour": {
         "title": "Parlour Magazine // 2011",
-        "text": "A beautiful shot of the <a class='test' href='/'>Adri-0</a> in Crystal Pink",
+        "text": "A beautiful shot of the Adri-0 in Crystal Pink",
         "variant": "",
     },
     "Adri_Elle": {
         "title": "Elle France // 2001",
-        "text": "Featuring <a class='test' href='/'>Adri-0</a> in Black",
+        "text": "Featuring Adri-0 in Black",
         "variant": "",
     },
     "Adri_Muppets": {
         "title": "Lady Gaga Cameo in Muppets Most Wanted 2014 trailer",
-        "text": "Screen grab of Lady Gaga’s Cameo In Muppets Most Wanted 2014 sequel.. She wears the <a class='test' href='/'>Adri-0</a>!",
+        "text": "Screen grab of Lady Gaga’s Cameo In Muppets Most Wanted 2014 sequel.. She wears the Adri-0!",
         "variant": "",
     },
     // Alabama
@@ -59,6 +59,7 @@ const mediaContent = {
         "text": "Showing off the Amanda New Floral Colorways.",
         "variant": "",
     },
+    // ANDA & MASHA
     "ANDA & MASHA - Joni_Chrisette": {
         "text": "Chrisette wears the\u00a0Joni\u00a0in Black@chrisettemichele",
         "title": "Chrisette Michele - Instagram post - July 2014",
@@ -74,6 +75,7 @@ const mediaContent = {
         "title": "Martha Stewart Weddings // November 2013",
         "variant": ""
     },
+    // Andy-Sun
     "Andy-Sun_Air": {
         "text": "Selima Optique X Colette presents a special edition Andy!",
         "title": "Air France MADAME Magazine // Summer 2014",
@@ -114,6 +116,7 @@ const mediaContent = {
         "title": "Vogue Paris // February 2015",
         "variant": ""
     },
+    // Andy
     "Andy_Chaz": {
         "text": "",
         "title": "Chaz Bundick interview in SF Weekly, Feb 25 2015.",
@@ -144,6 +147,7 @@ const mediaContent = {
         "title": "The New York Times // July 2011",
         "variant": ""
     },
+    // Angel
     "Angel_Femme": {
         "text": "featuring the Angel",
         "title": "Femme Actuelle may 17 2017",
@@ -154,6 +158,7 @@ const mediaContent = {
         "title": "Modzik, August 2012",
         "variant": ""
     },
+    // Anouk
     "Anouk_Bella": {
         "text": "Ms Hadid wears the Anouk.",
         "title": "Bella Hadid by Guy Aroch for Harpers Bazaar Spain April 2016",
@@ -174,6 +179,7 @@ const mediaContent = {
         "title": "Nylon // 2010",
         "variant": ""
     },
+    // Anthony
     "Anthony_Justin": {
         "text": "Chad\u00a02 worn by Justin Miller, Anthony worn by Callie Barlow.",
         "title": "Justin Miller, Callie Barlow & Selima Optique",
@@ -184,6 +190,7 @@ const mediaContent = {
         "title": "WWD // 2010",
         "variant": ""
     },
+    // Anton
     "Anton_Cosmopolitan": {
         "text": "Featuring the Anton with yellow lenses",
         "title": "Cosmopolitan June 2018",
@@ -204,11 +211,13 @@ const mediaContent = {
         "title": "Twelv Magazine March 12, 2018",
         "variant": ""
     },
+    // Aurelien
     "Aurelien_Caitlin": {
         "text": "@darlingcait has her cat try on our Aurelien in Black",
         "title": "Caitlin Monahan, @darlingcait Instagram 2014",
         "variant": ""
     },
+    // Carolyn
     "Carolyn_Details,": {
         "text": "",
         "title": "Details, 2010",
@@ -219,6 +228,7 @@ const mediaContent = {
         "title": "Elle Spain // April 2011",
         "variant": ""
     },
+    // Catherine
     "Catherine_Elle": {
         "text": "Featuring\u00a0Catherine in Turquoise & Black",
         "title": "Elle Mexico // October 2012",
@@ -249,6 +259,7 @@ const mediaContent = {
         "title": "XO Magazine No. 21, The Winter Review Issue",
         "variant": ""
     },
+    // Chad 2
     "Chad 2_Justin": {
         "text": "Chad\u00a02 worn by Justin Miller, Anthony worn by Callie Barlow.",
         "title": "Justin Miller, Callie Barlow & Selima Optique",
@@ -259,6 +270,7 @@ const mediaContent = {
         "title": "Una Portland picks the Chad 2",
         "variant": ""
     },
+    // Chad
     "Chad_Entertainment": {
         "text": "Ryan Gosling wearing\u00a0Chad\u00a0in Auburn Tortoise",
         "title": "Entertainment Weekly // August 2011",
@@ -274,6 +286,7 @@ const mediaContent = {
         "title": "New York Times, May 16 2017",
         "variant": ""
     },
+    // Claire
     "Claire_Design": {
         "text": "Featuring Claire\u00a0in Beige & Red",
         "title": "Design Bureau // February 2013",
@@ -289,6 +302,7 @@ const mediaContent = {
         "title": "Ksenia Sobchak\u2019s Instagram feed November 1 2015",
         "variant": ""
     },
+    // Colette
     "Colette_FIM": {
         "text": "Featuring Colette Sun in White",
         "title": "FIM // 2011",
@@ -304,6 +318,7 @@ const mediaContent = {
         "title": "Style.com // January 2013",
         "variant": ""
     },
+    // Corto
     "Corto_CITIZEN": {
         "text": "Featuring the Corto Gold With Pink Lenses",
         "title": "CITIZEN K Spring 2017",
@@ -329,6 +344,7 @@ const mediaContent = {
         "title": "WWD Fall 2017 Men\u2019s Trend: The Suit",
         "variant": ""
     },
+    // Cosmo
     "Cosmo_Netflix": {
         "text": "Story by Lorna Soonhee Umphrey. \u00a0Mr Rust wears\u00a0the Cosmo.",
         "title": "Netflix \u201cLove\u201d star and co-creator Paul Rust in LA confidential  February 25, 2016",
@@ -339,6 +355,7 @@ const mediaContent = {
         "title": "Selima Optique Summer 2013 Catalog",
         "variant": ""
     },
+    // Dusan (Many Sub Products)
     "DUSAN - Hilde_MODZIK": {
         "text": "Featuring Hilde in Black & Champagne",
         "title": "MODZIK // June 2010",
@@ -364,11 +381,13 @@ const mediaContent = {
         "title": "Vogue Turkey September 2017",
         "variant": ""
     },
+    // Dean
     "Dean_Grace": {
         "text": "Grace bought a pair of\u00a0Dean\u00a0at Bond07. We\u2019re all star struck!!",
         "title": "Grace VanderWaal on instagram October 2016",
         "variant": ""
     },
+    // Donata
     "Donata_Schon": {
         "text": "Schon Magazine featuring Donata in Indian Summer.",
         "title": "Schon Magazine Indian Summer // August 2015",
@@ -379,6 +398,7 @@ const mediaContent = {
         "title": "U.E.S. GIRL Imagista // February 2015",
         "variant": ""
     },
+    // Edouard
     "Edouard_Edouard": {
         "text": "@karmigo wears Edouard\u00a0in red crystal, with matching red lipstick!",
         "title": "Edouard in Red Crystal",
@@ -389,6 +409,7 @@ const mediaContent = {
         "title": "Mark Ruffalo W Magazine\u2019s // February 2015",
         "variant": ""
     },
+    // Evan
     "Evan_Daily": {
         "text": "Featuring Evan in Black",
         "title": "Daily // 2004",
@@ -399,6 +420,7 @@ const mediaContent = {
         "title": "Instinct Magazine // Feb 2012",
         "variant": ""
     },
+    // Felicia
     "Felicia_Refinery": {
         "text": "Featuring\u00a0Felicia\u00a0in Blue & Green Mosaic",
         "title": "Refinery 29 // July 2014",
@@ -409,6 +431,7 @@ const mediaContent = {
         "title": "Refinery29.com // July 2014",
         "variant": ""
     },
+    // Harrison
     "Harrison_GQ": {
         "text": "Featuring the Harrison in Black with yellow lenses (please email us if you wish to customize lenses in any of our frames)",
         "title": "GQ France November 2016 page153",
@@ -419,6 +442,7 @@ const mediaContent = {
         "title": "Kjaer Weis \u201cOptical Reality\u201d feature. June 2018.",
         "variant": ""
     },
+    // Heathaboo
     "Heathaboo_Idiosyncratic": {
         "text": "from the Girls gone wild story. On the left,\u00a0\u00a0Jean wears the Virginie and on the right, Valerie\u2019s sports the\u00a0Heathaboo.",
         "title": "Idiosyncratic Fashionistas July 6 2014",
@@ -434,6 +458,7 @@ const mediaContent = {
         "title": "The Atlantan Modern Luxury Digital Cover",
         "variant": ""
     },
+    // Hubert
     "Hubert_Alexandre": {
         "text": "From Paris, remarkable Monsieur Bellenger takes his\u00a0Hubert\u00a0to Instagram!",
         "title": "Alexandre Bellenger // February 2015",
@@ -489,11 +514,13 @@ const mediaContent = {
         "title": "The New York Times // July 2011",
         "variant": ""
     },
+    // Isac
     "Isac_Zoe": {
         "text": "Featuring\u00a0Isac\u00a0in Camoflage Tortoise",
         "title": "Zoe Dunkelberg & Selima Optique by Alexander Berg",
         "variant": ""
     },
+    // June Ambrose (Many Sub Products)
     "JUNE AMBROSE - Chance_June": {
         "text": "June wears Chance\u00a0in Black & White, produced in collaboration with Selima Optique.",
         "title": "June Ambrose & Selima Optique",
@@ -564,11 +591,13 @@ const mediaContent = {
         "title": "TheCoveteur.com // March 2013",
         "variant": ""
     },
+    // Jassim
     "Jassim_Burnett": {
         "text": "A look from the\u00a0Burnett\u00a0Runway show featuring our\u00a0Jassim\u00a0frames in Emerald & Black",
         "title": "Burnett NYFW FW2019",
         "variant": ""
     },
+    // Jessie
     "Jessie_Charmed,": {
         "text": "Erin Fetherson\u2019s charmed, I\u2019m sure, featuring Jessie in Black & Red.\u00a0See on Youtube",
         "title": "Charmed, I\u2019m Sure // Summer 2014",
@@ -584,6 +613,7 @@ const mediaContent = {
         "title": "Valerie Steele ArudeMag.com // January 2012",
         "variant": ""
     },
+    // Jimi
     "Jimi_Bradley": {
         "text": "Mr. Barnett ready for the winter with his\u00a0 pair of Jimi.",
         "title": "Bradley Barnett",
@@ -594,16 +624,19 @@ const mediaContent = {
         "title": "The Eyewear Forum Magazine October 10 2018",
         "variant": ""
     },
+    // Karen
     "Karen_From": {
         "text": "A sketch by Karen\u00a0of Lacey wearing the Karen.",
         "title": "From Karen Goins\u2019 instagram",
         "variant": ""
     },
+    // Kenneth
     "Kenneth_Self": {
         "text": "Photo: Brendan Burk. Style: Lester Garcia.\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 Grace Cheng wear the Kenneth in black.",
         "title": "Self Magazine China April 2017 Easy Chic feature",
         "variant": ""
     },
+    // Kerry
     "Kerry_Amine": {
         "text": "Amine worn by Jared Scott (L) and Kerry worn by Kelly Nyks.",
         "title": "Amine worn by Jared Scott (left) and Kerry worn by Kelly Nyks",
@@ -619,6 +652,7 @@ const mediaContent = {
         "title": "SPUR // September 2013",
         "variant": ""
     },
+    // Lacey
     "Lacey Sun_Insta": {
         "text": "Karen Our Insta Muse Wearing Lacey in Sea Blue",
         "title": "Insta Muse Karen",
@@ -634,11 +668,13 @@ const mediaContent = {
         "title": "Laceys and Ballet Slippers",
         "variant": ""
     },
+    // Lou
     "Lou_Femme": {
         "text": "Featuring the\u00a0LOU in Blue",
         "title": "Femme Actuelle, August 7 2017",
         "variant": ""
     },
+    // Love
     "Love_7\u00d77": {
         "text": "Featuring\u00a0Love\u00a0in Black & White",
         "title": "7\u00d77 // September 2012",
@@ -669,6 +705,7 @@ const mediaContent = {
         "title": "Vogue Paris Online // February 2013",
         "variant": ""
     },
+    // Lulu
     "Lulu Sun_Esquire": {
         "text": "Featuring the Lulu",
         "title": "Esquire Serbia May 2019",
@@ -724,11 +761,13 @@ const mediaContent = {
         "title": "Snoop Dogg in The Jack Magazine Volume 1 #1",
         "variant": ""
     },
+    // Madeleine
     "Madeleine_Women\u2019s": {
         "text": "Featuring Madeleine in Black",
         "title": "Women\u2019s Wear Daily // September 2012",
         "variant": ""
     },
+    // Marcicruz
     "Maricruz_Glamour": {
         "text": "Featuring Maricruz in Sky Blue",
         "title": "Glamour // July 2011",
@@ -739,16 +778,19 @@ const mediaContent = {
         "title": "Orley FW 2014 NYFW Presentation",
         "variant": ""
     },
+    // Marlene
     "Marlene_Repost": {
         "text": "When Charlotte is not busy serving the House of Bolton, on Game of Thrones, she can be found at the Glastonbury Festival looking marvelous in our\u00a0Marlene in Matte Honey",
         "title": "Repost from Actress Charlotte Hope\u2019s Instagram",
         "variant": ""
     },
+    // Maxime
     "Maxime_Schon": {
         "text": "Featuring Maxime\u00a0in Black.",
         "title": "Schon Magazine - Indian Summer. August 2015",
         "variant": ""
     },
+    // Maxou 4
     "Maxou 4_Cosmopolitan": {
         "text": "The Maxou frame in the October 2016 issue of the French Cosmopolitan Magazine.",
         "title": "Cosmopolitan October 2016 - Maxou",
@@ -784,6 +826,7 @@ const mediaContent = {
         "title": "Vogue.com Good Vibes Only! January 13, 2017",
         "variant": ""
     },
+    // Maya
     "Maya_ELLE": {
         "text": "Featuring\u00a0Maya in Honey Horn.",
         "title": "ELLE Japan // September 2014",
@@ -794,16 +837,19 @@ const mediaContent = {
         "title": "Warm & Cozy",
         "variant": ""
     },
+    // Menrad
     "Menrad_Matt": {
         "text": "On tour in Brussels wearing\u00a0Menrad\u00a0in Crystal.",
         "title": "Matt Berninger // The National",
         "variant": ""
     },
+    // Miho
     "Miho_Vogue": {
         "text": "",
         "title": "Vogue Spain, April 2012",
         "variant": ""
     },
+    // Mike
     "Mike_9TO5Mac.com": {
         "text": "9TO5Mac covers Millard \u201cMickey\u201d Drexler\u2019s decision to retire from the eight-person Apple Board of Directors.\u00a0Mr Drexler wears the Mike in clear.\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0Story:\u00a0Mark Gurman",
         "title": "9TO5Mac.com January 22 2015",
@@ -854,6 +900,7 @@ const mediaContent = {
         "title": "purple Magazine FW // 2012",
         "variant": ""
     },
+    // Money 2
     "Money 2_Douglas": {
         "text": "Douglas Ferguson photographed by Anne Deniau in Central Park.Douglas wears the Money 2",
         "title": "Douglas Ferguson by Anne Deniau Winter 2017",
@@ -874,6 +921,7 @@ const mediaContent = {
         "title": "Vogue Italia // July 2007",
         "variant": ""
     },
+    // Mustafa
     "Mustafa_Eyecare": {
         "text": "Featuring saxophonist\u00a0Brent Birkhead\u00a0in our\u00a0Mustafa\u00a0in Crystal\u00a0Sky Blue and Tangerine",
         "title": "Eyecare Business July/August 2019",
@@ -884,11 +932,13 @@ const mediaContent = {
         "title": "TIFF// 2010",
         "variant": ""
     },
+    // Nao
     "Nao_Mandee": {
         "text": "Hair stylist Mandee wears our new style, Nao, in Black.",
         "title": "Mandee & Selima Optique",
         "variant": ""
     },
+    // Nicolas
     "Nicolas_ELLE": {
         "text": "Featuring\u00a0Nicolas\u00a0Sun\u00a0in Sky Blue & Emerald",
         "title": "ELLE Bulgaria // July 2015",
@@ -904,6 +954,7 @@ const mediaContent = {
         "title": "Zoe Dunkelberg & Selima Optique",
         "variant": ""
     },
+    // Onassis
     "Onassis_Bazaar": {
         "text": "Featuring Onassis\u00a0in Black",
         "title": "Bazaar Magazine // 2005",
@@ -919,6 +970,7 @@ const mediaContent = {
         "title": "bleubirdblog.com      6/20/2011",
         "variant": ""
     },
+    // Pamela Love (Many Different Sub Products)
     "Pamela Love - Allison_Barbara": {
         "text": "Barbarra wear the Allison Selima X Pamela Love\u00a0sunglasses in peach",
         "title": "Barbara Palvin for Maxim Dec2016-Jan2017.",
@@ -954,16 +1006,19 @@ const mediaContent = {
         "title": "Jewelry Designer Pamela Love Wears Sophie",
         "variant": ""
     },
+    // Papa
     "Papa_Ma\u00efwenn": {
         "text": "Ma\u00efwenn Le Besco shows the feminine side of the Papa frame in POLISSE. The film she also wrote and directed won the 2011 Jury Prize in Cannes. Source: Marie Claire",
         "title": "Ma\u00efwenn Le Besco in Polisse - Marie Claire September 2011",
         "variant": ""
     },
+    //Peter
     "Peter_David": {
         "text": "Katherine Brewer\u2019s podcast on 90.9 WBUR-FM, Boston\u2019s NPR news station.",
         "title": "David Letterman on WMBUR April 05, 2018 podcast",
         "variant": ""
     },
+    // Ray
     "Ray_FinoMan.com": {
         "text": "Featuring\u00a0Ray in Tokyo Tortoise",
         "title": "FinoMan.com // Summer 2012",
@@ -974,6 +1029,7 @@ const mediaContent = {
         "title": "Vogue Mexico// March 2013",
         "variant": ""
     },
+    // Rima
     "Rima_FasterLouder": {
         "text": "Dinosaur Jr\u2019s J. Mascis wears\u00a0Rima\u00a0Optical in Crystal.",
         "title": "FasterLouder // Winter 2012",
@@ -984,6 +1040,7 @@ const mediaContent = {
         "title": "W Magazine// March 2007",
         "variant": ""
     },
+    // Robert
     "Robert_Gerard": {
         "text": "Posted on his facebook fan page. Mr Butler wears the Robert",
         "title": "Gerard Butler facebook July 26 2018",
@@ -1004,31 +1061,37 @@ const mediaContent = {
         "title": "Vogue.com This-Is-Paris! October 28th 2016",
         "variant": ""
     },
+    // Robin Hood
     "Robin Hood_Selima": {
         "text": "The delicious Nora S. models the Selima Optique For Robin Hood Limited Edition \u00a0for Instagram",
         "title": "Selima Optique Limited edition for the Robin Hood NYC Foundation",
         "variant": ""
     },
+    // Ron
     "Ron_Ron": {
         "text": "Mr. Rifkin wears\u00a0Ron in Auburn Tortoise.",
         "title": "Ron Rifkin // March 2012",
         "variant": ""
     },
+    // Roxanne
     "Roxanne_Elsa": {
         "text": "@elsa_nyc\u00a0looks fantastic in\u00a0Roxanne\u00a0with a pop of red!",
         "title": "Elsa & Selima Optique // September 2015",
         "variant": ""
     },
+    // Sander
     "Sander_Manu": {
         "text": "Featuring Sander in Marble Tortoise.",
         "title": "Manu Greco & Selima Optique",
         "variant": ""
     },
+    // Steve
     "Steve_Surface": {
         "text": "Featuring Steve (right) in Honey",
         "title": "Surface Magazine // August 2012",
         "variant": ""
     },
+    // Tanushka
     "Tanushka Sun_Anne": {
         "text": "Anne Deniau wears Tanushka in Black & White while enjoying a beautiful view.",
         "title": "Anne et Tanushka",
@@ -1044,6 +1107,7 @@ const mediaContent = {
         "title": "Olga Kubrak & Selima Optique",
         "variant": ""
     },
+    // The Hand-Made Playboy Collection (Many Sub Products)
     "The Hand-Made Playboy Collection - Herman_Bust": {
         "text": "Featuring Herman in Honey",
         "title": "Bust Magazine Aug/Sept 2015",
@@ -1084,6 +1148,7 @@ const mediaContent = {
         "title": "Mandee & Selima Optique // May 2015",
         "variant": ""
     },
+    // Vincent
     "Vincent_Justin": {
         "text": "Justin promotes the release of his new book The laws of Cooking (and how to break them)We think he looks great in his blue Vincent!",
         "title": "Justin Warner\u2019s facebook December 2014",
@@ -1094,16 +1159,19 @@ const mediaContent = {
         "title": "Peter Denton & Selima Optique",
         "variant": ""
     },
+    // Wyatt
     "Wyatt_WWD,": {
         "text": "In WWD fashion trends:",
         "title": "WWD, Fall 2017 Trend: Big Red",
         "variant": ""
     },
+    // Yasmine
     "Yasmine_Marie": {
         "text": "Featuring Yasmine\u00a0in Black & White",
         "title": "Marie Claire Korea // June 2013",
         "variant": ""
     },
+    // Zazou
     "Zazou_Selima": {
         "text": "Selima wears\u00a0Zazou in Black, Orange & Pink for her close-up!",
         "title": "Selima Salaun Vision Monday // August 2011",
@@ -1114,6 +1182,7 @@ const mediaContent = {
         "title": "Style.com // January 2013",
         "variant": ""
     },
+    // Zeke
     "Zeke_Elle": {
         "text": "Featuring Rita Ora wearing\u00a0Zeke\u00a0in Red",
         "title": "Elle UK // March 2013",
@@ -1322,7 +1391,7 @@ function _getProductDetailsAndShowModal(productHandle, variantId, showModal) {
 function _getProductDetailsAndShowNextModal(newMediaModalIndex) {
     //Get the next image so we can get the proper product and variant ids!
     const nextModalMediaImage = document.getElementsByClassName('mediapage__image')[newMediaModalIndex - 1];
-    const splitId = nextModalMediaImage.id.split("-");
+    const splitId = nextModalMediaImage.id.split("::");
 
     const altTag = splitId[1];
     const variantId = mediaContent.variant;
@@ -1407,8 +1476,8 @@ function _showMediaPageModal() {
         for (let i = 0; i < modalMediaButtons.length; i++) {
             let modalMediaButton = modalMediaButtons[i];
             let modalMediaImage = modalMediaImages[i];
-            modalMediaButton.id = modalMediaButton.id + `-${i + 1}`;
-            modalMediaImage.id = modalMediaImage.id + `-${i + 1}`;
+            modalMediaButton.id = modalMediaButton.id + `::${i + 1}`;
+            modalMediaImage.id = modalMediaImage.id + `::${i + 1}`;
         }
         // Init the counter on the expanded modal for desktop
         const mediaModalCounter = document.getElementsByClassName('mediapage__modal-footer-counter')[0];
@@ -1435,11 +1504,12 @@ function _showMediaPageModal() {
         //If an image is found that matches the alt tag, display it!
         if (selectedImage !== undefined && selectedImage !== null) {
             // The id is a combination of identifier-alt_tag-product_id-index
-            const splitId = selectedImage.id.split("-");
+            const splitId = selectedImage.id.split("::");
 
             const altTag = splitId[1];
             const mediaModalContent = mediaContent[altTag];
-            const productHandle = splitId[splitId.length - 2];
+            //Have to only consider the product handle as the part before the underscore.
+            const productHandle = splitId[splitId.length - 2].split("_")[0];
             _getProductDetailsAndShowModal(productHandle, mediaModalContent.variant, true);
             const index = splitId[splitId.length - 1];
 
@@ -1508,11 +1578,13 @@ document.addEventListener('click', function (event) {
         return;
     }
     // The id is a combination of identifier-alt_tag-product_id-index
-    const splitId = event.target.id.split("-");
+    const splitId = event.target.id.split("::");
 
     const altTag = splitId[1];
     const mediaModalContent = mediaContent[altTag];
-    const productHandle = splitId[splitId.length - 2];
+
+    //Have to only consider the product handle as the part before the underscore.
+    const productHandle = splitId[splitId.length - 2].split("_")[0];
     _getProductDetailsAndShowModal(productHandle, mediaModalContent.variant, true);
     const index = splitId[splitId.length - 1];
     // Set the counter based on which image is expanded.
@@ -1828,10 +1900,10 @@ function _setProductMediaModalMobileContentOnTransition(newProductMediaModalInde
             let productMediaImage = productMediaImages[i];
             let productMediaMobileButton = productMediaMobileButtons[i];
             let productMediaMobileImage = productMediaMobileImages[i];
-            productMediaButton.id = productMediaButton.id + `-${i + 1}`;
-            productMediaImage.id = productMediaImage.id + `-${i + 1}`;
-            productMediaMobileButton.id = productMediaMobileButton.id + `-${i + 1}`;
-            productMediaMobileImage.id = productMediaMobileImage.id + `-${i + 1}`;
+            productMediaButton.id = productMediaButton.id + `::${i + 1}`;
+            productMediaImage.id = productMediaImage.id + `::${i + 1}`;
+            productMediaMobileButton.id = productMediaMobileButton.id + `::${i + 1}`;
+            productMediaMobileImage.id = productMediaMobileImage.id + `::${i + 1}`;
         }
         //We can show the media container on the product page as there is at least one media. It remains hidden otherwise.
         const hiddenProductMediaContainer = document.getElementsByClassName('productpage__media-container--hidden')[0];
@@ -1864,12 +1936,10 @@ document.addEventListener('click', function (event) {
         return;
     }
     // The id is a combination of identifier-alt_tag-product_id-index
-    const splitId = event.target.id.split("-");
+    const splitId = event.target.id.split("::");
 
     const altTag = splitId[1];
     const mediaModalContent = mediaContent[altTag];
-    //     const productHandle = splitId[splitId.length - 2];
-    //     _getProductDetailsAndShowModal(productHandle, mediaModalContent.variant, true);
     const index = splitId[splitId.length - 1];
     // Set the counter based on which image is expanded.
     const productMediaModalCounter = document.getElementsByClassName('productpage__media-modal-footer-counter')[0];

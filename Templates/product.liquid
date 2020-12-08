@@ -154,8 +154,8 @@
       {% for image in product.images %}
         {% unless image.attached_to_variant?%}
           {%if image.width == 100 %}
-            <button class="productpage__media-image-button" id="mediaPageImageButton-{{image.alt}}-{{product.handle}}">
-              <img class="productpage__media-image" id="productPageMediaImage-{{image.alt}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+            <button class="productpage__media-image-button" id="mediaPageImageButton::{{image.alt}}::{{product.handle}}">
+              <img class="productpage__media-image" id="productPageMediaImage::{{image.alt}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
             </button>
           {% endif %}
         {% endunless %}
@@ -165,8 +165,8 @@
       {% for image in product.images %}
         {% unless image.attached_to_variant?%}
           {%if image.width > 100 %}
-            <button class="productpage__media-mobile-image-button" id="mediaPageImageButton-{{image.alt}}-{{product.handle}}">
-              <img class="productpage__media-mobile-image" id="productPageMediaImage-{{image.alt}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+            <button class="productpage__media-mobile-image-button" id="mediaPageImageButton::{{image.alt}}::{{product.handle}}">
+              <img class="productpage__media-mobile-image" id="productPageMediaImage::{{image.alt}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
             </button>
           {% endif %}
         {% endunless %}

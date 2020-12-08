@@ -84,8 +84,8 @@
         {% unless image.attached_to_variant?%}
           {%if image.width > 100 %}
             <div class="mediapage__image-container">
-              <button class="mediapage__image-button" id="mediaPageImageButton-{{image.alt}}-{{product.handle}}">
-              <img class="mediapage__image" id="mediaPageImage-{{image.alt}}-{{product.handle}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+              <button class="mediapage__image-button" id="mediaPageImageButton::{{image.alt}}::{{product.handle}}">
+              <img class="mediapage__image" id="mediaPageImage::{{image.alt}}::{{product.handle}}" src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}">
               </button>
             </div>
           {% endif %}
