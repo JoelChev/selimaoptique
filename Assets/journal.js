@@ -65,7 +65,7 @@ function __getImageFromNode(childNode) {
             if (m == 1) {
                 carouselImage.classList.add('journalpage__carousel-image--next');
             }
-            if (m == images.length - 1) {
+            if (m == images.length - 1 && images.length > 1) {
                 carouselImage.classList.add('journalpage__carousel-image--prev');
             }
             carouselImage.id = `JournalArticleImage-${i}-${m}`;

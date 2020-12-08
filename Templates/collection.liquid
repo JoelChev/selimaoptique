@@ -78,7 +78,8 @@
   </div>
   <div class="mediapage">
     <h1 class="mediapage__mobile-title">MEDIA</h1>
-    {% for product in collection.products %}
+    {% assign products = collection.products | sort: "title" %}
+    {% for product in products %}
       {% for image in product.images %}
         {% unless image.attached_to_variant?%}
           {%if image.width > 100 %}
@@ -137,20 +138,22 @@
         {{ 'flower-line-2.png' | asset_url | img_tag: 'Flowers 2', 'collectionpage__flower-two-icon' }}
     </div>
     <table class="collectionpage__product-table">
-    {% tablerow product in collection.products cols:2 %}
-      <div class="collectionpage__product-tile">
-        {% comment%}
-        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-        This may be useful later, not right now.
-        {% endcomment%}
-        <a href="{{ product.url | within: collection }}">
-          <img class="collectionpage__product-tile-image" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-        </a>
-        <a class="collectionpage__product-tile-title-container" href="{{ product.url | within: collection }}">
-          <span class="collectionpage__product-tile-title" >{{ product.title | upcase }}</span>
-        </a>
-      </div>
-    {% endtablerow%}
+      {% paginate collection.products by 1000%}
+        {% tablerow product in products cols:2 %}
+          <div class="collectionpage__product-tile collectionpage__product-tile--hidden">
+            {% comment%}
+            {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+            This may be useful later, not right now.
+            {% endcomment%}
+            <a class="collectionpage__product-tile-link" href="{{ product.url | within: collection }}">
+              <img class="collectionpage__product-tile-image" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+            </a>
+            <a class="collectionpage__product-tile-title-container" href="{{ product.url | within: collection }}">
+              <span class="collectionpage__product-tile-title" >{{ product.title | upcase }}</span>
+            </a>
+          </div>
+        {% endtablerow%}
+      {% endpaginate %}
     </table>
     <div class="collectionpage__mobile-border-container">
     </div>

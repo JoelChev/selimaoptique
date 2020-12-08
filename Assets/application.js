@@ -545,6 +545,37 @@ document.addEventListener('click', function (event) {
 
 }(document));
 
+// Collection Page
+
+//This handles sorting the products on the page in alphabetical order.
+!(function (d) {
+    let productTiles = document.getElementsByClassName('collectionpage__product-tile');
+    if (productTiles.length == 0) {
+        return;
+    }
+    let productTitles = document.getElementsByClassName('collectionpage__product-tile-title');
+    let productImages = document.getElementsByClassName('collectionpage__product-tile-image');
+    let productLinks = document.getElementsByClassName('collectionpage__product-tile-link');
+    let productArray = []
+    for (let i = 0; i < productTiles.length; i++) {
+        let product = {};
+        product.title = productTitles[i].textContent;
+        product.image = productImages[i].src;
+        product.link = productLinks[i].href;
+        productArray.push(product);
+    }
+    productArray = productArray.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
+    for (let j = 0; j < productArray.length; j++) {
+        productTitles[j].textContent = productArray[j].title;
+        productImages[j].src = productArray[j].image;
+        productLinks[j].href = productArray[j].link;
+        productTiles[j].classList.remove('collectionpage__product-tile--hidden');
+    }
+
+
+}(document));
+
+
 // Product Page
 
 //This handles adding to cart.

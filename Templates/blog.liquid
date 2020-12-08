@@ -1,5 +1,5 @@
 <div class="journalpage">
-  {% paginate blog.articles by 1 %}
+  {% paginate blog.articles by 2 %}
   <h1 class="journalpage__mobile-title">{{ blog.title | upcase }}</h1>
   {% for article in blog.articles %}
     <div>

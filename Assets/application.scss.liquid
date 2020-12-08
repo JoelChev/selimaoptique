@@ -1513,6 +1513,10 @@ main {
     margin: 54px 21px;
 }
 
+.collectionpage__product-tile--hidden {
+    display: none;
+}
+
 .collectionpage__product-tile-image {
     border: 3px solid $color-black;
 }
@@ -1530,6 +1534,7 @@ main {
     z-index: 10;
     width: fit-content;
     text-decoration: none;
+    text-align: center;
 }
 
 .collectionpage__product-tile-title {
@@ -2075,11 +2080,14 @@ main {
 
 .productpage__product-information-container {
     margin-left: 138px;
+    max-width: 50%;
     @media(max-width: $breakpoint-desktop) {
         margin-left: 0;
         padding-left: 18px;
+        max-width: 50%;
     }
     @media(max-width: $breakpoint-tablet) {
+        max-width: 100%;
         //margin-top: 230px;
         // TODO: Fix the product spacing on mobile
     }
@@ -2309,6 +2317,7 @@ main {
     margin-top: 32px;
     display: flex;
     flex-wrap: wrap;
+    max-width: 600px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         max-width: 400px;
     }
