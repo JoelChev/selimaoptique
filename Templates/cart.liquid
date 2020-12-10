@@ -4,14 +4,16 @@
   {% comment %} This div is needed for when the customer removes the last item from the cart, so we can toggle it into visibility {% endcomment %}
     <div class="cartpage__empty-cart-container cartpage__empty-cart-container--hidden">
         {{ 'shopping-bag.png' | asset_url | img_tag: 'Shopping Bag', 'cartpage__empty-cart-icon' }}
-        <h2 class="cartpage__emptry-cart-title"> Your Cart is Empty. </h2>
+        <h2 class="cartpage__emptry-cart-title"> Your Cart is Empty </h2>
         <a class="cartpage__empty-cart-shopping-link" href="/collections">Start Shopping</a>
+        <a class="cartpage__empty-cart-shopping-link-mobile" href="/collections">Start Shopping</a>
       </div>
     {% if cart.item_count == 0 %}
       <div class="cartpage__empty-cart-container">
         {{ 'shopping-bag.png' | asset_url | img_tag: 'Shopping Bag', 'cartpage__empty-cart-icon' }}
-        <h2 class="cartpage__emptry-cart-title"> Your Cart is Empty. </h2>
+        <h2 class="cartpage__emptry-cart-title"> Your Cart is Empty</h2>
         <a class="cartpage__empty-cart-shopping-link" href="/collections">Start Shopping</a>
+        <a class="cartpage__empty-cart-shopping-link-mobile" href="/collections">Start Shopping</a>
       </div>
     {% else %}
     <div class="cartpage__headings-container">
