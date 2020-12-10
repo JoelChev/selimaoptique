@@ -1,6 +1,19 @@
 <div class="cartpage">
   <h1>YOUR SHOPPING CART</h1>
   <div class="cartpage__container">
+  {% comment %} This div is needed for when the customer removes the last item from the cart, so we can toggle it into visibility {% endcomment %}
+    <div class="cartpage__empty-cart-container cartpage__empty-cart-container--hidden">
+        {{ 'shopping-bag.png' | asset_url | img_tag: 'Shopping Bag', 'cartpage__empty-cart-icon' }}
+        <h2 class="cartpage__emptry-cart-title"> Your Cart is Empty. </h2>
+        <a class="cartpage__empty-cart-shopping-link" href="/collections">Start Shopping</a>
+      </div>
+    {% if cart.item_count == 0 %}
+      <div class="cartpage__empty-cart-container">
+        {{ 'shopping-bag.png' | asset_url | img_tag: 'Shopping Bag', 'cartpage__empty-cart-icon' }}
+        <h2 class="cartpage__emptry-cart-title"> Your Cart is Empty. </h2>
+        <a class="cartpage__empty-cart-shopping-link" href="/collections">Start Shopping</a>
+      </div>
+    {% else %}
     <div class="cartpage__headings-container">
       <span class="cartpage__product-header">Product</span>
       <span class="cartpage__price-header">Price</span>
@@ -39,6 +52,7 @@
         <a href="/checkout" class="cartpage__checkout-link">Proceed to Checkout</a>
       </div>
     </div>
+    {% endif %}
   </div>
   
 </div>

@@ -2474,12 +2474,51 @@ main {
     }
 }
 
+.cartpage__empty-cart-container {
+    margin: 140px 0;
+    width: 465px;
+    padding: 40px;
+    background: $color-grey-4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cartpage__empty-cart-container--hidden {
+    display: none;
+}
+
+.cartpage__empty-cart-icon {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 24px;
+}
+
+.cartpage__emptry-cart-title {
+    font-family: "HK Grotesk";
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: 400;
+    color: $color-black;
+    margin-bottom: 24px;
+}
+
+.cartpage__empty-cart-shopping-link {
+    @include link-text;
+}
+
 .cartpage__headings-container {
     display: flex;
     width: 100%;
     margin-top: 32px;
     padding-bottom: 16px;
     border-bottom: 1px solid $color-black;
+}
+
+.cartpage__headings-container--hidden {
+    display: none;
 }
 
 .cartpage__product-header {
@@ -2655,6 +2694,10 @@ main {
         padding-top: 32px;
         justify-content: flex-start;
     }
+}
+
+.cartpage__footer-container--hidden {
+    display: none;
 }
 
 .cartpage__footer-text-container {
@@ -4077,6 +4120,12 @@ main {
     position: relative;
     padding-bottom: 56px;
     border-bottom: 2px dashed $color-lavendar-dark;
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+        color: $color-blue-main;
+    }
 
     p {
         font-family: "HK Grotesk";

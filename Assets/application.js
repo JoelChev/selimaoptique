@@ -772,6 +772,20 @@ document.addEventListener('click', function (event) {
 
     xhr.onload = function () {
         if (xhr.status == 200) {
+            console.log("JOEL TEST");
+            console.log(xhr);
+            let cartJSON = JSON.parse(xhr.responseText);
+            //handle the empty response separately.
+            if (cartJSON.items.length == 0) {
+                const cartPageHeadings = document.getElementsByClassName("cartpage__headings-container")[0];
+                cartPageHeadings.classList.add("cartpage__headings-container--hidden");
+
+                const cartPageFooter = document.getElementsByClassName("cartpage__footer-container")[0];
+                cartPageFooter.classList.add("cartpage__footer-container--hidden");
+
+                const emptyCartContainer = document.getElementsByClassName("cartpage__empty-cart-container--hidden")[0];
+                emptyCartContainer.classList.remove('cartpage__empty-cart-container--hidden');
+            }
             //Update the cart total manually when response is successful.
             const cartTotal = document.getElementsByClassName('header__cart-total')[0];
             let cartValue = cartTotal.innerHTML;
