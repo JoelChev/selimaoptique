@@ -342,12 +342,12 @@ td {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 1390px;
+    width: 1224px;
     margin-left: auto;
     margin-right: auto;
     background-image: url("homepage-header.png");
     background-repeat: no-repeat;
-    background-size: 1390px 160px;
+    background-size: 1224px 160px;
     z-index: -1;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
          width: 768px;      
@@ -414,16 +414,16 @@ td {
 
 .header-background-collections {
     position: absolute;
-    left: 250px;
+    left: 220px;
     right: 0;
     top: 0;
     bottom: 0;
-    width: 1140px;
+    width: 1004px;
     margin-left: auto;
     margin-right: auto;
     background-image: url("shop-online-header.png");
     background-repeat: no-repeat;
-    background-size: 1140px 160px;
+    background-size: 1004px 160px;
     z-index: -1;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         left: 138px;
@@ -443,15 +443,15 @@ td {
 .header-background-cart {
     position: absolute;
     left: 0;
-    right: 260px;
+    right: 172px;
     top: 0;
     bottom: 0;
-    width: 1140px;
+    width: 1056px;
     margin-left: auto;
     margin-right: auto;
     background-image: url("cart-header.png");
     background-repeat: no-repeat;
-    background-size: 1140px 160px;
+    background-size: 1056px 160px;
     z-index: -1;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         left: 58px;
@@ -474,12 +474,12 @@ td {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 1390px;
+    width: 1224px;
     margin-left: auto;
     margin-right: auto;
     background-image: url("about-header.png");
     background-repeat: no-repeat;
-    background-size: 1390px 160px;
+    background-size: 1224px 160px;
     z-index: -1;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
          width: 768px;      
@@ -500,12 +500,12 @@ td {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 1390px;
+    width: 1224px;
     margin-left: auto;
     margin-right: auto;
     background-image: url("locations-header.png");
     background-repeat: no-repeat;
-    background-size: 1390px 160px;
+    background-size: 1224px 160px;
     z-index: -1;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
          width: 768px;      
@@ -526,12 +526,12 @@ td {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 1390px;
+    width: 1224px;
     margin-left: auto;
     margin-right: auto;
     background-image: url("media-header.png");
     background-repeat: no-repeat;
-    background-size: 1390px 160px;
+    background-size: 1224px 160px;
     z-index: -1;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
          width: 768px;      
@@ -552,12 +552,12 @@ td {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 1390px;
+    width: 1224px;
     margin-left: auto;
     margin-right: auto;
     background-image: url("journal-header.png");
     background-repeat: no-repeat;
-    background-size: 1390px 160px;
+    background-size: 1224px 160px;
     z-index: -1;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
          width: 768px;      
@@ -630,11 +630,11 @@ td {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -140px;
+    //margin-left: -140px;
     @media (max-width: $breakpoint-tablet) {
         justify-content: space-between;
-        margin-left: 32px;
-        margin-right: 80px;
+        //margin-left: 32px;
+        //margin-right: 80px;
     }
 }
 
@@ -669,15 +669,53 @@ td {
     font-size: 32px;
     line-height: 26px;
     text-decoration: none;
-    margin: 0 44px;
     z-index: 100;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         font-size: 24px;
         line-height: 20px;
-        margin: 0 16px;
     }
     @media (max-width: $breakpoint-tablet) {
         display: none;
+    }
+}
+
+.header__link--shop {
+    margin-left: 28px;
+    margin-right: 28px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin: 0 12px;
+    }
+}
+
+.header__link--about {
+    margin-left: 28px;
+    margin-right: 28px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin: 0 12px;
+    }
+}
+
+.header__link--locations {
+    margin-left: 28px;
+    margin-right: 56px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin: 0 12px;
+    }
+}
+
+.header__link--media {
+    //margin-left: 28px;
+    margin-right: 56px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin: 0 12px;
+    }
+} 
+
+.header__link--journal {
+    margin-left: 28px;
+    margin-right: 56px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin: 0 12px;
     }
 }
 
@@ -686,13 +724,11 @@ td {
     font-weight: 500;
     font-size: 32px;
     line-height: 26px;
-    margin: 0 44px;
     z-index: 100;
     color: $color-blue-main;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         font-size: 24px;
         line-height: 20px;
-        margin: 0 16px;
     }
     @media (max-width: $breakpoint-tablet) {
         display: none;
@@ -701,11 +737,14 @@ td {
 
 .header__logo-link-container {
     margin-top: 50px;
-    margin-right: 80px;
+    //margin-left: 20px;
+    margin-right: 100px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        margin-right: 0;
+        margin-right: 16px;
+        margin-left: 16px;
     }
     @media (max-width: $breakpoint-tablet) {
+        margin-left: 0;
         margin-right: 0;
         margin-top: 0;
     }
@@ -726,7 +765,13 @@ td {
 }
 
 .header__cart-link-container {
-
+    margin-left: 56px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin-left: 12px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        margin-left: 0;
+    }
 }
 
 .header__cart-link {

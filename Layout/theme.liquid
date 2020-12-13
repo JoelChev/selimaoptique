@@ -66,7 +66,6 @@
           {{ 'hamburger-menu.png' | asset_url | img_tag: 'Hamburger Menu', 'header__hamburger-menu-icon' }}
           </button>
           {% for link in linklists.main-menu.links %}
-          {% assign child_list_handle = link.title | handleize %}
           {% if forloop.index == 4 %}
             <div class="header__logo-link-container">
               <a class="header__logo-link" href="/">
@@ -77,28 +76,39 @@
               </a>
             </div>
           {% endif %}
-          {% if linklists[child_list_handle].links != blank %}
-            <a class="header__link" href="{{ link.url }}">{{ link.title | upcase }}</a>
-            [{% for childlink in linklists[child_list_handle].links %}
-              <a class="header__link" href="{{ childlink.url }}">{{ childlink.title | escape, upcase }}</a>
-            {% endfor %}]
-          {% else %}
-            {% if  {{link.title}} == 'Shop Online' %}
-              {% if {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
-                <span class="header__link--selected"> {{link.title | upcase}}</span>
-              {% else %}
-                <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
-              {% endif %}
+          {% if  {{link.title}} == 'Shop Online' %}
+            {% if {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
+              <span class="header__link--selected header__link--shop"> {{link.title | upcase}}</span>
             {% else %}
-              {% if {{link.title}} == 'About' %}
-                {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
-                  <span class="header__link--selected">ABOUT</span>
-                {% else %}
-                  <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
-                {% endif %}
-              {% else %}
-                <a class="header__link" href="{{ link.url }}">{{ link.title | upcase}}</a>
-              {% endif %}
+              <a class="header__link header__link--shop" href="{{ link.url }}">{{ link.title | upcase}}</a>
+            {% endif %}
+          {% endif %}
+          {% if {{link.title}} == 'About' %}
+            {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
+              <span class="header__link--selected header__link--about">{{link.title | upcase}}</span>
+            {% else %}
+              <a class="header__link header__link--about" href="{{ link.url }}">{{ link.title | upcase}}</a>
+            {% endif %}
+          {% endif %}
+          {% if {{link.title}} == 'Locations' %}
+            {% if {{page_title}} == 'Locations' %}
+              <span class="header__link--selected header__link--locations">{{link.title | upcase}}</span>
+            {% else %}
+              <a class="header__link header__link--locations" href="{{ link.url }}">{{ link.title | upcase}}</a>
+            {% endif %}
+          {% endif %}
+          {% if {{link.title}} == 'Media' %}
+            {% if {{page_title}} == 'Media' %}
+              <span class="header__link--selected header__link--media">{{link.title | upcase}}</span>
+            {% else %}
+              <a class="header__link header__link--media" href="{{ link.url }}">{{ link.title | upcase}}</a>
+            {% endif %}
+          {% endif %}
+          {% if {{link.title}} == 'Journal' %}
+            {% if {{page_title}} == 'Journal' %}
+              <span class="header__link--selected header__link--journal">{{link.title | upcase}}</span>
+            {% else %}
+              <a class="header__link header__link--journal" href="{{ link.url }}">{{ link.title | upcase}}</a>
             {% endif %}
           {% endif %}
         {% endfor %}
@@ -115,31 +125,41 @@
       </div>
       <div class="header-links-container-mobile header-links-container-mobile--hidden">
         {% for link in linklists.main-menu.links %}
-          {% assign child_list_handle = link.title | handleize %}
-          {% if linklists[child_list_handle].links != blank %}
-            <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase }}</a>
-            [{% for childlink in linklists[child_list_handle].links %}
-              <a class="header__link-mobile" href="{{ childlink.url }}">{{ childlink.title | escape, upcase }}</a>
-            {% endfor %}]
-          {% else %}
-            {% if  {{link.title}} == 'Shop Online' %}
-              {% if {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
-                <span class="header__link-mobile--selected">SHOP</span>
-              {% else %}
-                <a class="header__link-mobile" href="{{ link.url }}">SHOP</a>
-              {% endif %}
+          {% if  {{link.title}} == 'Shop Online' %}
+            {% if {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
+              <span class="header__link-mobile--selected">SHOP</span>
             {% else %}
-              {% if {{link.title}} == 'About' %}
-                {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
-                  <span class="header__link-mobile--selected">ABOUT</span>
-                {% else %}
-                  <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase}}</a>
-                {% endif %}
-              {% else %}
-                <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase}}</a>
-              {% endif %}
+              <a class="header__link-mobile" href="{{ link.url }}">SHOP</a>
             {% endif %}
-          {% endif%}
+          {% endif %}
+          {% if {{link.title}} == 'About' %}
+            {% if {{page_title}} == 'About Selima Salaun' or {{page_title}} == 'About Selima Optique' or {{page_title}} == 'About Glasses Care' %}
+              <span class="header__link-mobile--selected">{{ link.title | upcase}}</span>
+            {% else %}
+              <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase}}</a>
+            {% endif %}
+          {% endif %}
+          {% if {{link.title}} == 'Locations' %}
+            {% if {{page_title}} == 'Locations' %}
+              <span class="header__link-mobile--selected">{{ link.title | upcase}}</span>
+            {% else %}
+              <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase}}</a>
+            {% endif %}
+          {% endif %}
+          {% if {{link.title}} == 'Media' %}
+            {% if {{page_title}} == 'Media' %}
+              <span class="header__link-mobile--selected">{{ link.title | upcase}}</span>
+            {% else %}
+              <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase}}</a>
+            {% endif %}
+          {% endif %}
+          {% if {{link.title}} == 'Journal' %}
+            {% if {{page_title}} == 'Journal' %}
+              <span class="header__link-mobile--selected">{{ link.title | upcase}}</span>
+            {% else %}
+              <a class="header__link-mobile" href="{{ link.url }}">{{ link.title | upcase}}</a>
+            {% endif %}
+          {% endif %}
         {% endfor %}
       </div>
     </div>
