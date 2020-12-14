@@ -1353,8 +1353,12 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    @media (max-width: $breakpoint-desktop) {
+        height: auto;
+        padding-top: 16px;
+    }
     @media (max-width: $breakpoint-tablet) {
-        padding-top: 60px;
+        padding-top: 72px;
     }
 }
 
@@ -1387,6 +1391,9 @@ main {
 
 .collectionspage__tile-image {
     border: 3px solid $color-black;
+    @media (min-width: $breakpoint-tablet) {
+        width: 600px;
+    }
 }
 
 .collectionspage__tile-image-accent {
@@ -1657,7 +1664,6 @@ main {
 
 .productpage {
     background: $color-lavendar;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     @media (max-width: $breakpoint-tablet) {
@@ -2348,12 +2354,14 @@ main {
 .productpage__primary-image {
     border: 3px solid $color-black;
     margin-top: 110px;
+    width: 678px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         margin-top: 190px;
-        max-width: 400px;
+        width: 500px;
     }
     @media (max-width: $breakpoint-tablet) {
         margin-top: 90px;
+        max-width: calc(100% - 24px);
     }
 }
 
@@ -2507,6 +2515,9 @@ main {
 
 .productpage__media-image {
     border: 3px solid $color-black;
+    @media (min-width: $breakpoint-desktop) {
+        width: 150px;
+    }
 }
 
 .productpage__media-mobile-image-container {
@@ -3762,10 +3773,9 @@ main {
 .mediapage__modal-description-container {
     background: $color-white;
     border: 3px dashed $color-blue-main;
-    width: 446px;
-    padding: 40px 40px 60px;
+    width: 300px;
+    padding: 20px 20px 60px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        width: 320px;
         padding: 20px 20px 30px;
     }
     
@@ -4232,6 +4242,11 @@ main {
     position: relative;
     padding-bottom: 56px;
     border-bottom: 2px dashed $color-lavendar-dark;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "HK Grotesk";
+    }
+
 
     a {
         text-decoration: none;
