@@ -454,9 +454,9 @@ td {
     background-size: 1056px 160px;
     z-index: -1;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        left: 58px;
-        width: 630px;      
-        background-size: 630px 160px; 
+        right: 110px;
+        width: 662px;      
+        background-size: 662px 160px; 
     }
     @media (max-width: $breakpoint-tablet) {
         width: 100%;
@@ -575,7 +575,10 @@ td {
 
 .header-nav-container {
     @media (min-width: $breakpoint-desktop) {
-        margin-left: -80px;
+        margin-left: -88px;
+    }
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin-left: -52px;
     }
     @media (max-width: $breakpoint-tablet) {
         width: 100%;
@@ -633,20 +636,20 @@ td {
     //margin-left: -140px;
     @media (max-width: $breakpoint-tablet) {
         justify-content: space-between;
-        //margin-left: 32px;
-        //margin-right: 80px;
+        margin-left: 32px;
+        margin-right: 80px;
     }
 }
 
 .header-links-container--mobile-expanded {
-    margin-top: 18px;
+    margin-top: 24px;
 }
 
 .header__hamburger-menu-button {
     border: none;
     background: transparent;
     cursor: pointer;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 
     &:active {
         outline: 0;
@@ -683,7 +686,8 @@ td {
     margin-left: 28px;
     margin-right: 28px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        margin: 0 12px;
+        margin-left: 12px;
+        margin-right: 12px;
     }
 }
 
@@ -691,7 +695,8 @@ td {
     margin-left: 28px;
     margin-right: 28px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        margin: 0 12px;
+        margin-left: 12px;
+        margin-right: 12px;
     }
 }
 
@@ -699,15 +704,16 @@ td {
     margin-left: 28px;
     margin-right: 56px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        margin: 0 12px;
+        margin-left: 12px;
+        margin-right: 12px;
     }
 }
 
 .header__link--media {
-    //margin-left: 28px;
     margin-right: 56px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        margin: 0 12px;
+        margin-left: 6px;
+        margin-right: 24px;
     }
 } 
 
@@ -715,7 +721,8 @@ td {
     margin-left: 28px;
     margin-right: 56px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        margin: 0 12px;
+        margin-left: 12px;
+        margin-right: 54px;
     }
 }
 
@@ -737,11 +744,10 @@ td {
 
 .header__logo-link-container {
     margin-top: 50px;
-    //margin-left: 20px;
-    margin-right: 100px;
+    margin-right: 90px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        margin-right: 16px;
-        margin-left: 16px;
+        margin-left: 12px;
+        margin-right: 48px;
     }
     @media (max-width: $breakpoint-tablet) {
         margin-left: 0;
@@ -752,10 +758,21 @@ td {
 
 .header__logo-link {
     text-decoration: none;
+    @media (max-width: $breakpoint-desktop) {
+        display: none;
+    }
+}
+
+.header__logo-link-tablet {
+    text-decoration: none;
+    @media (min-width: $breakpoint-desktop) {
+        display: none;
+    }
     @media (max-width: $breakpoint-tablet) {
         display: none;
     }
 }
+
 
 .header__logo-link-mobile {
     text-decoration: none;
@@ -767,7 +784,7 @@ td {
 .header__cart-link-container {
     margin-left: 56px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        margin-left: 12px;
+        margin-left: 0;
     }
     @media (max-width: $breakpoint-tablet) {
         margin-left: 0;
@@ -792,17 +809,36 @@ td {
         box-shadow: none!important;
     }
     @media (max-width: $breakpoint-tablet) {
-        margin-bottom: 40px;
+        margin-bottom: 28px;
     }
 }
 
 .header__cart-icon {
     width: 46px;
     height: 46px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 36px;
+        height: 36px;
+    }
 }
 
 .header__cart-total {
     color: $color-black;
+    margin-left: 4px;
+    margin-right: -70px;
+}
+
+.header__cart-link--selected {
+    display: flex;
+    align-items: center;
+    @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 28px;
+    }
+}
+
+.header__cart-total--selected {
+    color: $color-blue-main;
+    font-weight: 600;
     margin-left: 4px;
     margin-right: -70px;
 }

@@ -157,7 +157,7 @@ document.addEventListener('click', function (event) {
 
 }, false);
 
-//This is used to remove a product from the cart.
+//This is used to remove a product from the cart in the cart summary.
 document.addEventListener('click', function (event) {
     // If the clicked element doesn't have the right selector, bail
     if (!event.target.matches('.header__cart-summary-remove-button')) {
@@ -729,7 +729,7 @@ document.addEventListener('click', function (event) {
 
 // Cart page
 
-//This is used to remove a product from the cart.
+//This is used to remove a product from the cart on the cart page.
 document.addEventListener('click', function (event) {
     // If the clicked element doesn't have the right selector, bail
     if (!event.target.matches('.cartpage__item-remove-button')) {
@@ -787,7 +787,7 @@ document.addEventListener('click', function (event) {
                 emptyCartContainer.classList.remove('cartpage__empty-cart-container--hidden');
             }
             //Update the cart total manually when response is successful.
-            const cartTotal = document.getElementsByClassName('header__cart-total')[0];
+            const cartTotal = document.getElementsByClassName('header__cart-total--selected')[0];
             let cartValue = cartTotal.innerHTML;
             let newValue;
             if (cartValue !== '' && cartValue !== undefined) {
