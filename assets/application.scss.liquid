@@ -1164,11 +1164,15 @@ main {
 .homepage {
     background: $color-pastel-blue;
     width: 100%;
-    height: calc(100vh - 200px);
     display: flex;
     margin: auto;
+    padding-bottom: 66px;
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        padding-bottom: 216px;
+    }
     @media (max-width: $breakpoint-tablet) { 
         padding-top: 60px;
+        padding-bottom: 132px;
     }
 }
 
