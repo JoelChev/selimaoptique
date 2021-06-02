@@ -1348,7 +1348,7 @@ main {
 
 .collectionspage {
     background: $color-lavendar;
-    height: 100vh;
+    padding-top: 56px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -1407,6 +1407,8 @@ main {
     background-image: url("free-shipping-background.png");
     height: 72px;
     width: 333px;
+    margin-top: 160px;
+    margin-bottom: 32px;
     background-repeat: no-repeat;
     background-size: 333px 72px;
     display: flex;
@@ -1638,6 +1640,8 @@ main {
     background-image: url("free-shipping-background.png");
     height: 72px;
     width: 333px;
+    margin-top: 106px;
+    margin-bottom: 32px;
     background-repeat: no-repeat;
     background-size: 333px 72px;
     display: flex;
@@ -2292,6 +2296,7 @@ main {
 
 .productpage__product-care-guide-container {
     display: flex;
+    margin-top: 36px;
     margin-bottom: 66px;
     @media(max-width: $breakpoint-tablet) {
         margin-top: 32px;
@@ -2466,11 +2471,13 @@ main {
 
 .productpage__media-container {
     width: calc(100%-144px);
+    margin-top: 56px;
     padding: 52px 72px 72px;
     background: $color-lavendar-darkest;
     display: flex;
     flex-direction: column;
     @media (max-width: $breakpoint-tablet) {
+        margin-top: 0;
         padding: 32px 18px;
     }
 }
@@ -2793,6 +2800,7 @@ main {
     border: none;
     cursor: pointer;
     margin-right: auto;
+    @include link-text;
 
     &:active {
         outline: 0;
@@ -3515,6 +3523,7 @@ main {
 .locationspage__stockist-text-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     @media (max-width: $breakpoint-tablet) {
         width: 100%;
     }
@@ -4892,8 +4901,7 @@ main {
 
 .accessibilitypage {
     background: $color-pastel-blue;
-    padding: 40px 108px 240px;
-    min-height: 100vh;
+    padding: 40px 108px 256px;
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         padding: 20px 56px 180px;
         min-height: 50vh;
