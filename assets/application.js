@@ -487,7 +487,6 @@ document.addEventListener(
       mobileMenuOverlay.classList.remove("mobile-nav-modal-overlay--hidden");
       const body = document.getElementsByTagName("body")[0];
       body.style.overflowY = "hidden";
-      headerLinksContainer.style.paddingRight = "15px";
     } else {
       // Minimize it
       const main = document.getElementById("main");
