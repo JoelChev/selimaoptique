@@ -1393,6 +1393,7 @@ main {
     // Both mobile and tablet will stack.
     @media (max-width: $breakpoint-desktop) {
         flex-direction: column;
+        margin-right: 8px;
     }
 }
 
@@ -1403,6 +1404,9 @@ main {
     // Both mobile and tablet will stack.
     @media (max-width: $breakpoint-desktop) {
         margin-bottom: 100px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        width: calc(100% - 36px);
     }
 }
 
@@ -1416,6 +1420,9 @@ main {
     border: 3px solid $color-black;
     @media (min-width: $breakpoint-desktop) {
         width: 600px;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        max-width: 100%;
     }
 }
 
