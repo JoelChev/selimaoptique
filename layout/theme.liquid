@@ -64,6 +64,7 @@
       <div class="header-links-container">
           <button class="header__hamburger-menu-button">
           {{ 'hamburger-menu.png' | asset_url | img_tag: 'Hamburger Menu', 'header__hamburger-menu-icon' }}
+          {{ 'close-icon.png' | asset_url | img_tag: 'Close Hamburger Menu', 'header__hamburger-menu-close-icon header__hamburger-menu-close-icon--hidden' }}
           </button>
           {% for link in linklists.main-menu.links %}
           {% if forloop.index == 4 %}

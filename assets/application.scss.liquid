@@ -665,6 +665,24 @@ td {
     }
 }
 
+.header__hamburger-menu-icon {
+    width: 33px;
+    height: 33px;
+}
+
+.header__hamburger-menu-icon--hidden {
+    display: none;
+}
+
+.header__hamburger-menu-close-icon {
+    width: 33px;
+    height: 33px;
+}
+
+.header__hamburger-menu-close-icon--hidden {
+    display: none;
+}
+
 .header__link {
     font-family: "Selima Caps";
     font-weight: 500;
@@ -1359,10 +1377,11 @@ main {
     align-items: center;
     @media (max-width: $breakpoint-desktop) {
         height: auto;
-        padding-top: 16px;
+        padding-top: 72px;
     }
     @media (max-width: $breakpoint-tablet) {
-        padding-top: 72px;
+        padding-top: 128px;
+        padding-bottom: 56px;
     }
 }
 
@@ -1395,7 +1414,7 @@ main {
 
 .collectionspage__tile-image {
     border: 3px solid $color-black;
-    @media (min-width: $breakpoint-tablet) {
+    @media (min-width: $breakpoint-desktop) {
         width: 600px;
     }
 }
@@ -1411,8 +1430,8 @@ main {
     background-image: url("free-shipping-background.png");
     height: 72px;
     width: 333px;
-    margin-top: 160px;
     margin-bottom: 52px;
+    margin-top: 160px;
     background-repeat: no-repeat;
     background-size: 333px 72px;
     display: flex;
@@ -1420,6 +1439,10 @@ main {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin-top: 56px;
+    }
     @media (max-width: $breakpoint-tablet) {
         display: none;
     }
@@ -1444,6 +1467,7 @@ main {
     flex-direction: column;
     @media (max-width: $breakpoint-tablet) {
         padding-top: 60px;
+        overflow-x: hidden;
     }
 }
 
@@ -1481,6 +1505,7 @@ main {
 
 .collectionpage__mobile-title-container {
     padding-left: 16px;
+    padding-top: 56px;
     @media (min-width: $breakpoint-tablet) {
         display: none;
     }
@@ -1604,7 +1629,9 @@ main {
 
 .collectionpage__product-tile {
     position: relative;
-    margin: 54px 21px;
+    margin: 54px 18px;
+    @media (max-width: $breakpoint-tablet) {
+    }
 }
 
 .collectionpage__product-tile--hidden {
@@ -1613,6 +1640,9 @@ main {
 
 .collectionpage__product-tile-image {
     border: 3px solid $color-black;
+    @media (max-width: $breakpoint-tablet) {
+        max-width: 100%;
+    }
 }
 
 .collectionpage__product-tile-title-container {
@@ -2421,7 +2451,7 @@ main {
     }
     @media (max-width: $breakpoint-tablet) {
         margin-left: -16px;
-        justify-content: center;
+        justify-content: flex-start;
     }
 }
 
@@ -2910,8 +2940,10 @@ main {
     //height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-bottom: 60px;
     @media (max-width: $breakpoint-tablet) {
         padding-top: 60px;
+        padding-bottom: 0;
     }
 }
 
@@ -2973,8 +3005,6 @@ main {
     justify-content: center;
     list-style: none;
     padding-inline-start: 0;
-    padding-left: 16px;
-    padding-right: 16px;
     margin-bottom: -24px;
     @media (min-width: $breakpoint-tablet) {
         display: none;
@@ -3109,6 +3139,7 @@ main {
     margin-top: 40px;
     @media (max-width: $breakpoint-tablet) {
         flex-direction: column;
+        padding-bottom: 56px;
     }
 }
 
@@ -3182,6 +3213,7 @@ main {
     @media (max-width: $breakpoint-tablet) {
         margin-top: 32px;
         max-width: 100%;
+        padding-bottom: 56px;
     }
 }
 
@@ -3218,7 +3250,9 @@ main {
     margin-right: 140px;
     @media (max-width: $breakpoint-tablet) {
         width: 100%;
-        margin-right: 0;
+        margin-right: 0;        
+        padding-bottom: 24px;
+
     }
 }
 
@@ -3242,7 +3276,6 @@ main {
     @media (max-width: $breakpoint-tablet) {
         font-size: 16px;
         line-height: 24px;
-        margin-bottom: 56px;
     }
 }
 
