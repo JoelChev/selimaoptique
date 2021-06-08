@@ -207,14 +207,18 @@ td {
     color: $color-white;
     background-color: $color-blue-main;
     padding: 16px 32px;
+    border: none;
+    outline: none;
     border-radius: 0px;
     &:hover:enabled {
         cursor: pointer;
         border-bottom: dashed 2px $color-white;
+        padding: 16px 32px 14px;
     }
     &:active:enabled {
         background-color: $color-blue-secondary;
         border-bottom: dashed 2px $color-white;
+        padding: 16px 32px 14px;
     }
     &:disabled {
         cursor: not-allowed;
@@ -1526,6 +1530,8 @@ main {
 }
 
 .collectionpage__mobile-header {
+    margin-top: 12px;
+    
     @media (min-width: $breakpoint-tablet) {
         display: none;
     }
@@ -1538,8 +1544,6 @@ main {
     justify-content: center;
     list-style: none;
     padding-inline-start: 0;
-    padding-left: 16px;
-    padding-right: 16px;
     margin-bottom: -24px;
     @media (min-width: $breakpoint-tablet) {
         display: none;
@@ -1555,21 +1559,21 @@ main {
 .collectionpage__mobile-collection-option--left-selected {
     border: none;
     background: $color-blue-main;
-    padding: 12px 24px;
+    padding: 24px 24px;
     border-radius: 8px 0 0 8px;
 }
 
 .collectionpage__mobile-collection-option--right-selected {
     border: none;
     background: $color-blue-main;
-    padding: 12px 24px;
+    padding: 24px 24px;
     border-radius: 0 8px 8px 0;
 }
 
 .collectionpage__mobile-collection-title {
     font-family: "HK Grotesk";
     font-weight: 400;
-    font-size: 11px;
+    font-size: 16px;
     line-height: 18px;
     text-decoration: none;
     color: $color-black;
@@ -1583,7 +1587,7 @@ main {
     border-top: 2px dotted $color-blue-main;
     border-bottom: 2px dotted $color-blue-main;
     border-radius: 8px 0 0 8px;
-    padding: 12px 24px;
+    padding: 22px 24px;
     border-left: 2px dotted $color-blue-main;
     border-right: 2px dotted $color-blue-main;
 }
@@ -1593,7 +1597,7 @@ main {
     border-top: 2px dotted $color-blue-main;
     border-bottom: 2px dotted $color-blue-main;
     border-radius: 0 8px 8px 0;
-    padding: 12px 24px;
+    padding: 22px 24px;
     border-left: 2px dotted $color-blue-main;
     border-right: 2px dotted $color-blue-main;
 }
@@ -1601,7 +1605,7 @@ main {
 .collectionpage__mobile-collection-title--selected {
     font-family: "HK Grotesk";
     font-weight: 600;
-    font-size: 11px;
+    font-size: 16px;
     line-height: 18px;
     color: $color-white;
     @media (min-width: $breakpoint-tablet) {
@@ -3027,27 +3031,27 @@ main {
 .aboutpage__mobile-collection-option--left-selected {
     border: none;
     background: $color-blue-main;
-    padding: 12px 24px;
+    padding: 26px 16px;
     border-radius: 8px 0 0 8px;
 }
 
 .aboutpage__mobile-collection-option--center-selected {
     border: none;
     background: $color-blue-main;
-    padding: 12px 24px;
+    padding: 26px 16px;
 }
 
 .aboutpage__mobile-collection-option--right-selected {
     border: none;
     background: $color-blue-main;
-    padding: 12px 24px;
+    padding: 26px 16px;
     border-radius: 0 8px 8px 0;
 }
 
 .aboutpage__mobile-collection-title {
     font-family: "HK Grotesk";
     font-weight: 400;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 18px;
     text-decoration: none;
     color: $color-black;
@@ -3061,7 +3065,7 @@ main {
     border-top: 2px dotted $color-blue-main;
     border-bottom: 2px dotted $color-blue-main;
     border-radius: 8px 0 0 8px;
-    padding: 12px 24px;
+    padding: 24px 16px;
     border-left: 2px dotted $color-blue-main;
     border-right: 2px dotted $color-blue-main;
 }
@@ -3070,7 +3074,7 @@ main {
     background: $color-white;
     border-top: 2px dotted $color-blue-main;
     border-bottom: 2px dotted $color-blue-main;
-    padding: 12px 24px;
+    padding: 24px 16px;
 }
 
 .aboutpage__mobile-collection-title--right {
@@ -3078,7 +3082,7 @@ main {
     border-top: 2px dotted $color-blue-main;
     border-bottom: 2px dotted $color-blue-main;
     border-radius: 0 8px 8px 0;
-    padding: 12px 24px;
+    padding: 24px 16px;
     border-left: 2px dotted $color-blue-main;
     border-right: 2px dotted $color-blue-main;
 }
@@ -3086,7 +3090,7 @@ main {
 .aboutpage__mobile-collection-title--selected {
     font-family: "HK Grotesk";
     font-weight: 600;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 18px;
     color: $color-white;
     @media (min-width: $breakpoint-tablet) {
@@ -4356,6 +4360,16 @@ main {
     min-height: 600px;
     background: rgba(203, 205, 255, 0.4); // A transparent purple
     box-sizing: border-box;
+    @media (max-width: $breakpoint-tablet) {
+        min-height: 420px;
+    }
+}
+
+.journalpage__image-carousel--short {
+    min-height: 500px;
+    @media (max-width: $breakpoint-tablet) {
+        min-height: 320px;
+    }
 }
 
 .journalpage__image-mask {
@@ -4376,7 +4390,7 @@ main {
     }
     @media (max-width: $breakpoint-tablet) {
         max-width: calc(100% - 36px);
-        width: 600px;
+        width: 328px;
     }
 }
 
@@ -4390,8 +4404,11 @@ main {
     transition: transform .5s, z-index .5s;
 
     @media (max-width: $breakpoint-tablet) {
+        max-height: 260px;
+        width: auto;
         max-width: 100%;
-        height: auto;
+        {% comment %} max-width: 100%;
+        height: auto; {% endcomment %}
     }
 
 }
@@ -4442,6 +4459,7 @@ main {
     }
 
     @media (max-width: $breakpoint-tablet) {
+        margin-top: 56px;
         width: calc(100% - 40px);
         left: 20px;
         justify-content: space-between;
