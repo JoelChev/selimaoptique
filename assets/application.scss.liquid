@@ -1410,7 +1410,7 @@ main {
         margin-bottom: 100px;
     }
     @media (max-width: $breakpoint-tablet) {
-        width: calc(100% - 36px);
+        max-width: calc(100% - 36px);
     }
 }
 
@@ -1476,9 +1476,11 @@ main {
     //height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-bottom: 10px;
     @media (max-width: $breakpoint-tablet) {
         padding-top: 60px;
         overflow-x: hidden;
+        padding-bottom: 0;
     }
 }
 
@@ -1715,9 +1717,11 @@ main {
     background: $color-lavendar;
     display: flex;
     flex-direction: column;
+    padding-bottom: 56px;
     @media (max-width: $breakpoint-tablet) {
         padding-top: 60px;
         height: auto;
+        padding-bottom: 0;
     }
 }
 
@@ -3303,8 +3307,10 @@ main {
     //height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-bottom: 56px;
     @media (max-width: $breakpoint-tablet) {
         padding-top: 60px;
+        padding-bottom: 0;
     }
 }
 
@@ -4245,10 +4251,10 @@ main {
     background: $color-lavendar;
     display: flex;
     flex-direction: column;
-    padding: 0 104px;
+    padding: 0 104px 56px;
 
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        padding: 0 56px;
+        padding: 0 56px 56px;
     }
 
     @media (max-width: $breakpoint-tablet) {
