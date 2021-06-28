@@ -1398,7 +1398,6 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
     @media (max-width: $breakpoint-desktop) {
         height: auto;
         padding-top: 72px;
@@ -1409,10 +1408,31 @@ main {
     }
 }
 
+.collectionspage__mobile-title-container {
+    margin-top: -4px;
+    padding-left: 16px;
+    padding-bottom: 32px;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.collectionspage__mobile-title {
+    font-family: "Selima Caps";
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 32px;
+}
+
 .collectionspage__search-container {
     margin-bottom: 56px;
     /* This width is just so that the search container will line up with the header. */
     width: 1130px;
+    @media (max-width: $breakpoint-tablet) {
+        max-width: calc(100% - 36px);
+        width: calc(100% - 84px);
+        margin-left: 16px;
+    }
 }
 
 .collectionspage__search-form {
@@ -1447,10 +1467,14 @@ main {
         color: $color-blue-main;
     }
     &:focus {
-        outline: none;
+        outline: 2px solid $color-blue-main;
     }
     &:active {
-        outline: none;
+        outline: 2px solid $color-blue-main;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
     }
 }
 
@@ -1596,9 +1620,9 @@ main {
 
 .collectionpage__mobile-title {
     font-family: "Selima Caps";
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 26px;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 32px;
 }
 
 .collectionpage__mobile-header {
