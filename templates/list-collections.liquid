@@ -1,4 +1,16 @@
 <div class="collectionspage">
+  <div class="collectionspage__search-container">
+    <form class="collectionspage__search-form" action="/search">
+      {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionspage__search-icon' }}
+      <input
+        class="collectionspage__search-input"
+        type="text"
+        placeholder="Search products..."
+        name="q"
+        value="{{ search.terms | escape }}"
+      />
+    </form>
+  </div>
   <div class="collectionspage__tile-container">
       <div class="collectionspage__tile">
         <h4 class="collectionspage__tile-title">
@@ -26,25 +38,5 @@
     <div class="collectionspage__free-shipping-container">
         <span class="collectionspage__free-shipping-message">FREE SHIPPING IN THE US</span>
     </div>
-
-  {% comment%}
-  {% for collection in collections %}
-    {% unless collection.handle == 'frontpage' %}
-      {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
-      <a href="{{ collection.url }}">More {{ collection_title }} &rsaquo;</a>
-      {% for product in collection.products limit:5 %}
-        {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
-        <div>
-          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-          {{ product.price | money }}
-          {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-          <a href="{{ product.url | within: collection }}">
-            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-          </a>
-        </div>
-      {% endfor %}
-    {% endunless %}
-  {% endfor %}
-  {% endcomment %}
 
 </div>
