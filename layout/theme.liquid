@@ -81,7 +81,7 @@
             </div>
           {% endif %}
           {% if  {{link.title}} == 'Shop Online' %}
-            {% if {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product' or {{template.name}} == 'search' or {{template.name}} == 'list-collections'%} 
+            {% if {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
               <span class="header__link--selected header__link--shop"> {{link.title | upcase}}</span>
             {% else %}
               <a class="header__link header__link--shop" href="{{ link.url }}">{{ link.title | upcase}}</a>
@@ -141,7 +141,7 @@
       <div class="header-links-container-mobile header-links-container-mobile--hidden">
         {% for link in linklists.main-menu.links %}
           {% if  {{link.title}} == 'Shop Online' %}
-            {% if {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product' or {{template.name}} == 'list-collections' or {{template.name}} == 'search'%} 
+            {% if {{page_title}} == 'Ladies' or {{page_title}} == 'Gentlemen' or {{template.name}} == 'product' or {{template.name}} == 'list-collections'%} 
               <span class="header__link-mobile--selected">SHOP</span>
             {% else %}
               <a class="header__link-mobile" href="{{ link.url }}">SHOP</a>

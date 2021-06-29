@@ -1,4 +1,7 @@
 <div class="searchpage">
+  <div class="searchpage__mobile-title-container">
+    <h1 class="searchpage__mobile-title">SHOP ONLINE</h1>
+  </div>
   {% paginate search.results by 12 %}
   <div class="searchpage__search-container">
     <form class="searchpage__search-form" action="/search">
@@ -63,6 +66,7 @@
           {{ 'boy-hoop.png' | asset_url | img_tag: 'Gentlemen Boy Hoop', 'searchpage__noresults-image' }}
           <h2 class="searchpage__no-results-title">WE'RE SORRY,</h2>
           <p class="searchpage__no-results-message">There are no results for "{{search.terms}}". Please try again.</p>
+          <p class="searchpage__no-results-mobile-message">There are no results for "{{search.terms}}".<br/> Please try again.</p>
         </div>
       {% endfor %}
     </div>

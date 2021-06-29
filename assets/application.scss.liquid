@@ -1952,6 +1952,27 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: $breakpoint-tablet) {
+        align-items: unset;
+    }
+}
+
+.searchpage__mobile-title-container {
+    padding-left: 16px;
+    padding-top: 56px;
+    margin-bottom: 32px;
+
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.searchpage__mobile-title {
+    font-family: "Selima Caps";
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 32px;
 }
 
 .searchpage__search-container {
@@ -1967,6 +1988,7 @@ main {
         max-width: calc(100% - 36px);
         width: calc(100% - 84px);
         margin-left: 16px;
+        margin-bottom: 32px;
     }
 }
 
@@ -2021,6 +2043,12 @@ main {
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         display: flex;
         justify-content: center;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        width: calc(100% - 36px);
+        margin-left: 16px;
+        margin-bottom: -24px;
     }
 }
 
@@ -2173,6 +2201,10 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: $breakpoint-tablet) {
+        margin-top: 56px;
+    }
 }
 
 .searchpage__noresults-image {
@@ -2194,6 +2226,20 @@ main {
 .searchpage__no-results-message {
     font-size: 18px;
     line-height: 26px;
+
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.searchpage__no-results-mobile-message {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 60px;
+    text-align: center;
+    @media (min-width: $breakpoint-tablet) {
+        display: none;
+    }
 }
 
 //Product Page
