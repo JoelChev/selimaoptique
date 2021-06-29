@@ -1944,6 +1944,258 @@ main {
     }
 }
 
+//Search Page 
+
+.searchpage {
+    padding-top: 56px;
+    background: $color-lavendar;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchpage__search-container {
+    margin-bottom: 56px;
+    /* This width is just so that the search container will line up with the header. */
+    width: 1130px;
+    
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        display: flex;
+        justify-content: center;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        max-width: calc(100% - 36px);
+        width: calc(100% - 84px);
+        margin-left: 16px;
+    }
+}
+
+.searchpage__search-form {
+    position: relative;
+}
+
+.searchpage__search-icon {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 14px;
+    left: 16px;
+}
+
+.searchpage__search-input {
+    font-family: "HK Grotesk";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    text-decoration: none;
+    color: $color-blue-main;
+    height: 48px;
+    width: 295px;
+    border: none;
+    padding-left: 48px;
+    &::placeholder {
+        font-family: "HK Grotesk";
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        text-decoration: none;
+        color: $color-blue-main;
+    }
+    &:focus {
+        outline: 2px solid $color-blue-main;
+    }
+    &:active {
+        outline: 2px solid $color-blue-main;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+    }
+}
+
+.searchpage__result-count-container {
+    /* This width is just so that the search result count container will line up with the header. */
+    width: 1130px;
+    margin-bottom: -18px;
+    
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.searchpage__result-count {
+    font-size: 18px;
+    color: $color-black;
+    line-height: 26px;
+}
+
+.searchpage__product_list-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchpage__product-tile {
+    position: relative;
+    margin: 54px 18px;
+    @media (max-width: $breakpoint-tablet) {
+    }
+}
+
+.searchpage__product-tile-image {
+    border: 3px solid $color-black;
+    @media (max-width: $breakpoint-tablet) {
+        max-width: 100%;
+    }
+}
+
+.searchpage__product-tile-title-container {
+    padding: 16px 56px;
+    background-color: $color-yellow;
+    border: 3px solid $color-black;
+    position: absolute;
+    bottom: -36px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+    width: fit-content;
+    text-decoration: none;
+    text-align: center;
+}
+
+.searchpage__product-tile-title {
+    color: $color-black;
+    text-decoration: none;
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
+}
+
+
+.searchpage__pagination-container {
+    display: flex;
+    margin: 16px auto 0;
+    align-items: center;
+    @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 16px;
+    }
+    .current {
+        font-family: "HK Grotesk";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        margin: 0 8px;
+        color: $color-black;
+        @media (max-width: $breakpoint-tablet) {
+            font-size: 16px;
+            line-height: 26px;
+            margin: 0 8px;
+        }
+    }
+
+    .page {
+        font-family: "HK Grotesk";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        margin: 0 8px;
+        color: $color-black;
+        @media (max-width: $breakpoint-tablet) {
+            font-size: 16px;
+            line-height: 26px;
+            margin: 0 8px;
+        }
+    }
+    .prev {
+        font-family: "HK Grotesk";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        margin: 0 8px;
+        color: $color-black;
+        @media (max-width: $breakpoint-tablet) {
+            font-size: 16px;
+            line-height: 26px;
+            margin: 0 8px;
+        }
+    }
+    .next {
+        font-family: "HK Grotesk";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        margin: 0 8px;
+        color: $color-black;
+        @media (max-width: $breakpoint-tablet) {
+            font-size: 16px;
+            line-height: 26px;
+            margin: 0 8px;
+        }
+    }
+}
+
+.searchpage__free-shipping-container {
+    background-image: url("free-shipping-background.png");
+    height: 72px;
+    width: 333px;
+    margin-top: 106px;
+    margin-bottom: 32px;
+    background-repeat: no-repeat;
+    background-size: 333px 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.searchpage__free-shipping-message {
+    font-family: "Selima Caps";
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 19px;
+    @media (max-width: $breakpoint-tablet) {
+        display: none;
+    }
+}
+
+.searchpage__no-results-container {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchpage__noresults-image {
+    width: 125px;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg); /* Safari and Chrome */
+    -moz-transform: rotateY(180deg); /* Firefox */
+    margin-bottom: 32px;
+}
+
+.searchpage__no-results-title {
+    margin-bottom: 16px;
+    font-size: 32px;
+    line-height: 26px;
+    font-weight: 400;
+    color: $color-black;
+}
+
+.searchpage__no-results-message {
+    font-size: 18px;
+    line-height: 26px;
+}
+
 //Product Page
 
 .productpage {

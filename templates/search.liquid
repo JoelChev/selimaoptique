@@ -1,22 +1,80 @@
-{% paginate search.results by 10 %}
-  <form action="/search" method="get" role="search">
-    <input type="search" name="q" value="{{ search.terms | escape }}">
-    <button type="submit">search</button>
-  </form>
+<div class="searchpage">
+  {% paginate search.results by 12 %}
+  <div class="searchpage__search-container">
+    <form class="searchpage__search-form" action="/search">
+      {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionspage__search-icon' }}
+      <input
+        class="searchpage__search-input"
+        type="text"
+        placeholder="Search products..."
+        name="q"
+        value="{{ search.terms | escape }}"
+      />
+      <input type="hidden" name="type" value="product"/>
+      <input type="hidden" name="options[prefix]" value="last" />
+    </form>
+  </div>
 
-  {% if search.performed %}
-    {% for item in search.results %}
-      {% if item.featured_image %}
-        <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-          {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
-        </a>
+    {% if search.performed %}
+      <div class="searchpage__result-count-container">
+        {% if search.results_count > 1 %}
+          <p class="searchpage__result-count">{{search.results_count}} results for "{{search.terms}}"</p>
+        {% endif %}
+        {% if search.results_count == 1 %}
+        <p class="searchpage__result-count">{{search.results_count}} result for "{{search.terms}}"</p>
+        {% endif %}
+      </div>
+      <div class="searchpage__product_list-container">
+      {% for item in search.results %}
+        {% if item.featured_image %}
+          {% comment %} We only show products in the Gentlemen or Ladies collections for now! {% endcomment %}
+          {% assign in_gentlemen_collection = false %}
+          {% assign in_ladies_collection = false %}
+          {% for collection in item.collections %}
+            {% if in_gentlemen_collection == false and collection.title == 'Gentlemen' %}
+              {% assign in_gentlemen_collection = true %}
+            {% endif %}
+            {% if in_ladies_collection == false and collection.title == 'Ladies' %}
+              {% assign in_ladies_collection = true %}
+            {% endif %}
+          {% endfor %}
+          {% if in_gentlemen_collection or in_ladies_collection %}
+            <div class="searchpage__product-tile">
+            {% comment%}
+            {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+            This may be useful later, not right now.
+            {% endcomment%}
+            <p>{{item.collection}}</p>
+            <a class="searchpage__product-tile-link" href="{{ item.url | within: collection }}">
+              <img class="searchpage__product-tile-image" src="{{ item.featured_image.src | img_url: 'large' }}" alt="{{ item.featured_image.alt | escape }}">
+            </a>
+            <a class="searchpage__product-tile-title-container" href="{{ product.url | within: collection }}">
+              <span class="searchpage__product-tile-title" >{{ item.title | upcase }}</span>
+            </a>
+          </div>
+          {% endif %}
+{% comment %} 
+          <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
+            {{ item.featured_image.src | img_url: 'large' | img_tag: item.featured_image.alt }}
+          </a> {% endcomment %}
+        {% endif %}
+      {% else %}
+        <div class="searchpage__no-results-container">
+          {{ 'boy-hoop.png' | asset_url | img_tag: 'Gentlemen Boy Hoop', 'searchpage__noresults-image' }}
+          <h2 class="searchpage__no-results-title">WE'RE SORRY,</h2>
+          <p class="searchpage__no-results-message">There are no results for "{{search.terms}}". Please try again.</p>
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if paginate.pages > 1 %}
+      <div class="searchpage__pagination-container">
+        {{ paginate | default_pagination }}
+      </div>
       {% endif %}
-      <h5>{{ item.title | link_to: item.url }}</h5>
-      <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
-    {% else %}
-      no results
-    {% endfor %}
-  {% endif %}
-
-  {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
-{% endpaginate %}
+  {% endpaginate %}
+  <div class="searchpage__free-shipping-container">
+        <span class="searchpage__free-shipping-message">FREE SHIPPING IN THE US</span>
+    </div>
+</div>

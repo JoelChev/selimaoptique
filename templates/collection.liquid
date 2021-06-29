@@ -121,6 +121,8 @@
             name="q"
             value="{{ search.terms | escape }}"
           />
+          <input type="hidden" name="type" value="product"/>
+          <input type="hidden" name="options[prefix]" value="last" />
         </form>
       </div>
     </div>
@@ -138,6 +140,7 @@
           name="q"
           value="{{ search.terms | escape }}"
         />
+        <input type="hidden" name="type" value="product"/>
       </form>
     </div>
     <div class="collectionpage__mobile-header">
