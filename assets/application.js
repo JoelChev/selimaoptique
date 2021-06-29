@@ -799,6 +799,19 @@ document.addEventListener(
 
 // Product Page
 
+// This handles the back button click (as this page can be accessed from a few different places)
+document.addEventListener("click", function (event) {
+  if (
+    !event.target.matches(".productpage__product-back-link") &&
+    !event.target.matches(".productpage__product-back-link-icon")
+  ) {
+    console.log(event.target);
+    return;
+  }
+  event.preventDefault();
+  history.back();
+});
+
 //This handles adding to cart.
 document.addEventListener(
   "click",
