@@ -97,23 +97,48 @@
 {% else %}
   <div class="collectionpage">
     <div class="collectionpage__header">
-          <div class="collectionpage__header-title-container">
-            {% if {{collection.title}} == 'Ladies' %}
-              <span class="collectionpage__header-title--highlighted">Ladies</span>
-            {% else %}
-            <a class="collectionpage__header-title"
-              href="{{collections['ladies'].url}}">Ladies</a>
-            {% endif %}
-            {% if {{collection.title}} == 'Gentlemen' %}
-              <span class="collectionpage__header-title--highlighted">Gentlemen</span>
-            {% else %}
-            <a class="collectionpage__header-title"
-              href="{{collections['gentlemen'].url}}">Gentlemen</a>
-            {% endif %}
-          </div>
+      <div class="collectionpage__header-title-container">
+        {% if {{collection.title}} == 'Ladies' %}
+          <span class="collectionpage__header-title--highlighted">Ladies</span>
+        {% else %}
+        <a class="collectionpage__header-title"
+          href="{{collections['ladies'].url}}">Ladies</a>
+        {% endif %}
+        {% if {{collection.title}} == 'Gentlemen' %}
+          <span class="collectionpage__header-title--highlighted">Gentlemen</span>
+        {% else %}
+        <a class="collectionpage__header-title"
+          href="{{collections['gentlemen'].url}}">Gentlemen</a>
+        {% endif %}
+      </div>
+      <div class="collectionpage__search-container">
+        <form class="collectionpage__search-form" action="/search">
+          {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionpage__search-icon' }}
+          <input
+            class="collectionpage__search-input"
+            type="text"
+            placeholder="Search products..."
+            name="q"
+            value="{{ search.terms | escape }}"
+          />
+        </form>
+      </div>
     </div>
     <div class="collectionpage__mobile-title-container">
       <h1 class="collectionpage__mobile-title">SHOP ONLINE</h1>
+    </div>
+
+    <div class="collectionpage__mobile-search-container">
+      <form class="collectionpage__mobile-search-form" action="/search">
+        {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionpage__mobile-search-icon' }}
+        <input
+          class="collectionpage__mobile-search-input"
+          type="text"
+          placeholder="Search products..."
+          name="q"
+          value="{{ search.terms | escape }}"
+        />
+      </form>
     </div>
     <div class="collectionpage__mobile-header">
         <ul class="collectionpage__mobile-collection-options">
