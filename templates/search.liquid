@@ -56,10 +56,6 @@
             </a>
           </div>
           {% endif %}
-{% comment %} 
-          <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-            {{ item.featured_image.src | img_url: 'large' | img_tag: item.featured_image.alt }}
-          </a> {% endcomment %}
         {% endif %}
       {% else %}
         <div class="searchpage__no-results-container">
