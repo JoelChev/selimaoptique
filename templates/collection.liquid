@@ -111,38 +111,26 @@
           href="{{collections['gentlemen'].url}}">Gentlemen</a>
         {% endif %}
       </div>
-      <div class="collectionpage__search-container">
-        <form class="collectionpage__search-form" action="/search">
-          {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionpage__search-icon' }}
-          <input
-            class="collectionpage__search-input"
-            type="text"
-            placeholder="Search products..."
-            name="q"
-            value="{{ search.terms | escape }}"
-          />
-          <input type="hidden" name="type" value="product"/>
-          <input type="hidden" name="options[prefix]" value="last" />
-        </form>
-      </div>
     </div>
     <div class="collectionpage__mobile-title-container">
       <h1 class="collectionpage__mobile-title">SHOP ONLINE</h1>
     </div>
 
-    <div class="collectionpage__mobile-search-container">
-      <form class="collectionpage__mobile-search-form" action="/search">
-        {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionpage__mobile-search-icon' }}
+    <div class="collectionpage__search-container">
+      <form class="collectionpage__search-form" action="/search">
+        {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionpage__search-icon' }}
         <input
-          class="collectionpage__mobile-search-input"
+          class="collectionpage__search-input"
           type="text"
           placeholder="Search products..."
           name="q"
           value="{{ search.terms | escape }}"
         />
         <input type="hidden" name="type" value="product"/>
+        <input type="hidden" name="options[prefix]" value="last" />
       </form>
     </div>
+
     <div class="collectionpage__mobile-header">
         <ul class="collectionpage__mobile-collection-options">
           <li class="collectionpage__mobile-collection-option {% if {{collection.title}} == 'Ladies' %} collectionpage__mobile-collection-option--left-selected {% endif %}">
@@ -161,6 +149,21 @@
           </li>
         </ul>
     </div>
+
+    <div class="collectionpage__mobile-search-container">
+      <form class="collectionpage__mobile-search-form" action="/search">
+        {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionpage__mobile-search-icon' }}
+        <input
+          class="collectionpage__mobile-search-input"
+          type="text"
+          placeholder="Search products..."
+          name="q"
+          value="{{ search.terms | escape }}"
+        />
+        <input type="hidden" name="type" value="product"/>
+      </form>
+    </div>
+
     <div class="collectionpage__flower-container">
         {{ 'flower-line-1.png' | asset_url | img_tag: 'Flowers 1', 'collectionpage__flower-one-icon' }}
         {{ 'flower-line-2.png' | asset_url | img_tag: 'Flowers 2', 'collectionpage__flower-two-icon' }}

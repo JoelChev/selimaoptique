@@ -1429,12 +1429,10 @@ main {
 .collectionspage__search-container {
     margin-bottom: 56px;
     /* This width is just so that the search container will line up with the header. */
-    width: 1130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     
-    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        display: flex;
-        justify-content: center;
-    }
     @media (max-width: $breakpoint-tablet) {
         max-width: calc(100% - 36px);
         width: calc(100% - 84px);
@@ -1462,7 +1460,7 @@ main {
     text-decoration: none;
     color: $color-blue-main;
     height: 48px;
-    width: 295px;
+    width: 637px;
     border: none;
     padding-left: 48px;
     &::placeholder {
@@ -1471,13 +1469,17 @@ main {
         font-size: 18px;
         line-height: 26px;
         text-decoration: none;
-        color: $color-blue-main;
+        color: $color-grey-1;
     }
     &:focus {
         outline: 2px solid $color-blue-main;
     }
     &:active {
         outline: 2px solid $color-blue-main;
+    }
+
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 396px;
     }
 
     @media (max-width: $breakpoint-tablet) {
@@ -1639,11 +1641,11 @@ main {
 }
 
 .collectionpage__search-container {
-    margin-right: 102px;
-
-    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        margin-right: 40px;
-    }
+    margin-top: 56px;
+    /* This width is just so that the search container will line up with the header. */
+    width: 100%;
+    display: flex;
+    justify-content: center;
     
     @media (max-width: $breakpoint-tablet) {
         display: none;
@@ -1655,8 +1657,8 @@ main {
 }
 
 .collectionpage__search-icon {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     position: absolute;
     top: 14px;
     left: 16px;
@@ -1665,30 +1667,31 @@ main {
 .collectionpage__search-input {
     font-family: "HK Grotesk";
     font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 18px;
+    line-height: 26px;
     text-decoration: none;
     color: $color-blue-main;
-    height: 42px;
-    width: 295px;
+    height: 48px;
+    width: 637px;
     border: none;
     padding-left: 48px;
-    padding-bottom: 4px;
     &::placeholder {
         font-family: "HK Grotesk";
         font-weight: 400;
-        font-size: 16px;
-        line-height: 22px;
+        font-size: 18px;
+        line-height: 26px;
         text-decoration: none;
-        color: $color-blue-main;
+        color: $color-grey-1;
     }
     &:focus {
         outline: 2px solid $color-blue-main;
-        padding-bottom: 0;
     }
     &:active {
         outline: 2px solid $color-blue-main;
-        padding-bottom: 0;
+    }
+
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 435px;
     }
 
     @media (max-width: $breakpoint-tablet) {
@@ -1699,8 +1702,7 @@ main {
 .collectionpage__mobile-search-container {
     width: calc(100% - 84px);
     max-width: calc(100% - 36px);
-    margin-top: 32px;
-    margin-bottom: 8px;
+    margin-top: 64px;
     margin-left: 16px;
     @media (min-width: $breakpoint-tablet) {
         display: none;
@@ -1736,7 +1738,7 @@ main {
         font-size: 18px;
         line-height: 26px;
         text-decoration: none;
-        color: $color-blue-main;
+        color: $color-grey-1;
     }
     &:focus {
         outline: 2px solid $color-blue-main;
@@ -2021,7 +2023,7 @@ main {
         font-size: 18px;
         line-height: 26px;
         text-decoration: none;
-        color: $color-blue-main;
+        color: $color-grey-1;
     }
     &:focus {
         outline: 2px solid $color-blue-main;
