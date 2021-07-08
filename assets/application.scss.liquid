@@ -1643,11 +1643,16 @@ main {
 
 .collectionpage__search-container {
     margin-top: 56px;
-    /* This width is just so that the search container will line up with the header. */
-    width: 100%;
+    width: 680px;
     display: flex;
     justify-content: center;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 485px;
+    }
     
     @media (max-width: $breakpoint-tablet) {
         display: none;
@@ -1699,6 +1704,30 @@ main {
     @media (max-width: $breakpoint-tablet) {
         width: 100%;
     }
+}
+
+.collectionpage__clear-search-button {
+    width: 56px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    @media (max-width: $breakpoint-tablet) {
+        right: -56px;
+    }
+}
+
+.collectionpage__clear-search-button--hidden {
+    display: none;
+}
+
+.collectionpage__clear-search-icon {
+    width: 14px;
+    height: 14px;
 }
 
 .collectionpage__mobile-search-container {

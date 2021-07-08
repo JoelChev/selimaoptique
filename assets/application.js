@@ -797,6 +797,52 @@ document.addEventListener(
   }
 })(document);
 
+// This handles the typing into the search input box so we can hide/show the x button.
+document.addEventListener("keyup", function (event) {
+  if (!event.target.matches(".collectionpage__search-input")) {
+    return;
+  }
+  const collectionPageSearchInput = document.getElementsByClassName(
+    "collectionpage__search-input"
+  )[0];
+  const collectionPageClearSearchButton = document.getElementsByClassName(
+    "collectionpage__clear-search-button"
+  )[0];
+  const searchInputText = collectionPageSearchInput.value;
+  if (searchInputText) {
+    collectionPageClearSearchButton.classList.remove(
+      "collectionpage__clear-search-button--hidden"
+    );
+  } else {
+    collectionPageClearSearchButton.classList.add(
+      "collectionpage__clear-search-button--hidden"
+    );
+  }
+});
+
+// This handles the clear search button click on the Search Page.
+document.addEventListener("click", function (event) {
+  if (
+    !event.target.matches(".collectionpage__clear-search-button") &&
+    !event.target.matches(".collecitonpage__clear-search-icon")
+  ) {
+    console.log(event.target);
+    return;
+  }
+  event.preventDefault();
+  const collectionPageSearchInput = document.getElementsByClassName(
+    "collectionpage__search-input"
+  )[0];
+  const collectionPageClearSearchButton = document.getElementsByClassName(
+    "collectionpage__clear-search-button"
+  )[0];
+  collectionPageSearchInput.value = "";
+  // hide the clear button too!
+  collectionPageClearSearchButton.classList.add(
+    "collectionpage__clear-search-button--hidden"
+  );
+});
+
 // Search Page
 
 // This handles the back button click on the Search Page.

@@ -130,6 +130,9 @@
         <input type="hidden" name="type" value="product"/>
         <input type="hidden" name="options[prefix]" value="last" />
       </form>
+      <button class="collectionpage__clear-search-button collectionpage__clear-search-button--hidden">
+        {{ 'close-icon.png' | asset_url | img_tag: 'Product Search Clear', 'collectionpage__clear-search-icon' }}
+      </button>
     </div>
 
     <div class="collectionpage__mobile-header">
