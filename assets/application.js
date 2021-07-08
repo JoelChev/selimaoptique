@@ -797,6 +797,21 @@ document.addEventListener(
   }
 })(document);
 
+// Search Page
+
+// This handles the back button click on the Search Page.
+document.addEventListener("click", function (event) {
+  if (
+    !event.target.matches(".searchpage__product-back-link") &&
+    !event.target.matches(".searchpage__product-back-link-icon")
+  ) {
+    console.log(event.target);
+    return;
+  }
+  event.preventDefault();
+  history.back();
+});
+
 // Product Page
 
 // This handles the back button click (as this page can be accessed from a few different places)

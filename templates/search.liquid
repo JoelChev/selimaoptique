@@ -3,19 +3,26 @@
     <h1 class="searchpage__mobile-title">SHOP ONLINE</h1>
   </div>
   {% paginate search.results by 12 %}
-  <div class="searchpage__search-container">
-    <form class="searchpage__search-form" action="/search">
-      {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionspage__search-icon' }}
-      <input
-        class="searchpage__search-input"
-        type="text"
-        placeholder="Search products..."
-        name="q"
-        value="{{ search.terms | escape }}"
-      />
-      <input type="hidden" name="type" value="product"/>
-      <input type="hidden" name="options[prefix]" value="last" />
-    </form>
+  <div class="searchpage__header-container">
+    <div class="searchpage__product-back-link-container">
+      {{ 'arrow-left.png' | asset_url | img_tag: 'Back', 'searchpage__product-back-link-icon' }}
+      <button class="searchpage__product-back-link">Back</button>
+    </div>
+    <div class="searchpage__search-container">
+      <form class="searchpage__search-form" action="/search">
+        {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionspage__search-icon' }}
+        <input
+          class="searchpage__search-input"
+          type="text"
+          placeholder="Search products..."
+          name="q"
+          value="{{ search.terms | escape }}"
+          required
+        />
+        <input type="hidden" name="type" value="product"/>
+        <input type="hidden" name="options[prefix]" value="last" />
+      </form>
+    </div>
   </div>
 
     {% if search.performed %}

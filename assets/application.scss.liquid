@@ -1963,7 +1963,7 @@ main {
 .searchpage__mobile-title-container {
     padding-left: 16px;
     padding-top: 56px;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 
     @media (min-width: $breakpoint-tablet) {
         display: none;
@@ -1977,20 +1977,58 @@ main {
     line-height: 32px;
 }
 
-.searchpage__search-container {
-    margin-bottom: 56px;
+.searchpage__header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     /* This width is just so that the search container will line up with the header. */
     width: 1130px;
-    
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        display: flex;
-        justify-content: center;
+        width: 689px;
     }
     @media (max-width: $breakpoint-tablet) {
+        flex-direction: column;
+        align-items: unset;
+        justify-content: unset;
         max-width: calc(100% - 36px);
         width: calc(100% - 84px);
         margin-left: 16px;
         margin-bottom: 32px;
+    }
+}
+
+.searchpage__product-back-link-container {
+    display: flex;
+    margin-bottom: 66px;
+    @media(max-width: $breakpoint-tablet) {
+        margin-top: 16px;
+        margin-bottom: 24px;
+    }
+}
+
+.searchpage__product-back-link-icon {
+    width: 22px;
+    height: 22px;
+    padding-right: 4px;
+    cursor: pointer;
+}
+
+.searchpage__product-back-link {
+    @include link-text;
+    font-size: 16px;
+    margin-top: -8px;
+}
+
+.searchpage__search-container {
+    margin-bottom: 56px;
+    margin-right: 15%;
+    
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        margin-right: 10%;
+    }
+    @media (max-width: $breakpoint-tablet) {
+        width: 100%;
+        margin-bottom: 0;
     }
 }
 
@@ -2014,7 +2052,7 @@ main {
     text-decoration: none;
     color: $color-blue-main;
     height: 48px;
-    width: 295px;
+    width: 637px;
     border: none;
     padding-left: 48px;
     &::placeholder {
@@ -2032,6 +2070,10 @@ main {
         outline: 2px solid $color-blue-main;
     }
 
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 400px;
+    }
+
     @media (max-width: $breakpoint-tablet) {
         width: 100%;
     }
@@ -2043,8 +2085,7 @@ main {
     margin-bottom: -18px;
     
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
-        display: flex;
-        justify-content: center;
+        width: 689px;
     }
 
     @media (max-width: $breakpoint-tablet) {
