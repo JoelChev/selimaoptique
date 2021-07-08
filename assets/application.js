@@ -824,7 +824,7 @@ document.addEventListener("keyup", function (event) {
 document.addEventListener("click", function (event) {
   if (
     !event.target.matches(".collectionpage__clear-search-button") &&
-    !event.target.matches(".collecitonpage__clear-search-icon")
+    !event.target.matches(".collectionpage__clear-search-icon")
   ) {
     console.log(event.target);
     return;
