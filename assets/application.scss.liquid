@@ -1432,6 +1432,7 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
     
     @media (max-width: $breakpoint-tablet) {
         max-width: calc(100% - 36px);
@@ -1646,6 +1647,7 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
     
     @media (max-width: $breakpoint-tablet) {
         display: none;
@@ -1704,6 +1706,7 @@ main {
     max-width: calc(100% - 36px);
     margin-top: 64px;
     margin-left: 16px;
+    position: relative;
     @media (min-width: $breakpoint-tablet) {
         display: none;
     }
@@ -2022,6 +2025,7 @@ main {
 .searchpage__search-container {
     margin-bottom: 56px;
     margin-right: 15%;
+    position: relative;
     
     @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
         margin-right: 10%;
@@ -2077,6 +2081,30 @@ main {
     @media (max-width: $breakpoint-tablet) {
         width: 100%;
     }
+}
+
+.searchpage__clear-search-button {
+    width: 56px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    @media (max-width: $breakpoint-tablet) {
+        right: -56px;
+    }
+}
+
+.searchpage__clear-search-button--hidden {
+    display: none;
+}
+
+.searchpage__clear-search-icon {
+    width: 14px;
+    height: 14px;
 }
 
 .searchpage__result-count-container {

@@ -812,6 +812,52 @@ document.addEventListener("click", function (event) {
   history.back();
 });
 
+// This handles the typing into the search input box so we can hide/show the x button.
+document.addEventListener("keyup", function (event) {
+  if (!event.target.matches(".searchpage__search-input")) {
+    return;
+  }
+  const searchPageSearchInput = document.getElementsByClassName(
+    "searchpage__search-input"
+  )[0];
+  const searchPageClearSearchButton = document.getElementsByClassName(
+    "searchpage__clear-search-button"
+  )[0];
+  const searchInputText = searchPageSearchInput.value;
+  if (searchInputText) {
+    searchPageClearSearchButton.classList.remove(
+      "searchpage__clear-search-button--hidden"
+    );
+  } else {
+    searchPageClearSearchButton.classList.add(
+      "searchpage__clear-search-button--hidden"
+    );
+  }
+});
+
+// This handles the clear search button click on the Search Page.
+document.addEventListener("click", function (event) {
+  if (
+    !event.target.matches(".searchpage__clear-search-button") &&
+    !event.target.matches(".searchpage__clear-search-icon")
+  ) {
+    console.log(event.target);
+    return;
+  }
+  event.preventDefault();
+  const searchPageSearchInput = document.getElementsByClassName(
+    "searchpage__search-input"
+  )[0];
+  const searchPageClearSearchButton = document.getElementsByClassName(
+    "searchpage__clear-search-button"
+  )[0];
+  searchPageSearchInput.value = "";
+  // hide the clear button too!
+  searchPageClearSearchButton.classList.add(
+    "searchpage__clear-search-button--hidden"
+  );
+});
+
 // Product Page
 
 // This handles the back button click (as this page can be accessed from a few different places)

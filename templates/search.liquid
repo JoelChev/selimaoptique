@@ -10,7 +10,7 @@
     </div>
     <div class="searchpage__search-container">
       <form class="searchpage__search-form" action="/search">
-        {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'collectionspage__search-icon' }}
+        {{ 'search-icon.svg' | asset_url | img_tag: 'Product Search', 'searchpage__search-icon' }}
         <input
           class="searchpage__search-input"
           type="text"
@@ -22,6 +22,9 @@
         <input type="hidden" name="type" value="product"/>
         <input type="hidden" name="options[prefix]" value="last" />
       </form>
+      <button class="searchpage__clear-search-button">
+        {{ 'close-icon.png' | asset_url | img_tag: 'Product Search Clear', 'searchpage__clear-search-icon' }}
+      </button>
     </div>
   </div>
 
