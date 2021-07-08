@@ -1429,10 +1429,14 @@ main {
 .collectionspage__search-container {
     margin-bottom: 56px;
     /* This width is just so that the search container will line up with the header. */
-    width: 100%;
+    width: 680px;
     display: flex;
     justify-content: center;
     position: relative;
+
+    @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        width: 485px;
+    }
     
     @media (max-width: $breakpoint-tablet) {
         max-width: calc(100% - 36px);
@@ -1486,6 +1490,30 @@ main {
     @media (max-width: $breakpoint-tablet) {
         width: 100%;
     }
+}
+
+.collectionspage__clear-search-button {
+    width: 56px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    @media (max-width: $breakpoint-tablet) {
+        right: -56px;
+    }
+}
+
+.collectionspage__clear-search-button--hidden {
+    display: none;
+}
+
+.collectionspage__clear-search-icon {
+    width: 14px;
+    height: 14px;
 }
 
 .collectionspage__tile-container {
@@ -1795,7 +1823,7 @@ main {
     cursor: pointer;
 
     @media (max-width: $breakpoint-tablet) {
-        right: -56px;
+        right: -48px;
     }
 }
 

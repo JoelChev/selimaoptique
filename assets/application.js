@@ -759,6 +759,54 @@ document.addEventListener(
   initCarousel();
 })(document);
 
+// Collections Page
+
+// This handles the typing into the search input box so we can hide/show the x button.
+document.addEventListener("keyup", function (event) {
+  if (!event.target.matches(".collectionspage__search-input")) {
+    return;
+  }
+  const collectionsPageSearchInput = document.getElementsByClassName(
+    "collectionspage__search-input"
+  )[0];
+  const collectionsPageClearSearchButton = document.getElementsByClassName(
+    "collectionspage__clear-search-button"
+  )[0];
+  const searchInputText = collectionsPageSearchInput.value;
+  if (searchInputText) {
+    collectionsPageClearSearchButton.classList.remove(
+      "collectionspage__clear-search-button--hidden"
+    );
+  } else {
+    collectionsPageClearSearchButton.classList.add(
+      "collectionspage__clear-search-button--hidden"
+    );
+  }
+});
+
+// This handles the clear search button click on the Collections Page.
+document.addEventListener("click", function (event) {
+  if (
+    !event.target.matches(".collectionspage__clear-search-button") &&
+    !event.target.matches(".collectionspage__clear-search-icon")
+  ) {
+    console.log(event.target);
+    return;
+  }
+  event.preventDefault();
+  const collectionsPageSearchInput = document.getElementsByClassName(
+    "collectionspage__search-input"
+  )[0];
+  const collectionsPageClearSearchButton = document.getElementsByClassName(
+    "collectionspage__clear-search-button"
+  )[0];
+  collectionsPageSearchInput.value = "";
+  // hide the clear button too!
+  collectionsPageClearSearchButton.classList.add(
+    "collectionspage__clear-search-button--hidden"
+  );
+});
+
 // Collection Page
 
 //This handles sorting the products on the page in alphabetical order.
@@ -820,7 +868,7 @@ document.addEventListener("keyup", function (event) {
   }
 });
 
-// This handles the clear search button click on the Search Page.
+// This handles the clear search button click on the Collection Page.
 document.addEventListener("click", function (event) {
   if (
     !event.target.matches(".collectionpage__clear-search-button") &&
@@ -840,6 +888,52 @@ document.addEventListener("click", function (event) {
   // hide the clear button too!
   collectionPageClearSearchButton.classList.add(
     "collectionpage__clear-search-button--hidden"
+  );
+});
+
+// This handles the typing into the search input box on mobile so we can hide/show the x button.
+document.addEventListener("keyup", function (event) {
+  if (!event.target.matches(".collectionpage__mobile-search-input")) {
+    return;
+  }
+  const collectionPageMobileSearchInput = document.getElementsByClassName(
+    "collectionpage__mobile-search-input"
+  )[0];
+  const collectionPageClearMobileSearchButton = document.getElementsByClassName(
+    "collectionpage__clear-mobile-search-button"
+  )[0];
+  const searchInputText = collectionPageMobileSearchInput.value;
+  if (searchInputText) {
+    collectionPageClearMobileSearchButton.classList.remove(
+      "collectionpage__clear-mobile-search-button--hidden"
+    );
+  } else {
+    collectionPageClearMobileSearchButton.classList.add(
+      "collectionpage__clear-mobile-search-button--hidden"
+    );
+  }
+});
+
+// This handles the clear search button click on the mobile Collection Page.
+document.addEventListener("click", function (event) {
+  if (
+    !event.target.matches(".collectionpage__clear-mobile-search-button") &&
+    !event.target.matches(".collectionpage__clear-mobile-search-icon")
+  ) {
+    console.log(event.target);
+    return;
+  }
+  event.preventDefault();
+  const collectionPageMobileSearchInput = document.getElementsByClassName(
+    "collectionpage__mobile-search-input"
+  )[0];
+  const collectionPageClearMobileSearchButton = document.getElementsByClassName(
+    "collectionpage__clear-mobile-search-button"
+  )[0];
+  collectionPageMobileSearchInput.value = "";
+  // hide the clear button too!
+  collectionPageClearMobileSearchButton.classList.add(
+    "collectionpage__clear-mobile-search-button--hidden"
   );
 });
 
