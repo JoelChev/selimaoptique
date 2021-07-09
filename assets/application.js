@@ -761,6 +761,23 @@ document.addEventListener(
 
 // Collections Page
 
+// This clears the search input on page load.
+document.addEventListener("DOMContentLoaded", function () {
+  function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+  const collectionsPageSearchInput = document.getElementsByClassName(
+    "collectionspage__search-input"
+  )[0];
+
+  // Need to wait a few seconds for the search term to be populated in the input box and then we can clear it.
+  sleep(100).then(() => {
+    if (collectionsPageSearchInput) {
+      collectionsPageSearchInput.value = "";
+    }
+  });
+});
+
 // This handles the typing into the search input box so we can hide/show the x button.
 document.addEventListener("keyup", function (event) {
   if (!event.target.matches(".collectionspage__search-input")) {
@@ -790,7 +807,6 @@ document.addEventListener("click", function (event) {
     !event.target.matches(".collectionspage__clear-search-button") &&
     !event.target.matches(".collectionspage__clear-search-icon")
   ) {
-    console.log(event.target);
     return;
   }
   event.preventDefault();
@@ -844,6 +860,31 @@ document.addEventListener("click", function (event) {
     productTiles[j].classList.remove("collectionpage__product-tile--hidden");
   }
 })(document);
+
+// This clears the two search inputs on page load.
+document.addEventListener("DOMContentLoaded", function () {
+  function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+
+  const collectionPageSearchInput = document.getElementsByClassName(
+    "collectionpage__search-input"
+  )[0];
+
+  const collectionPageMobileSearchInput = document.getElementsByClassName(
+    "collectionpage__mobile-search-input"
+  )[0];
+
+  // Need to wait a few seconds for the search term to be populated in the input box and then we can clear it.
+  sleep(100).then(() => {
+    if (collectionPageSearchInput) {
+      collectionPageSearchInput.value = "";
+    }
+    if (collectionPageMobileSearchInput) {
+      collectionPageMobileSearchInput.value = "";
+    }
+  });
+});
 
 // This handles the typing into the search input box so we can hide/show the x button.
 document.addEventListener("keyup", function (event) {
@@ -920,7 +961,6 @@ document.addEventListener("click", function (event) {
     !event.target.matches(".collectionpage__clear-mobile-search-button") &&
     !event.target.matches(".collectionpage__clear-mobile-search-icon")
   ) {
-    console.log(event.target);
     return;
   }
   event.preventDefault();
@@ -939,17 +979,49 @@ document.addEventListener("click", function (event) {
 
 // Search Page
 
+// This handles setting the lastPage parameter in the form as a hidden input on the search page.
+// We need this in case the user performs multiple searches, as this allows us to navigate backwards no matter what.
+document.addEventListener("DOMContentLoaded", function () {
+  function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+  const searchPageSearchForm = document.getElementsByClassName(
+    "searchpage__search-form"
+  )[0];
+
+  // Need to wait a few seconds for the search term to be populated in the input box and then we can clear it.
+  sleep(100).then(() => {
+    if (searchPageSearchForm) {
+      let params = new URLSearchParams(document.location.search.substring(1));
+      let lastPage = params.get("lastPage"); // is the last page we need to navigate to.
+      hiddenLastPageInput = document.createElement("input");
+      hiddenLastPageInput.type = "hidden";
+      hiddenLastPageInput.name = "lastPage";
+      hiddenLastPageInput.value = lastPage;
+      searchPageSearchForm.appendChild(hiddenLastPageInput);
+    }
+  });
+});
+
 // This handles the back button click on the Search Page.
 document.addEventListener("click", function (event) {
   if (
     !event.target.matches(".searchpage__product-back-link") &&
     !event.target.matches(".searchpage__product-back-link-icon")
   ) {
-    console.log(event.target);
     return;
   }
   event.preventDefault();
-  history.back();
+  // We need to determine the previous page.
+  let params = new URLSearchParams(document.location.search.substring(1));
+  let lastPage = params.get("lastPage"); // is the last page we need to navigate to.
+  if (lastPage === "collections") {
+    window.location.replace("/collections");
+  } else if (lastPage === "Ladies") {
+    window.location.replace("/collections/ladies");
+  } else {
+    window.location.replace("/collections/gentlemen");
+  }
 });
 
 // This handles the typing into the search input box so we can hide/show the x button.
